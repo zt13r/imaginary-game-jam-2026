@@ -18,4 +18,4 @@ My individual twist: **Failure**
 ## Rulebook
 - A set of rules that change the requirements to pass the exam.
 - Might include a ban on some sigils, or... I don't know, that's really the only thing I thought of.
-- Basically like *Papers, Please*'s "Official Bulletin".
+- Basically the "Official Bulletin" in *Papers, Please*.
