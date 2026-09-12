@@ -13,7 +13,7 @@ My individual twist: **Failure**
 - Very much like programming. If-else statements that dictate the flow of mana in the magic circle.
 - There are (hopefully) many sigils to choose from for the spells:
   - **Cast Sigils**: magic that applies an effect to the target.
-  - **Condition Sigils**: magic that confirms a condition before branching to another sigil (if-else).
+  - **Check Sigils**: magic that confirms a condition before branching to another sigil (if-else).
 
 ## Rulebook
 - A set of rules that change the requirements to pass the exam.
