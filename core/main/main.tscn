@@ -6,8 +6,16 @@
 process_mode = 3
 script = ExtResource("1_8fcwd")
 
-[node name="Game" type="Node2D" parent="." unique_id=300717933]
+[node name="Game" type="Control" parent="." unique_id=1106131826]
 process_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1002820559]
 process_mode = 1
