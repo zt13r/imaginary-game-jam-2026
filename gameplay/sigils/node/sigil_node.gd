@@ -1,11 +1,15 @@
+@tool
 class_name SigilNode
-extends Node2D
+extends Control
 
 
-var sigil : Sigil = null :
+@export var sigil : Sigil = null :
 	set(value):
 		sigil = value
-		symbol.texture = sigil.symbol
+		symbol.texture = sigil.symbol if sigil != null else null
+
+		if sigil is CheckSigil:
+			sigil.
 
 
-@onready var symbol : Sprite2D = $Symbol
+@onready var symbol : TextureRect = $Symbol

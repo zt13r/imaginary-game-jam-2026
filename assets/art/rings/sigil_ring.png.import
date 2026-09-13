@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bl8usikvqxi66"
-path="res://.godot/imported/sigil_ring.png-3161b7c578f5c5b881552b090a23d168.ctex"
+path="res://.godot/imported/sigil_ring.png-d50d5431aa52108c510f92f4e1f5c6d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/sigil_ring.png"
-dest_files=["res://.godot/imported/sigil_ring.png-3161b7c578f5c5b881552b090a23d168.ctex"]
+source_file="res://assets/art/rings/sigil_ring.png"
+dest_files=["res://.godot/imported/sigil_ring.png-d50d5431aa52108c510f92f4e1f5c6d9.ctex"]
 
 [params]
 
