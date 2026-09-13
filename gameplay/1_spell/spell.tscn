@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://bn0pur841hkr6"]
+
+[ext_resource type="Script" uid="uid://b2aeipqeu7si8" path="res://gameplay/1_spell/spell.gd" id="1_ruybx"]
+[ext_resource type="Texture2D" uid="uid://bl8usikvqxi66" path="res://assets/art/0_frames/ring_frame.png" id="2_0yom7"]
+[ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="3_53gpb"]
+[ext_resource type="Texture2D" uid="uid://dntcwmh02abrb" path="res://assets/art/2_modifiers/inversion_modifier.png" id="4_guayo"]
+
+[node name="Spell" type="Control" unique_id=1914145428]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ruybx")
+metadata/_edit_lock_ = true
+
+[node name="FrameSprite" type="TextureRect" parent="." unique_id=100125774]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("2_0yom7")
+
+[node name="SigilSprite" type="TextureRect" parent="." unique_id=937374395]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+texture = ExtResource("3_53gpb")
+
+[node name="Modifiers" type="Control" parent="." unique_id=11772745]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="TopModifierSprite" type="TextureRect" parent="Modifiers" unique_id=268765498]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -12.0
+offset_top = -20.0
+offset_right = 12.0
+offset_bottom = -12.0
+texture = ExtResource("4_guayo")
+
+[node name="LeftModifierSprite" type="TextureRect" parent="Modifiers" unique_id=887586911]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 20.0
+offset_top = -12.0
+offset_right = 44.0
+offset_bottom = -4.0
+rotation = 1.5707964
+texture = ExtResource("4_guayo")
+
+[node name="RightModifierSprite" type="TextureRect" parent="Modifiers" unique_id=1721673875]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -20.0
+offset_top = 12.0
+offset_right = 4.0
+offset_bottom = 20.0
+rotation = -1.5707964
+texture = ExtResource("4_guayo")
+
+[node name="BottomModifierSprite" type="TextureRect" parent="Modifiers" unique_id=1503966234]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -12.0
+offset_top = 12.0
+offset_right = 12.0
+offset_bottom = 20.0
+texture = ExtResource("4_guayo")

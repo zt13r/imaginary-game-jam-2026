@@ -1,0 +1,2 @@
+class_name TopModifier
+extends Modifier
