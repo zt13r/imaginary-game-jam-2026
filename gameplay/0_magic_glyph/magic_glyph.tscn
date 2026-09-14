@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://db30is57gr86s"]
+
+[ext_resource type="Script" uid="uid://cnk411b1ildly" path="res://gameplay/0_magic_glyph/spell_container.gd" id="1_ysk48"]
+[ext_resource type="PackedScene" uid="uid://bn0pur841hkr6" path="res://gameplay/1_spell/spell.tscn" id="2_ym84w"]
+[ext_resource type="Script" uid="uid://bug3f4khw46yl" path="res://gameplay/0_magic_glyph/connections.gd" id="3_4pvev"]
+
+[node name="MagicGlyph" type="Control" unique_id=1773691080]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Spells" type="Container" parent="." unique_id=1601305977]
+layout_mode = 1
+script = ExtResource("1_ysk48")
+radius = 192.0
+metadata/_custom_type_script = "uid://cnk411b1ildly"
+
+[node name="Spell" parent="Spells" unique_id=1914145428 instance=ExtResource("2_ym84w")]
+layout_mode = 2
+
+[node name="Spell2" parent="Spells" unique_id=986326732 instance=ExtResource("2_ym84w")]
+layout_mode = 2
+
+[node name="Spell3" parent="Spells" unique_id=2015719058 instance=ExtResource("2_ym84w")]
+layout_mode = 2
+
+[node name="Connections" type="Control" parent="." unique_id=372659493]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_4pvev")
+start = Vector2(0, 0)
+curve = Vector2(64, 64)
+end = Vector2(128, 0)
+metadata/_custom_type_script = "uid://bug3f4khw46yl"

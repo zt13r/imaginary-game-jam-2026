@@ -1,18 +1,23 @@
 @tool
-class_name MagicCircle
+class_name SpellContainer
 extends Container
 
 
-const MAX_SPELL_COUNT : int = 8
+@export var max_spell_count : int = 8 :
+	set(value):
+		max_spell_count = value
+		_update_container()
 
-
-@export var radius : float = 64.0 :
+@export var radius : float = 128.0 :
 	set(value):
 		radius = value
 		_update_container()
 
 @export_tool_button("Update Container")
-var update_container : Callable = func() : _update_container()
+var update_container : Callable =\
+	func():
+		_update_container()
+		_arrange_children()
 
 
 func _ready() -> void:
@@ -38,8 +43,8 @@ func _arrange_children() -> void:
 	if spells.is_empty():
 		return
 
-	if spells.size() > MAX_SPELL_COUNT:
-		push_error("Maximum of %d sigils only, and you have %d!" % [MAX_SPELL_COUNT, spells.size()])
+	if spells.size() > max_spell_count:
+		push_error("Maximum of %d sigils only, and you have %d!" % [max_spell_count, spells.size()])
 		return
 
 	var index : int = 0
@@ -47,7 +52,7 @@ func _arrange_children() -> void:
 
 	for sp : Spell in spells:
 		var step : float = TAU / spells.size()
-		var angle : float = (index * step)
+		var angle : float = (index * step) - deg_to_rad(90.0)
 
 		var pos : Vector2 = Vector2(
 			center.x + cos(angle) * radius,
@@ -58,4 +63,5 @@ func _arrange_children() -> void:
 		pos -= spell_size / 2.0
 
 		fit_child_in_rect(sp, Rect2(pos, spell_size))
+
 		index += 1

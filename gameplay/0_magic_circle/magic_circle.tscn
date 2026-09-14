@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://db30is57gr86s"]
-
-[ext_resource type="Script" uid="uid://cnk411b1ildly" path="res://gameplay/0_magic_circle/magic_circle.gd" id="1_kmmbk"]
-
-[node name="MagicCircle" type="Container" unique_id=1253201314]
-script = ExtResource("1_kmmbk")
