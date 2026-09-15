@@ -5,41 +5,68 @@ extends Control
 const SPELL_SCENE : PackedScene = preload("uid://bn0pur841hkr6")
 
 
+var current_ring : RingContainer = null
 var selected_spell : Spell = null
 
 
-@onready var spell_container : SpellContainer = $Spells
+@onready var outer_spells : RingContainer = %OuterSpells
+@onready var inner_spells : RingContainer = %InnerSpells
 
 
 func _ready() -> void:
-	for spell : Spell in spell_container.get_children():
+	for spell : Spell in outer_spells.get_children():
+		spell.spell_selected.connect(_on_spell_selected)
+	for spell : Spell in inner_spells.get_children():
 		spell.spell_selected.connect(_on_spell_selected)
 
 
 func _add_spell() -> void:
-	if spell_container.spells.size() >= spell_container.max_spell_count:
+	if current_ring == null:
+		push_error("Current RingContainer reference is null.")
+		return
+
+	if current_ring.spells.size() >= current_ring.max_spell_count:
 		return
 
 	var spell : Spell = SPELL_SCENE.instantiate() as Spell
 	spell.spell_selected.connect(_on_spell_selected)
-	spell_container.add_child(spell)
+	current_ring.add_child(spell)
+
+	# Debug, color spell
+	if spell.get_parent() == current_ring:
+		spell.modulate = Color.DARK_GOLDENROD
 
 
 func _delete_selected_spell() -> void:
+	if current_ring == null:
+		push_error("Current RingContainer reference is null.")
+		return
+
 	if is_instance_valid(selected_spell):
-		spell_container.spells.erase(selected_spell)
+		current_ring.spells.erase(selected_spell)
 		selected_spell.queue_free()
 		selected_spell = null
 
 
 func _on_spell_selected(spell : Spell) -> void:
-	# Debug
-	if selected_spell != spell and selected_spell != null:
-		selected_spell.modulate = Color.WHITE
+	# Debug, remove color of previous ring and selected spell
+	if current_ring != null:
+		if spell.get_parent() is RingContainer:
+			if current_ring != spell.get_parent():
+				for sp : Spell in current_ring.get_children():
+					sp.modulate = Color.WHITE
+		if selected_spell != spell and selected_spell != null:
+			selected_spell.modulate = Color.WHITE
 
+	if spell.get_parent() is RingContainer:
+		current_ring = spell.get_parent()
 	selected_spell = spell
 
-	# Debug
+	# Debug, color current ring
+	for sp : Spell in current_ring.get_children():
+		sp.modulate = Color.DARK_GOLDENROD
+
+	# Debug, color selected spell
 	selected_spell.modulate = Color.GOLD
 
 

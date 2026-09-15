@@ -1,5 +1,5 @@
 @tool
-class_name SpellContainer
+class_name RingContainer
 extends Container
 
 
@@ -38,6 +38,8 @@ func _notification(what : int) -> void:
 
 
 func _arrange_children() -> void:
+	if not spells.is_empty():
+		spells.clear()
 	for child : Node in get_children():
 		if child is Spell and child not in spells:
 			spells.append(child as Spell)
