@@ -20,6 +20,9 @@ var update_container : Callable =\
 		_arrange_children()
 
 
+var spells : Array[Spell] = []
+
+
 func _ready() -> void:
 	_update_container()
 
@@ -35,9 +38,8 @@ func _notification(what : int) -> void:
 
 
 func _arrange_children() -> void:
-	var spells : Array[Spell] = []
 	for child : Node in get_children():
-		if child is Spell:
+		if child is Spell and child not in spells:
 			spells.append(child as Spell)
 
 	if spells.is_empty():

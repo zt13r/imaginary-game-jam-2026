@@ -3,6 +3,9 @@ class_name Spell
 extends Control
 
 
+signal spell_selected(spell : Spell)
+
+
 @export var frame : Frame = null :
 	set(value):
 		frame = value
@@ -64,6 +67,11 @@ extends Control
 @onready var left_modifier_sprite : TextureRect = %LeftModifierSprite
 @onready var right_modifier_sprite : TextureRect = %RightModifierSprite
 @onready var bottom_modifier_sprite : TextureRect = %BottomModifierSprite
+
+
+func _gui_input(event : InputEvent) -> void:
+	if event is InputEventMouseButton:
+		spell_selected.emit(self)
 
 
 func execute() -> void:
