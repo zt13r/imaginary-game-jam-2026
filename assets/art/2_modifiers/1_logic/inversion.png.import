@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dntcwmh02abrb"
-path="res://.godot/imported/target_self.png-8e7be082faad0c4f276df3fb039ec345.ctex"
+uid="uid://q1kkxqxgrwu0"
+path="res://.godot/imported/inversion.png-e19e9ab76c8fdfee36351276c485a442.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/2_modifiers/3_bottom_modifiers/target_self.png"
-dest_files=["res://.godot/imported/target_self.png-8e7be082faad0c4f276df3fb039ec345.ctex"]
+source_file="res://assets/art/2_modifiers/1_logic/inversion.png"
+dest_files=["res://.godot/imported/inversion.png-e19e9ab76c8fdfee36351276c485a442.ctex"]
 
 [params]
 

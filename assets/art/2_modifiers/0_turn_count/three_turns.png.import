@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dj2bb6mtjpdnd"
-path="res://.godot/imported/five_turns.png-7c73ede89dff87f64e3fdd9a51069f3b.ctex"
+uid="uid://ks3r2ajv4v8m"
+path="res://.godot/imported/three_turns.png-15c2ecf5f9ab1d5816dc6922f8183be0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/2_modifiers/0_top_modifiers/five_turns.png"
-dest_files=["res://.godot/imported/five_turns.png-7c73ede89dff87f64e3fdd9a51069f3b.ctex"]
+source_file="res://assets/art/2_modifiers/0_turn_count/three_turns.png"
+dest_files=["res://.godot/imported/three_turns.png-15c2ecf5f9ab1d5816dc6922f8183be0.ctex"]
 
 [params]
 

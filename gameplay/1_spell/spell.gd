@@ -6,6 +6,12 @@ extends Control
 signal spell_selected(spell : Spell)
 
 
+enum Target {
+	SELF,
+	OTHER
+}
+
+
 @export var frame : Frame = null :
 	set(value):
 		frame = value
@@ -27,46 +33,46 @@ signal spell_selected(spell : Spell)
 @export var else_spell : Spell = null
 
 @export_group("Modifiers")
-@export var top_modifier : TopModifier = null :
+@export var turn_modifier : TurnModifier = null :
 	set(value):
-		top_modifier = value
-		if top_modifier == null:
+		turn_modifier = value
+		if turn_modifier == null:
 			if is_node_ready():
-				top_modifier_sprite.hide()
+				turn_modifier_sprite.hide()
 		else:
-			top_modifier_sprite.texture = top_modifier.texture
-@export var left_modifier : LeftModifier = null :
+			turn_modifier_sprite.texture = turn_modifier.texture
+@export var logic_modifier : LogicModifier = null :
 	set(value):
-		left_modifier = value
-		if left_modifier == null:
+		logic_modifier = value
+		if logic_modifier == null:
 			if is_node_ready():
-				left_modifier_sprite.hide()
+				logic_modifier_sprite.hide()
 		else:
-			left_modifier_sprite.texture = left_modifier.texture
-@export var right_modifier : RightModifier = null :
+			logic_modifier_sprite.texture = logic_modifier.texture
+@export var severity_modifier : SeverityModifier = null :
 	set(value):
-		right_modifier = value
-		if right_modifier == null:
+		severity_modifier = value
+		if severity_modifier == null:
 			if is_node_ready():
-				right_modifier_sprite.hide()
+				severity_modifier_sprite.hide()
 		else:
-			right_modifier_sprite.texture = right_modifier.texture
-@export var bottom_modifier : BottomModifier = null :
+			severity_modifier_sprite.texture = severity_modifier.texture
+@export var direction_modifier : DirectionModifier = null :
 	set(value):
-		bottom_modifier = value
-		if bottom_modifier == null:
+		direction_modifier = value
+		if direction_modifier == null:
 			if is_node_ready():
-				bottom_modifier_sprite.hide()
+				direction_modifier_sprite.hide()
 		else:
-			bottom_modifier_sprite.texture = bottom_modifier.texture
+			direction_modifier_sprite.texture = direction_modifier.texture
 
 
 @onready var frame_sprite : TextureRect = %FrameSprite
 @onready var sigil_sprite : TextureRect = %SigilSprite
-@onready var top_modifier_sprite : TextureRect = %TopModifierSprite
-@onready var left_modifier_sprite : TextureRect = %LeftModifierSprite
-@onready var right_modifier_sprite : TextureRect = %RightModifierSprite
-@onready var bottom_modifier_sprite : TextureRect = %BottomModifierSprite
+@onready var turn_modifier_sprite : TextureRect = %TurnModifierSprite
+@onready var logic_modifier_sprite : TextureRect = %LogicModifierSprite
+@onready var severity_modifier_sprite : TextureRect = %SeverityModifierSprite
+@onready var direction_modifier_sprite : TextureRect = %DirectionModifierSprite
 
 
 func _gui_input(event : InputEvent) -> void:

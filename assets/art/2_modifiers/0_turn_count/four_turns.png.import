@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uuls3r3a2wyt"
-path="res://.godot/imported/first_severity.png-4f8d4bf7785bfbd754dfca7fba489346.ctex"
+uid="uid://dv0ooh16r3cbw"
+path="res://.godot/imported/four_turns.png-6d56440b9fa9d00862069c95ee19ba76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/2_modifiers/2_right_modifiers/first_severity.png"
-dest_files=["res://.godot/imported/first_severity.png-4f8d4bf7785bfbd754dfca7fba489346.ctex"]
+source_file="res://assets/art/2_modifiers/0_turn_count/four_turns.png"
+dest_files=["res://.godot/imported/four_turns.png-6d56440b9fa9d00862069c95ee19ba76.ctex"]
 
 [params]
 

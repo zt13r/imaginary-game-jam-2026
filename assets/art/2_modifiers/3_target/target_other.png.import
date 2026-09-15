@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv0ooh16r3cbw"
-path="res://.godot/imported/four_turns.png-5a66639817cbfd98cba9d51f3a4d1869.ctex"
+uid="uid://dk8drv6sufrat"
+path="res://.godot/imported/target_other.png-4ad7b5ee733d42170d7487dcfa7462e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/2_modifiers/0_top_modifiers/four_turns.png"
-dest_files=["res://.godot/imported/four_turns.png-5a66639817cbfd98cba9d51f3a4d1869.ctex"]
+source_file="res://assets/art/2_modifiers/3_target/target_other.png"
+dest_files=["res://.godot/imported/target_other.png-4ad7b5ee733d42170d7487dcfa7462e8.ctex"]
 
 [params]
 

@@ -1,5 +1,12 @@
+@abstract
 class_name Frame
 extends Resource
 
 
-@export var texture : Texture2D = null
+@abstract func process(
+	sigil : Sigil,
+	turn_count : int,
+	logic : LogicModifier,
+	severity : int,
+	target : Spell.Target
+) -> void

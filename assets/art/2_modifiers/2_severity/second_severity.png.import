@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do8d61ow3jgkm"
-path="res://.godot/imported/one_turn.png-ec9bc80215220f2c29f7cd986c4163d4.ctex"
+uid="uid://cr7yq6mjuauja"
+path="res://.godot/imported/second_severity.png-c3e3699c826a6ee48c456a5a3ed89fee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/2_modifiers/0_top_modifiers/one_turn.png"
-dest_files=["res://.godot/imported/one_turn.png-ec9bc80215220f2c29f7cd986c4163d4.ctex"]
+source_file="res://assets/art/2_modifiers/2_severity/second_severity.png"
+dest_files=["res://.godot/imported/second_severity.png-c3e3699c826a6ee48c456a5a3ed89fee.ctex"]
 
 [params]
 

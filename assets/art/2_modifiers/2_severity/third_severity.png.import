@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsif5pw0120s1"
-path="res://.godot/imported/block_frame.png-2ab8dd8ee94ddfed916f193c137c9a6a.ctex"
+uid="uid://bta21pjpewbl8"
+path="res://.godot/imported/third_severity.png-fcef565f25d5e6218a43208c25da3a79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/0_frames/block_frame.png"
-dest_files=["res://.godot/imported/block_frame.png-2ab8dd8ee94ddfed916f193c137c9a6a.ctex"]
+source_file="res://assets/art/2_modifiers/2_severity/third_severity.png"
+dest_files=["res://.godot/imported/third_severity.png-fcef565f25d5e6218a43208c25da3a79.ctex"]
 
 [params]
 

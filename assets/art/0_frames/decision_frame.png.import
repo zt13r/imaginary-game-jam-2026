@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dywnlikybtil2"
-path="res://.godot/imported/two_turns.png-295bedd8bdf2389329c2b307172819c2.ctex"
+uid="uid://dsif5pw0120s1"
+path="res://.godot/imported/decision_frame.png-baa8efcf0006c5e693277419dcf3afbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/2_modifiers/0_top_modifiers/two_turns.png"
-dest_files=["res://.godot/imported/two_turns.png-295bedd8bdf2389329c2b307172819c2.ctex"]
+source_file="res://assets/art/0_frames/decision_frame.png"
+dest_files=["res://.godot/imported/decision_frame.png-baa8efcf0006c5e693277419dcf3afbd.ctex"]
 
 [params]
 

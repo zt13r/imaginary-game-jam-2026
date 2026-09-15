@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Frame" format=3 uid="uid://s7gpj1wx7l8l"]
-
-[ext_resource type="Script" uid="uid://b2d785254hvfs" path="res://gameplay/2_frame/frame.gd" id="1_a4rjp"]
-[ext_resource type="Texture2D" uid="uid://dsif5pw0120s1" path="res://assets/art/0_frames/block_frame.png" id="2_e0kke"]
-
-[resource]
-script = ExtResource("1_a4rjp")
-texture = ExtResource("2_e0kke")
-metadata/_custom_type_script = "uid://b2d785254hvfs"
