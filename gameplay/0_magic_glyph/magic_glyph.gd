@@ -36,6 +36,8 @@ func _add_spell() -> void:
 	spell.spell_selected.connect(_on_spell_selected)
 	current_ring.spells.append(spell)
 
+	print(current_ring.spells)
+
 	# Probably debug idk
 	if current_ring.spells.size() > 1:
 		var prev_spell_index : int = current_ring.spells.find(spell) - 1
@@ -45,8 +47,6 @@ func _add_spell() -> void:
 			current_ring.spells[prev_spell_index].name,
 			current_ring.spells[prev_spell_index].then_spell.name
 		])
-
-	print(current_ring.spells)
 
 	current_ring.add_child(spell)
 
