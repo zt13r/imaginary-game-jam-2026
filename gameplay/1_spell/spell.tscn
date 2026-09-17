@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bl8usikvqxi66" path="res://assets/art/0_frames/ring_frame.png" id="2_0yom7"]
 [ext_resource type="Texture2D" uid="uid://b5mbml6kvpup2" path="res://assets/art/0_frames/frame_background.png" id="2_ox52j"]
 [ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="3_53gpb"]
+[ext_resource type="Texture2D" uid="uid://dhoou7if835fi" path="res://assets/art/2_modifiers/comparison/greater.png" id="4_3rtr1"]
 [ext_resource type="Texture2D" uid="uid://ks3r2ajv4v8m" path="res://assets/art/2_modifiers/0_turn_count/three_turns.png" id="4_ox52j"]
 [ext_resource type="Texture2D" uid="uid://c7wthvg3kjxe" path="res://assets/art/2_modifiers/1_logic/inversion.png" id="5_n6ucn"]
 [ext_resource type="Texture2D" uid="uid://dk8drv6sufrat" path="res://assets/art/2_modifiers/3_target/target_other.png" id="6_wodfq"]
@@ -17,6 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ruybx")
+spell_target = null
 metadata/_edit_lock_ = true
 
 [node name="Background" type="TextureRect" parent="." unique_id=1526261152]
@@ -46,11 +48,24 @@ offset_bottom = 24.0
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="TurnCountSprite" type="TextureRect" parent="Contents" unique_id=268765498]
+[node name="TurnCount" type="HBoxContainer" parent="Contents" unique_id=583514265]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = -24
+alignment = 1
+
+[node name="TurnComparisonSprite" type="TextureRect" parent="Contents/TurnCount" unique_id=1501131073]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
+texture = ExtResource("4_3rtr1")
+
+[node name="TurnCountSprite" type="TextureRect" parent="Contents/TurnCount" unique_id=268765498]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
 size_flags_vertical = 4
+size_flags_stretch_ratio = 1.5
 texture = ExtResource("4_ox52j")
 
 [node name="CenterSprites" type="HBoxContainer" parent="Contents" unique_id=1102376805]

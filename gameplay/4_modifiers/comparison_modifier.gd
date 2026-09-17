@@ -1,0 +1,7 @@
+class_name ComparisonModifier
+extends Resource
+
+
+@export var name : String = ""
+@export var texture : Texture2D = null
+@export var expression : String = ""

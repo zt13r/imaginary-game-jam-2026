@@ -28,6 +28,7 @@ const STRENGTH_THREE_TEXTURE : Texture2D = preload("uid://bta21pjpewbl8")
 
 const TARGET_SELF_TEXTURE : Texture2D = preload("uid://dntcwmh02abrb")
 const TARGET_OTHER_TEXTURE : Texture2D = preload("uid://dk8drv6sufrat")
+const TARGET_BOTH_TEXTURE : Texture2D = preload("uid://bq0bm3wlquege")
 
 
 @export var frame : Frame = null :
@@ -61,6 +62,19 @@ const TARGET_OTHER_TEXTURE : Texture2D = preload("uid://dk8drv6sufrat")
 			4 : turn_count_sprite.texture = TURN_COUNT_FOUR_TEXTURE
 			5 : turn_count_sprite.texture = TURN_COUNT_FIVE_TEXTURE
 			_ : push_error("Turn count is out of bounds.")
+		if frame is DecisionFrame and not turn_comparison_sprite.visible:
+			turn_comparison_sprite.texture = turn_comparison.texture
+			turn_comparison_sprite.show()
+		elif not frame is DecisionFrame and turn_comparison_sprite.visible:
+			turn_comparison_sprite.hide()
+@export var turn_comparison : ComparisonModifier = null
+@export var logic : LogicModifier = null :
+	set(value):
+		logic = value
+		if logic is NegationLogic:
+			logic_sprite.texture = NEGATION_LOGIC_TEXTURE
+		elif logic is InversionLogic:
+			logic_sprite.texture = INVERSION_LOGIC_TEXTURE
 @export var strength : int = 1 :
 	set(value):
 		strength = clampi(value, 1, 3)
@@ -69,43 +83,90 @@ const TARGET_OTHER_TEXTURE : Texture2D = preload("uid://dk8drv6sufrat")
 			2 : strength_sprite.texture = STRENGTH_TWO_TEXTURE
 			3 : strength_sprite.texture = STRENGTH_THREE_TEXTURE
 			_ : push_error("Strength value is out of bounds.")
-@export var logic : LogicModifier = null :
+@export var spell_target : SpellTarget = SpellTarget.OTHER :
 	set(value):
-		logic = value
-		if logic is NegationLogic:
-			logic_sprite.texture = NEGATION_LOGIC_TEXTURE
-		elif logic is InversionLogic:
-			logic_sprite.texture = INVERSION_LOGIC_TEXTURE
-@export var target : SpellTarget = SpellTarget.OTHER :
-	set(value):
-		target = value
-		match target:
+		spell_target = value
+		match spell_target:
 			SpellTarget.SELF : target_sprite.texture = TARGET_SELF_TEXTURE
 			SpellTarget.OTHER : target_sprite.texture = TARGET_OTHER_TEXTURE
+			SpellTarget.BOTH : target_sprite.texture = TARGET_BOTH_TEXTURE
 			_ : push_error("SpellTarget value is out of bounds.")
 
 
-var next_spell : Spell = null :
-	set(value):
-		next_spell = value
-		next_spell.frame.process(
-			next_spell,
-			sigil,
-			turn_count,
-			logic,
-			strength,
-			target
-		)
+var next_spell : Spell = null
+var is_dragging : bool = false
 
 
 @onready var frame_sprite : TextureRect = %FrameSprite
 @onready var sigil_sprite : TextureRect = %SigilSprite
+
 @onready var turn_count_sprite : TextureRect = %TurnCountSprite
 @onready var logic_sprite : TextureRect = %LogicSprite
 @onready var strength_sprite : TextureRect = %StrengthSprite
 @onready var target_sprite : TextureRect = %TargetSprite
 
+@onready var turn_comparison_sprite : TextureRect = %TurnComparisonSprite
+
 
 func _gui_input(event : InputEvent) -> void:
 	if event is InputEventMouseButton:
 		spell_selected.emit(self)
+
+
+func execute() -> void:
+	if frame is RingFrame:
+		_process_ring()
+	elif frame is DecisionFrame:
+		_process_decision()
+
+
+func _process_ring() -> void:
+	var effect : String = sigil.effect if logic is not InversionLogic else sigil.inverse_effect
+	var target : Target = null
+	if spell_target == SpellTarget.SELF:
+		target = Game.target_self
+	elif spell_target == SpellTarget.OTHER:
+		target = Game.target_other
+
+	if not target.has_meta(effect):
+		if not logic is NegationLogic:
+			target.set_meta(effect, {
+				"turn_count" : turn_count,
+				"strength" : strength
+				}
+			)
+		else:
+			target.remove_meta(effect)
+
+	next_spell = then_spell
+
+
+func _process_decision() -> void:
+	var effect : String = sigil.effect if logic is not InversionLogic else sigil.inverse_effect
+	var target : Array[Target] = []
+	if spell_target == Spell.SpellTarget.SELF:
+		target = [Game.target_self]
+	elif spell_target == Spell.SpellTarget.OTHER:
+		target = [Game.target_other]
+	elif spell_target == Spell.SpellTarget.BOTH:
+		target = [Game.target_self, Game.target_other]
+
+	var so_true : bool = false
+
+	if logic is NegationLogic:
+		for t in target:
+			if not t.has_meta(effect):
+				so_true = true
+			else:
+				so_true = false
+	else:
+		for t in target:
+			if t.has_meta(effect):
+				so_true = true
+			else:
+				so_true = false
+
+	if so_true:
+		next_spell = then_spell
+	else:
+		next_spell = else_spell
