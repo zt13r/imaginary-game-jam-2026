@@ -9,5 +9,5 @@ extends Resource
 	turn_count : int,
 	logic : LogicModifier,
 	strength : int,
-	spell_target : Spell.Target
+	spell_target : Spell.SpellTarget
 ) -> void

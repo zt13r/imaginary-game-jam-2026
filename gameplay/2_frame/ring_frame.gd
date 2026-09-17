@@ -6,19 +6,19 @@ var texture : Texture2D = preload("uid://bl8usikvqxi66")
 
 
 func process(
-	_spell : Spell,
+	spell : Spell,
 	sigil : Sigil,
 	turn_count : int,
 	logic : LogicModifier,
 	strength : int,
-	spell_target : Spell.Target
+	spell_target : Spell.SpellTarget
 ) -> void:
 
 	var effect : String = sigil.effect if logic is not InversionLogic else sigil.inverse_effect
 	var target : Target = null
-	if spell_target == Spell.Target.SELF:
+	if spell_target == Spell.SpellTarget.SELF:
 		target = Game.target_self
-	elif spell_target == Spell.Target.OTHER:
+	elif spell_target == Spell.SpellTarget.OTHER:
 		target = Game.target_other
 
 	if not target.has_meta(effect):
@@ -30,3 +30,5 @@ func process(
 			)
 		else:
 			target.remove_meta(effect)
+
+	spell.next_spell = spell.then_spell

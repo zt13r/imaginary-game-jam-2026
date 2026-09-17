@@ -6,9 +6,10 @@ extends Control
 signal spell_selected(spell : Spell)
 
 
-enum Target {
+enum SpellTarget {
 	SELF,
-	OTHER
+	OTHER,
+	BOTH
 }
 
 
@@ -75,13 +76,26 @@ const TARGET_OTHER_TEXTURE : Texture2D = preload("uid://dk8drv6sufrat")
 			logic_sprite.texture = NEGATION_LOGIC_TEXTURE
 		elif logic is InversionLogic:
 			logic_sprite.texture = INVERSION_LOGIC_TEXTURE
-@export var target : Target = Target.OTHER :
+@export var target : SpellTarget = SpellTarget.OTHER :
 	set(value):
 		target = value
 		match target:
-			Target.SELF : target_sprite.texture = TARGET_SELF_TEXTURE
-			Target.OTHER : target_sprite.texture = TARGET_OTHER_TEXTURE
-			_ : push_error("Spell.Target value is out of bounds.")
+			SpellTarget.SELF : target_sprite.texture = TARGET_SELF_TEXTURE
+			SpellTarget.OTHER : target_sprite.texture = TARGET_OTHER_TEXTURE
+			_ : push_error("SpellTarget value is out of bounds.")
+
+
+var next_spell : Spell = null :
+	set(value):
+		next_spell = value
+		next_spell.frame.process(
+			next_spell,
+			sigil,
+			turn_count,
+			logic,
+			strength,
+			target
+		)
 
 
 @onready var frame_sprite : TextureRect = %FrameSprite
@@ -95,7 +109,3 @@ const TARGET_OTHER_TEXTURE : Texture2D = preload("uid://dk8drv6sufrat")
 func _gui_input(event : InputEvent) -> void:
 	if event is InputEventMouseButton:
 		spell_selected.emit(self)
-
-
-func execute() -> void:
-	pass

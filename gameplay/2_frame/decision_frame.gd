@@ -11,14 +11,34 @@ func process(
 	turn_count : int,
 	logic : LogicModifier,
 	strength : int,
-	spell_target : Spell.Target
+	spell_target : Spell.SpellTarget
 ) -> void:
 
 	var effect : String = sigil.effect if logic is not InversionLogic else sigil.inverse_effect
-	var target : Target = null
-	if spell_target == Spell.Target.SELF:
-		target = Game.target_self
-	elif spell_target == Spell.Target.OTHER:
-		target = Game.target_other
+	var target : Array[Target] = []
+	if spell_target == Spell.SpellTarget.SELF:
+		target = [Game.target_self]
+	elif spell_target == Spell.SpellTarget.OTHER:
+		target = [Game.target_other]
+	elif spell_target == Spell.SpellTarget.BOTH:
+		target = [Game.target_self, Game.target_other]
 
-	if not target.has_meta
+	var so_true : bool = false
+
+	if logic is NegationLogic:
+		for t in target:
+			if not t.has_meta(effect):
+				so_true = true
+			else:
+				so_true = false
+	else:
+		for t in target:
+			if t.has_meta(effect):
+				so_true = true
+			else:
+				so_true = false
+
+	if so_true:
+		spell.next_spell = spell.then_spell
+	else:
+		spell.next_spell = spell.else_spell
