@@ -4,9 +4,10 @@ extends Resource
 
 
 @abstract func process(
+	spell : Spell,
 	sigil : Sigil,
 	turn_count : int,
 	logic : LogicModifier,
-	severity : int,
-	target : Spell.Target
+	strength : int,
+	spell_target : Spell.Target
 ) -> void

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr7yq6mjuauja"
-path="res://.godot/imported/second_severity.png-c3e3699c826a6ee48c456a5a3ed89fee.ctex"
+uid="uid://bta21pjpewbl8"
+path="res://.godot/imported/strength_three.png-439a6492298d7df85db830980105e287.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/2_modifiers/2_severity/second_severity.png"
-dest_files=["res://.godot/imported/second_severity.png-c3e3699c826a6ee48c456a5a3ed89fee.ctex"]
+source_file="res://assets/art/2_modifiers/2_strength/strength_three.png"
+dest_files=["res://.godot/imported/strength_three.png-439a6492298d7df85db830980105e287.ctex"]
 
 [params]
 

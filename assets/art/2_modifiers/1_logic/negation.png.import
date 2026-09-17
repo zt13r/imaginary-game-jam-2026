@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bta21pjpewbl8"
-path="res://.godot/imported/third_severity.png-fcef565f25d5e6218a43208c25da3a79.ctex"
+uid="uid://q1kkxqxgrwu0"
+path="res://.godot/imported/negation.png-fcc72e5b51403925407c081441ca0bb1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/2_modifiers/2_severity/third_severity.png"
-dest_files=["res://.godot/imported/third_severity.png-fcef565f25d5e6218a43208c25da3a79.ctex"]
+source_file="res://assets/art/2_modifiers/1_logic/negation.png"
+dest_files=["res://.godot/imported/negation.png-fcc72e5b51403925407c081441ca0bb1.ctex"]
 
 [params]
 

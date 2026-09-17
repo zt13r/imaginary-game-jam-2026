@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://b5mbml6kvpup2" path="res://assets/art/0_frames/frame_background.png" id="2_ox52j"]
 [ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="3_53gpb"]
 [ext_resource type="Texture2D" uid="uid://ks3r2ajv4v8m" path="res://assets/art/2_modifiers/0_turn_count/three_turns.png" id="4_ox52j"]
-[ext_resource type="Texture2D" uid="uid://q1kkxqxgrwu0" path="res://assets/art/2_modifiers/1_logic/inversion.png" id="5_n6ucn"]
+[ext_resource type="Texture2D" uid="uid://c7wthvg3kjxe" path="res://assets/art/2_modifiers/1_logic/inversion.png" id="5_n6ucn"]
 [ext_resource type="Texture2D" uid="uid://dk8drv6sufrat" path="res://assets/art/2_modifiers/3_target/target_other.png" id="6_wodfq"]
-[ext_resource type="Texture2D" uid="uid://cr7yq6mjuauja" path="res://assets/art/2_modifiers/2_severity/second_severity.png" id="7_p3x0b"]
+[ext_resource type="Texture2D" uid="uid://cr7yq6mjuauja" path="res://assets/art/2_modifiers/2_strength/strength_two.png" id="7_p3x0b"]
 
 [node name="Spell" type="Control" unique_id=1914145428]
 layout_mode = 3
@@ -46,7 +46,7 @@ offset_bottom = 24.0
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="TurnModifierSprite" type="TextureRect" parent="Contents" unique_id=268765498]
+[node name="TurnCountSprite" type="TextureRect" parent="Contents" unique_id=268765498]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -58,7 +58,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="LogicModifierSprite" type="TextureRect" parent="Contents/CenterSprites" unique_id=887586911]
+[node name="LogicSprite" type="TextureRect" parent="Contents/CenterSprites" unique_id=887586911]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -72,14 +72,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_53gpb")
 
-[node name="SeverityModifierSprite" type="TextureRect" parent="Contents/CenterSprites" unique_id=1721673875]
+[node name="StrengthSprite" type="TextureRect" parent="Contents/CenterSprites" unique_id=1721673875]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("7_p3x0b")
 
-[node name="DirectionModifierSprite" type="TextureRect" parent="Contents" unique_id=1503966234]
+[node name="TargetSprite" type="TextureRect" parent="Contents" unique_id=1503966234]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
