@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5mbml6kvpup2"
-path="res://.godot/imported/frame_background.png-fa29716d71db951293411688c80f343a.ctex"
+uid="uid://dfhoa4tu85kgu"
+path="res://.godot/imported/decision_frame_background.png-4d0e9aca9b782617f728f3cf01d1cb41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/0_frames/frame_background.png"
-dest_files=["res://.godot/imported/frame_background.png-fa29716d71db951293411688c80f343a.ctex"]
+source_file="res://assets/art/0_frames/decision_frame_background.png"
+dest_files=["res://.godot/imported/decision_frame_background.png-4d0e9aca9b782617f728f3cf01d1cb41.ctex"]
 
 [params]
 

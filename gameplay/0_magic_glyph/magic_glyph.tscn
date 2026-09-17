@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://ccaj23sjr4k5" path="res://gameplay/0_magic_glyph/magic_glyph.gd" id="1_4pvev"]
 [ext_resource type="Script" uid="uid://cnk411b1ildly" path="res://gameplay/0_magic_glyph/spell_container.gd" id="1_ysk48"]
-[ext_resource type="PackedScene" uid="uid://bn0pur841hkr6" path="res://gameplay/1_spell/spell.tscn" id="2_ym84w"]
 
 [node name="MagicGlyph" type="Control" unique_id=1773691080]
 layout_mode = 3
@@ -21,30 +20,6 @@ script = ExtResource("1_ysk48")
 radius = 192.0
 metadata/_custom_type_script = "uid://cnk411b1ildly"
 
-[node name="Spell" parent="OuterSpells" unique_id=1914145428 instance=ExtResource("2_ym84w")]
-layout_mode = 2
-
-[node name="Spell2" parent="OuterSpells" unique_id=986326732 instance=ExtResource("2_ym84w")]
-layout_mode = 2
-
-[node name="Spell3" parent="OuterSpells" unique_id=301029053 instance=ExtResource("2_ym84w")]
-layout_mode = 2
-
-[node name="Spell4" parent="OuterSpells" unique_id=230324202 instance=ExtResource("2_ym84w")]
-layout_mode = 2
-
-[node name="Spell5" parent="OuterSpells" unique_id=238795571 instance=ExtResource("2_ym84w")]
-layout_mode = 2
-
-[node name="Spell6" parent="OuterSpells" unique_id=762954868 instance=ExtResource("2_ym84w")]
-layout_mode = 2
-
-[node name="Spell7" parent="OuterSpells" unique_id=1498311981 instance=ExtResource("2_ym84w")]
-layout_mode = 2
-
-[node name="Spell8" parent="OuterSpells" unique_id=1486698360 instance=ExtResource("2_ym84w")]
-layout_mode = 2
-
 [node name="InnerSpells" type="Container" parent="." unique_id=1220517910]
 unique_name_in_owner = true
 layout_mode = 1
@@ -52,15 +27,3 @@ script = ExtResource("1_ysk48")
 max_spell_count = 4
 radius = 64.0
 metadata/_custom_type_script = "uid://cnk411b1ildly"
-
-[node name="Spell" parent="InnerSpells" unique_id=1712507010 instance=ExtResource("2_ym84w")]
-layout_mode = 2
-
-[node name="Spell2" parent="InnerSpells" unique_id=1288097341 instance=ExtResource("2_ym84w")]
-layout_mode = 2
-
-[node name="Spell3" parent="InnerSpells" unique_id=693321680 instance=ExtResource("2_ym84w")]
-layout_mode = 2
-
-[node name="Spell4" parent="InnerSpells" unique_id=1840069822 instance=ExtResource("2_ym84w")]
-layout_mode = 2

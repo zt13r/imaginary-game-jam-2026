@@ -5,7 +5,11 @@ extends Control
 const SPELL_SCENE : PackedScene = preload("uid://bn0pur841hkr6")
 
 
-var current_ring : RingContainer = null
+var current_ring : RingContainer = null :
+	get:
+		if not current_ring:
+			current_ring = outer_spells
+		return current_ring
 var selected_spell : Spell = null
 
 
@@ -30,6 +34,20 @@ func _add_spell() -> void:
 
 	var spell : Spell = SPELL_SCENE.instantiate() as Spell
 	spell.spell_selected.connect(_on_spell_selected)
+	current_ring.spells.append(spell)
+
+	# Probably debug idk
+	if current_ring.spells.size() > 1:
+		var prev_spell_index : int = current_ring.spells.find(spell) - 1
+		current_ring.spells[prev_spell_index].then_spell = spell
+
+		print("%s then_spell -> %s" % [
+			current_ring.spells[prev_spell_index].name,
+			current_ring.spells[prev_spell_index].then_spell.name
+		])
+
+	print(current_ring.spells)
+
 	current_ring.add_child(spell)
 
 	# Debug, color spell
@@ -74,5 +92,9 @@ func _on_add_spell_button_pressed() -> void:
 	_add_spell()
 
 
-func _on_delete_selected_spell_button_button_up() -> void:
+func _on_delete_selected_spell_button_pressed() -> void:
 	_delete_selected_spell()
+
+
+func _on_cast_button_pressed() -> void:
+	outer_spells.spells.front().execute()

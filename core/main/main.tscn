@@ -72,5 +72,14 @@ offset_right = 832.0
 offset_bottom = 704.0
 text = "Delete Selected Spell"
 
+[node name="CastButton" type="Button" parent="HudLayer/HudRoot" unique_id=1462726396]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 640.0
+offset_right = 928.0
+offset_bottom = 703.0
+text = "Cast"
+
 [connection signal="pressed" from="HudLayer/HudRoot/AddSpellButton" to="Game/MagicGlyph" method="_on_add_spell_button_pressed"]
-[connection signal="button_up" from="HudLayer/HudRoot/DeleteSelectedSpellButton" to="Game/MagicGlyph" method="_on_delete_selected_spell_button_button_up"]
+[connection signal="pressed" from="HudLayer/HudRoot/DeleteSelectedSpellButton" to="Game/MagicGlyph" method="_on_delete_selected_spell_button_pressed"]
+[connection signal="pressed" from="HudLayer/HudRoot/CastButton" to="Game/MagicGlyph" method="_on_cast_button_pressed"]

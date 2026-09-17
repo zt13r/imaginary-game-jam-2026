@@ -1,14 +1,7 @@
 [gd_scene format=3 uid="uid://bn0pur841hkr6"]
 
 [ext_resource type="Script" uid="uid://b2aeipqeu7si8" path="res://gameplay/1_spell/spell.gd" id="1_ruybx"]
-[ext_resource type="Texture2D" uid="uid://bl8usikvqxi66" path="res://assets/art/0_frames/ring_frame.png" id="2_0yom7"]
-[ext_resource type="Texture2D" uid="uid://b5mbml6kvpup2" path="res://assets/art/0_frames/frame_background.png" id="2_ox52j"]
-[ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="3_53gpb"]
-[ext_resource type="Texture2D" uid="uid://dhoou7if835fi" path="res://assets/art/2_modifiers/comparison/greater.png" id="4_3rtr1"]
-[ext_resource type="Texture2D" uid="uid://ks3r2ajv4v8m" path="res://assets/art/2_modifiers/0_turn_count/three_turns.png" id="4_ox52j"]
-[ext_resource type="Texture2D" uid="uid://c7wthvg3kjxe" path="res://assets/art/2_modifiers/1_logic/inversion.png" id="5_n6ucn"]
-[ext_resource type="Texture2D" uid="uid://dk8drv6sufrat" path="res://assets/art/2_modifiers/3_target/target_other.png" id="6_wodfq"]
-[ext_resource type="Texture2D" uid="uid://cr7yq6mjuauja" path="res://assets/art/2_modifiers/2_strength/strength_two.png" id="7_p3x0b"]
+[ext_resource type="Resource" uid="uid://bq4cr8aogcmxm" path="res://gameplay/2_frame/frames/ring.tres" id="2_0yom7"]
 
 [node name="Spell" type="Control" unique_id=1914145428]
 layout_mode = 3
@@ -18,17 +11,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ruybx")
-spell_target = null
+frame = ExtResource("2_0yom7")
 metadata/_edit_lock_ = true
 
-[node name="Background" type="TextureRect" parent="." unique_id=1526261152]
+[node name="FrameBackground" type="TextureRect" parent="." unique_id=1526261152]
+unique_name_in_owner = true
 self_modulate = Color(0.22149268, 0.22149268, 0.22149259, 1)
 layout_mode = 0
 offset_left = -28.0
 offset_top = -28.0
 offset_right = 28.0
 offset_bottom = 28.0
-texture = ExtResource("2_ox52j")
 
 [node name="FrameSprite" type="TextureRect" parent="." unique_id=100125774]
 unique_name_in_owner = true
@@ -37,7 +30,6 @@ offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0
 offset_bottom = 32.0
-texture = ExtResource("2_0yom7")
 
 [node name="Contents" type="VBoxContainer" parent="." unique_id=1994695319]
 layout_mode = 0
@@ -58,7 +50,6 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("4_3rtr1")
 
 [node name="TurnCountSprite" type="TextureRect" parent="Contents/TurnCount" unique_id=268765498]
 unique_name_in_owner = true
@@ -66,7 +57,6 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 size_flags_stretch_ratio = 1.5
-texture = ExtResource("4_ox52j")
 
 [node name="CenterSprites" type="HBoxContainer" parent="Contents" unique_id=1102376805]
 layout_mode = 2
@@ -78,25 +68,21 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("5_n6ucn")
 
 [node name="SigilSprite" type="TextureRect" parent="Contents/CenterSprites" unique_id=937374395]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_53gpb")
 
 [node name="StrengthSprite" type="TextureRect" parent="Contents/CenterSprites" unique_id=1721673875]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("7_p3x0b")
 
 [node name="TargetSprite" type="TextureRect" parent="Contents" unique_id=1503966234]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("6_wodfq")
