@@ -6,4 +6,3 @@ extends Resource
 @export var texture : Texture2D = null
 
 @export var base_effect : String = ""
-@export var inverse_effect : String = ""

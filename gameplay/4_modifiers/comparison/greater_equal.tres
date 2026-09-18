@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="ComparisonModifier" format=3 uid="uid://faosnfnqkore"]
-
-[ext_resource type="Script" uid="uid://shcgeu8vf056" path="res://gameplay/4_modifiers/comparison_modifier.gd" id="1_jpune"]
-
-[resource]
-script = ExtResource("1_jpune")
-name = "Lesser Than or Equal to"
-expression = "<="
-metadata/_custom_type_script = "uid://shcgeu8vf056"

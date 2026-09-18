@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="DecisionFrame" format=3 uid="uid://dctma1xv3pcxn"]
-
-[ext_resource type="Script" uid="uid://cd134gj3ctix6" path="res://gameplay/2_frame/decision_frame.gd" id="1_si5gn"]
-
-[resource]
-script = ExtResource("1_si5gn")
-metadata/_custom_type_script = "uid://cd134gj3ctix6"

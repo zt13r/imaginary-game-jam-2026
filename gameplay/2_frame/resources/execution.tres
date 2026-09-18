@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Frame" format=3 uid="uid://bsh5gkkxtblsi"]
+
+[ext_resource type="Texture2D" uid="uid://b5mbml6kvpup2" path="res://assets/art/0_frames/execution_bg.png" id="1_26h0r"]
+[ext_resource type="Script" uid="uid://b2d785254hvfs" path="res://gameplay/2_frame/frame.gd" id="1_os0iq"]
+[ext_resource type="Texture2D" uid="uid://bl8usikvqxi66" path="res://assets/art/0_frames/execution.png" id="3_4rgf3"]
+
+[resource]
+script = ExtResource("1_os0iq")
+texture = ExtResource("3_4rgf3")
+background = ExtResource("1_26h0r")
+metadata/_custom_type_script = "uid://b2d785254hvfs"

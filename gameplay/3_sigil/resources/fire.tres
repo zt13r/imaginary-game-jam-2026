@@ -8,5 +8,4 @@ script = ExtResource("1_sq1bd")
 name = "Fire"
 texture = ExtResource("2_13quy")
 base_effect = "Burning"
-inverse_effect = "Freezing"
 metadata/_custom_type_script = "uid://3yp8s4u1e65d"

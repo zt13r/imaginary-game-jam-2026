@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="RingFrame" format=3 uid="uid://bq4cr8aogcmxm"]
-
-[ext_resource type="Script" uid="uid://bax1qjamchg6c" path="res://gameplay/2_frame/ring_frame.gd" id="1_6xq4c"]
-
-[resource]
-script = ExtResource("1_6xq4c")
-metadata/_custom_type_script = "uid://bax1qjamchg6c"

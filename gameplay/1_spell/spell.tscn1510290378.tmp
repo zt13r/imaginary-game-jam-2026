@@ -3,6 +3,15 @@
 [ext_resource type="Script" uid="uid://b2aeipqeu7si8" path="res://gameplay/1_spell/spell.gd" id="1_ruybx"]
 [ext_resource type="Texture2D" uid="uid://b5mbml6kvpup2" path="res://assets/art/0_frames/execution_bg.png" id="3_n6ucn"]
 [ext_resource type="Texture2D" uid="uid://bl8usikvqxi66" path="res://assets/art/0_frames/execution.png" id="4_wodfq"]
+[ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="5_ox52j"]
+[ext_resource type="Texture2D" uid="uid://ks3r2ajv4v8m" path="res://assets/art/2_modifiers/0_turn_count/three_turns.png" id="5_wodfq"]
+[ext_resource type="Texture2D" uid="uid://bq0bm3wlquege" path="res://assets/art/2_modifiers/1_target/target_both.png" id="6_wodfq"]
+
+[sub_resource type="GDScript" id="GDScript_ox52j"]
+
+[sub_resource type="Resource" id="Resource_p3x0b"]
+script = SubResource("GDScript_ox52j")
+metadata/_custom_type_script = "uid://bax1qjamchg6c"
 
 [node name="Spell" type="Control" unique_id=1914145428]
 layout_mode = 3
@@ -12,6 +21,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ruybx")
+frame = SubResource("Resource_p3x0b")
 metadata/_edit_lock_ = true
 
 [node name="FrameBackground" type="TextureRect" parent="." unique_id=1526261152]
@@ -48,15 +58,29 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 size_flags_stretch_ratio = 1.5
+texture = ExtResource("5_wodfq")
 
-[node name="SigilSprite" type="TextureRect" parent="Contents" unique_id=937374395]
+[node name="CenterSprites" type="HBoxContainer" parent="Contents" unique_id=1102376805]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="LogicSprite" type="TextureRect" parent="Contents/CenterSprites" unique_id=887586911]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="SigilSprite" type="TextureRect" parent="Contents/CenterSprites" unique_id=937374395]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_ox52j")
 
 [node name="TargetSprite" type="TextureRect" parent="Contents" unique_id=1503966234]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+texture = ExtResource("6_wodfq")
