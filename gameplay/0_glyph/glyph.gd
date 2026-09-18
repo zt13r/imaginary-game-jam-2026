@@ -120,7 +120,7 @@ func _delete_selected_spell() -> void:
 
 
 func _on_spell_selected(spell : Spell) -> void:
-	# Debug, remove color selected spell
+	# Debug, reset color of selected spell
 	if current_ring != null:
 		if selected_spell != spell and selected_spell != null:
 			selected_spell.next_spell.modulate = Color.WHITE
@@ -172,6 +172,14 @@ func _on_cast_button_pressed() -> void:
 		if spell.else_spell == null and spell.frame.type == Frame.Type.DECISION:
 			push_error(spell.name, " ElseSpell is null.")
 			return
+
+	# Debug, reset colors before casting
+	# Because there is also coloring during casting idk
+	# What
+	for spell : Spell in outer_spells.spells:
+		spell.modulate = Color.WHITE
+	for spell : Spell in inner_spells.spells:
+		spell.modulate = Color.WHITE
 
 	outer_spells.spells.front().cast()
 

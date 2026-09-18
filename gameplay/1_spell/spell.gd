@@ -61,7 +61,6 @@ const MAX_TURN_COUNT : int = 3
 @export_range(MIN_TURN_COUNT, MAX_TURN_COUNT, 1) var turn_count : int = 1 :
 	set(value):
 		turn_count = clampi(value, 1, 5)
-		await ready
 		match turn_count:
 			1 : turn_count_sprite.texture = TURN_COUNT_ONE_TEXTURE
 			2 : turn_count_sprite.texture = TURN_COUNT_TWO_TEXTURE
@@ -70,7 +69,6 @@ const MAX_TURN_COUNT : int = 3
 @export var spell_target : SpellTarget = SpellTarget.OTHER :
 	set(value):
 		spell_target = value
-		await ready
 		match spell_target:
 			SpellTarget.SELF : target_sprite.texture = TARGET_SELF_TEXTURE
 			SpellTarget.OTHER : target_sprite.texture = TARGET_OTHER_TEXTURE
@@ -112,14 +110,13 @@ func _draw() -> void:
 		push_error(name + " Frame is null.")
 		return
 
-	var spell_pos : Vector2 = global_position
-	var then_spell_pos : Vector2 = then_spell.global_position
+	var then_spell_pos : Vector2 = then_spell.position
 
 	#print("%s: (%d, %d)" % [then_spell.name, then_spell_pos.x, then_spell_pos.y])
 
 	if frame.type == Frame.Type.EXECUTION:
 		draw_line(
-			spell_pos, then_spell_pos, Color.WHITE, 4.0
+			Vector2.ZERO, then_spell_pos, Color.WHITE, 4.0
 		)
 
 	elif frame.type == Frame.Type.DECISION:
@@ -129,21 +126,29 @@ func _draw() -> void:
 		var else_spell_pos : Vector2 = else_spell.global_position
 
 		draw_line(
-			spell_pos, then_spell_pos, Color.WHITE, 4.0
+			Vector2.ZERO, then_spell_pos, Color.WHITE, 4.0
 		)
 
 		draw_line(
-			spell_pos, else_spell_pos, Color.WHITE, 4.0
+			Vector2.ZERO, else_spell_pos, Color.WHITE, 4.0
 		)
 
 
 func cast() -> void:
+	# Debug, change color to indicate that this spell is being cast
+	modulate = Color.PURPLE
+
 	if frame.type == Frame.Type.EXECUTION:
 		_execute_spell()
 	elif frame.type == Frame.Type.DECISION:
 		_decide_spell()
 
-	await get_tree().process_frame
+	await get_tree().create_timer(
+		MainGame.seconds_turn_increment).timeout
+
+	# Debug, reset color
+	modulate = Color.WHITE
+
 	if next_spell != null:
 		next_spell.cast()
 	else:
