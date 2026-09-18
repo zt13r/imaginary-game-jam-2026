@@ -9,11 +9,6 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_vgo1i")
 
-[node name="Connections" type="Control" parent="." unique_id=137713365]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="OuterSpells" type="Container" parent="." unique_id=1601305977]
 unique_name_in_owner = true
 layout_mode = 1

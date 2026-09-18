@@ -20,11 +20,13 @@ const TARGET_SELF_TEXTURE : Texture2D = preload("uid://dntcwmh02abrb")
 const TARGET_OTHER_TEXTURE : Texture2D = preload("uid://dk8drv6sufrat")
 const TARGET_BOTH_TEXTURE : Texture2D = preload("uid://bq0bm3wlquege")
 
+const MIN_TURN_COUNT : int = 1
+const MAX_TURN_COUNT : int = 3
+
 
 @export var frame : Frame = null :
 	set(value):
 		frame = value
-		await ready
 		if frame == null:
 			frame_sprite.hide()
 		else:
@@ -37,7 +39,6 @@ const TARGET_BOTH_TEXTURE : Texture2D = preload("uid://bq0bm3wlquege")
 @export var sigil : Sigil = null :
 	set(value):
 		sigil = value
-		await ready
 		if sigil == null:
 			sigil_sprite.hide()
 		else:
@@ -57,7 +58,7 @@ const TARGET_BOTH_TEXTURE : Texture2D = preload("uid://bq0bm3wlquege")
 			queue_redraw()
 
 @export_group("Modifiers")
-@export var turn_count : int = 1 :
+@export_range(MIN_TURN_COUNT, MAX_TURN_COUNT, 1) var turn_count : int = 1 :
 	set(value):
 		turn_count = clampi(value, 1, 5)
 		await ready
@@ -79,6 +80,10 @@ const TARGET_BOTH_TEXTURE : Texture2D = preload("uid://bq0bm3wlquege")
 
 var previous_spell : Spell = null
 var next_spell : Spell = null
+
+var sigil_id : int = -1
+var turn_count_id : int = -1
+var target_id : int = -1
 
 
 @onready var frame_background_sprite : TextureRect = %FrameBackground
@@ -138,6 +143,12 @@ func cast() -> void:
 	elif frame.type == Frame.Type.DECISION:
 		_decide_spell()
 
+	await get_tree().process_frame
+	if next_spell != null:
+		next_spell.cast()
+	else:
+		push_error(name, "'s next_spell is somehow null.")
+
 
 func get_previous_spell_then_spell(existing_spells : Array[Spell]) -> void:
 	if previous_spell == null:
@@ -169,9 +180,13 @@ func _execute_spell() -> void:
 	elif spell_target == SpellTarget.BOTH:
 		target = [Game.target_self, Game.target_other]
 
+	if target.is_empty():
+		push_error("Can't cast spell, no target(s) found.")
+		return
+
 	for t in target:
-		if not t.has_meta(effect):
-			t.set_meta(effect, turn_count)
+		if not t.has_effect(effect):
+			t.add_effect(effect, turn_count)
 
 	next_spell = then_spell
 
@@ -194,10 +209,14 @@ func _decide_spell() -> void:
 	elif spell_target == Spell.SpellTarget.BOTH:
 		target = [Game.target_self, Game.target_other]
 
+	if target.is_empty():
+		push_error("Can't cast spell, no target(s) found.")
+		return
+
 	var conditions_satisfied : bool = false
 
 	for t in target:
-		if t.has_meta(effect):
+		if t.has_effect(effect):
 			conditions_satisfied = true
 			continue
 		conditions_satisfied = false

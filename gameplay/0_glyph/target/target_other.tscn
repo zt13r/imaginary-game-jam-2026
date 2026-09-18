@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dgkdfi68avc88"]
 
-[ext_resource type="Script" uid="uid://cue11w2jxglad" path="res://gameplay/0_magic_glyph/target/other/target_other.gd" id="1_cs00p"]
+[ext_resource type="Script" uid="uid://crklrigmxljdf" path="res://gameplay/0_glyph/target/target.gd" id="1_yclkb"]
 
 [node name="TargetOther" type="Control" unique_id=427346703]
 layout_mode = 3
@@ -9,4 +9,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cs00p")
+mouse_filter = 2
+script = ExtResource("1_yclkb")

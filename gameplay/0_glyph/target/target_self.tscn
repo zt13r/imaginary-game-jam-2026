@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bw21r5pdybmuu"]
 
-[ext_resource type="Script" uid="uid://0w0kwwjn7v2i" path="res://gameplay/0_magic_glyph/target/self/target_self.gd" id="1_w4fpg"]
+[ext_resource type="Script" uid="uid://crklrigmxljdf" path="res://gameplay/0_glyph/target/target.gd" id="1_kypjg"]
 
 [node name="TargetSelf" type="Control" unique_id=350207515]
 layout_mode = 3
@@ -9,4 +9,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_w4fpg")
+mouse_filter = 2
+script = ExtResource("1_kypjg")
