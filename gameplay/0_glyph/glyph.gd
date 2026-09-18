@@ -107,13 +107,15 @@ func _delete_selected_spell() -> void:
 
 	if is_instance_valid(selected_spell):
 		current_ring.spells.erase(selected_spell)
-		selected_spell.then_spell.modulate = Color.WHITE
+		if is_instance_valid(selected_spell.then_spell):
+			selected_spell.then_spell.modulate = Color.WHITE
 
 		# The spell that had this deleted spell
 		# as its then_ and else_ spells, update before deletion
-		selected_spell.previous_spell.get_previous_spell_then_spell(current_ring.spells)
-		if selected_spell.previous_spell.frame.type == Frame.Type.DECISION:
-			selected_spell.previous_spell.else_spell = null
+		if is_instance_valid(selected_spell.previous_spell):
+			selected_spell.previous_spell.get_previous_spell_then_spell(current_ring.spells)
+			if selected_spell.previous_spell.frame.type == Frame.Type.DECISION:
+				selected_spell.previous_spell.else_spell = null
 
 		selected_spell.queue_free()
 		selected_spell = null
@@ -126,11 +128,16 @@ func _on_spell_selected(spell : Spell) -> void:
 			selected_spell.next_spell.modulate = Color.WHITE
 			selected_spell.modulate = Color.WHITE
 
+	if selected_spell != null:
+		selected_spell.z_index = 0
+
 	if spell.get_parent() is RingContainer:
 		current_ring = spell.get_parent()
 	else:
 		push_error("Selected spell's parent is somehow NOT a RingContainer.")
 	selected_spell = spell
+
+	selected_spell.z_index = 1
 
 	# Update SpellCustomizer UI buttons
 	sigil_button.select(
@@ -145,7 +152,8 @@ func _on_spell_selected(spell : Spell) -> void:
 
 	# Debug, color selected spell
 	selected_spell.modulate = Color.GOLD
-	selected_spell.then_spell.modulate = Color.DARK_GOLDENROD
+	if selected_spell.then_spell != null:
+		selected_spell.then_spell.modulate = Color.DARK_GOLDENROD
 
 
 func _on_add_spell_button_pressed() -> void:

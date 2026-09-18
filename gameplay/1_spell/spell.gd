@@ -84,6 +84,8 @@ var turn_count_id : int = -1
 var target_id : int = -1
 
 
+@onready var la_pos : Marker2D = %ThatsLaPos
+
 @onready var frame_background_sprite : TextureRect = %FrameBackground
 @onready var frame_sprite : TextureRect = %FrameSprite
 
@@ -103,16 +105,18 @@ func _gui_input(event : InputEvent) -> void:
 
 
 func _draw() -> void:
-	if then_spell == null:
-		push_error(name + " ThenSpell is null.")
-		return
 	if frame == null:
 		push_error(name + " Frame is null.")
 		return
+	if then_spell == null:
+		push_error(name + " ThenSpell is null.")
+		return
 
-	var then_spell_pos : Vector2 = then_spell.position
-
-	#print("%s: (%d, %d)" % [then_spell.name, then_spell_pos.x, then_spell_pos.y])
+	# Convert to local pozetion da global pozetion
+	# Why I say it like that/
+	var then_spell_pos : Vector2 =\
+		get_global_transform().affine_inverse() *\
+		then_spell.la_pos.global_position
 
 	if frame.type == Frame.Type.EXECUTION:
 		draw_line(
