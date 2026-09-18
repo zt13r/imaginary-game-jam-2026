@@ -18,15 +18,19 @@ var selected_spell : Spell = null
 
 
 func _ready() -> void:
+	# Append spells to respective ring arrays and connect signals
 	for spell : Spell in outer_spells.get_children():
 		outer_spells.spells.append(spell)
 		spell.spell_selected.connect(_on_spell_selected)
-		spell.get_previous_spell_then_spell(current_ring.spells)
-
 	for spell : Spell in inner_spells.get_children():
 		inner_spells.spells.append(spell)
 		spell.spell_selected.connect(_on_spell_selected)
-		spell.get_previous_spell_then_spell(current_ring.spells)
+
+	# Get each spell's previous spell's then spells (???)
+	for spell : Spell in outer_spells.spells:
+		spell.get_previous_spell_then_spell(outer_spells.spells)
+	for spell : Spell in inner_spells.spells:
+		spell.get_previous_spell_then_spell(inner_spells.spells)
 
 
 func _add_spell() -> void:
@@ -44,8 +48,14 @@ func _add_spell() -> void:
 	current_ring.add_child(spell)
 
 	var previous_index : int =\
-		posmod(current_ring.spells.find(self) - 1, current_ring.spells.size())
+		posmod(current_ring.spells.find(spell) - 1, current_ring.spells.size())
 	spell.previous_spell = current_ring.spells[previous_index]
+	spell.get_previous_spell_then_spell(current_ring.spells)
+
+	if spell.then_spell == null:
+		var next_index : int =\
+			posmod(current_ring.spells.find(spell) + 1, current_ring.spells.size())
+		spell.then_spell = current_ring.spells[next_index]
 
 
 func _delete_selected_spell() -> void:

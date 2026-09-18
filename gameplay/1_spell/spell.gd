@@ -144,8 +144,14 @@ func get_previous_spell_then_spell(existing_spells : Array[Spell]) -> void:
 		var previous_index : int =\
 			posmod(existing_spells.find(self) - 1, existing_spells.size())
 		previous_spell = existing_spells[previous_index]
+
 	previous_spell.then_spell = self
-	print(self, ": ", previous_spell)
+
+	#print("%s : %s (should be %s) " % [
+		#previous_spell.name,
+		#previous_spell.then_spell.name,
+		#name
+	#])
 
 
 func _execute_spell() -> void:
