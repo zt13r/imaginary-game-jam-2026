@@ -24,6 +24,8 @@ var current_ring : RingContainer = null :
 var selected_spell : Spell = null
 
 
+@onready var connections : Connections = %Connections
+
 @onready var outer_spells : RingContainer = %OuterSpells
 @onready var inner_spells : RingContainer = %InnerSpells
 
@@ -54,6 +56,7 @@ func _assign_initial_spell_connections() -> void:
 		spell.get_previous_spell_then_spell(outer_spells.spells)
 	for spell : Spell in inner_spells.spells:
 		spell.get_previous_spell_then_spell(inner_spells.spells)
+	connections.queue_redraw()
 
 
 func _populate_sigil_button() -> void:
@@ -102,8 +105,7 @@ func _add_spell() -> void:
 			posmod(current_ring.spells.find(spell) + 1, current_ring.spells.size())
 		spell.then_spell = current_ring.spells[next_index]
 
-	for sp : Spell in current_ring.spells:
-		sp.queue_redraw()
+	connections.queue_redraw()
 
 
 func _delete_selected_spell() -> void:
@@ -129,8 +131,7 @@ func _delete_selected_spell() -> void:
 		selected_spell.queue_free()
 		selected_spell = null
 
-	for sp : Spell in current_ring.spells:
-		sp.queue_redraw()
+	connections.queue_redraw()
 
 
 func _on_spell_selected(spell : Spell) -> void:
@@ -138,7 +139,6 @@ func _on_spell_selected(spell : Spell) -> void:
 	if selected_spell != spell and selected_spell != null:
 		selected_spell.then_spell.modulate = Color.WHITE
 		selected_spell.modulate = Color.WHITE
-		selected_spell.z_index = 0
 
 	if spell.get_parent() is RingContainer:
 		current_ring = spell.get_parent()
@@ -146,8 +146,6 @@ func _on_spell_selected(spell : Spell) -> void:
 		push_error("Selected spell's parent is somehow NOT a RingContainer.")
 
 	selected_spell = spell
-
-	selected_spell.z_index = 1
 
 	# Update SpellCustomizer UI buttons
 	sigil_button.select(
@@ -240,13 +238,40 @@ func _debug_on_spell_hovered(spell : Spell) -> void:
 		return
 
 	debug_spell_hovered_label.text = """
-Current: %s
-Previous: %s
-Then: %s
-Else: %s
+Current: %s (%d, %d)
+Previous: %s (%d, %d)
+Then: %s (%d, %d)
+Else: %s (%d, %d)
 	""" % [
 		spell.name if spell != null else &"NULL",
+		spell.global_position.x if spell != null else 67.67,
+		spell.global_position.y if spell != null else 67.67,
+
 		spell.previous_spell.name if spell.previous_spell != null else &"NULL",
+		spell.previous_spell.global_position.x if spell.previous_spell != null else 67.67,
+		spell.previous_spell.global_position.y if spell.previous_spell != null else 67.67,
+
 		spell.then_spell.name if spell.then_spell != null else &"NULL",
-		spell.else_spell.name if spell.frame.type == Frame.Type.DECISION else &"NULL"
+		spell.then_spell.global_position.x if spell.then_spell != null else 67.67,
+		spell.then_spell.global_position.y if spell.then_spell != null else 67.67,
+
+		spell.else_spell.name if spell.frame.type == Frame.Type.DECISION else &"NULL",
+		spell.else_spell.global_position.x if spell.else_spell != null else 67.67,
+		spell.else_spell.global_position.y if spell.else_spell != null else 67.67
 	]
+
+
+func _on_add_inner_ring_button_pressed() -> void:
+	if current_ring != inner_spells:
+		current_ring = inner_spells
+
+	# Add two spells in inner ring idk
+	_add_spell()
+	_add_spell()
+
+
+func _on_delete_inner_ring_button_pressed() -> void:
+	for spell : Spell in inner_spells.spells:
+		inner_spells.spells.erase(spell)
+		spell.queue_free()
+	connections.queue_redraw()

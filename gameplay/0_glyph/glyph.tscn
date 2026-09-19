@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://db30is57gr86s"]
 
 [ext_resource type="Script" uid="uid://ccaj23sjr4k5" path="res://gameplay/0_glyph/glyph.gd" id="1_vgo1i"]
+[ext_resource type="Script" uid="uid://cfleggwbnthpy" path="res://gameplay/0_glyph/connections.gd" id="2_eq0x3"]
 [ext_resource type="Script" uid="uid://cnk411b1ildly" path="res://gameplay/0_glyph/ring_container/ring_container.gd" id="2_vgo1i"]
 [ext_resource type="PackedScene" uid="uid://bn0pur841hkr6" path="res://gameplay/1_spell/spell.tscn" id="3_61afr"]
 
@@ -8,6 +9,15 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_vgo1i")
+
+[node name="Connections" type="Control" parent="." unique_id=1546512360 node_paths=PackedStringArray("outer_ring", "inner_ring")]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_eq0x3")
+outer_ring = NodePath("../OuterSpells")
+inner_ring = NodePath("../InnerSpells")
 
 [node name="OuterSpells" type="Container" parent="." unique_id=1601305977]
 unique_name_in_owner = true

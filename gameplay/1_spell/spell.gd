@@ -85,8 +85,6 @@ var turn_count_id : int = -1
 var target_id : int = -1
 
 
-@onready var la_pos : Marker2D = %ThatsLaPos
-
 @onready var frame_background_sprite : TextureRect = %FrameBackground
 @onready var frame_sprite : TextureRect = %FrameSprite
 
@@ -106,42 +104,10 @@ func _ready() -> void:
 func _gui_input(event : InputEvent) -> void:
 	if event is InputEventMouseButton:
 		spell_selected.emit(self)
+
+	# Debug
 	elif event is InputEventMouseMotion:
 		debug_spell_hovered.emit(self)
-
-
-func _draw() -> void:
-	if frame == null:
-		push_error(name + " Frame is null.")
-		return
-	if then_spell == null:
-		push_error(name + " ThenSpell is null.")
-		return
-
-	# Convert to local pozetion da global pozetion
-	# Why I say it like that/
-	var then_spell_pos : Vector2 =\
-		get_global_transform().affine_inverse() *\
-		then_spell.la_pos.global_position
-
-	if frame.type == Frame.Type.EXECUTION:
-		draw_line(
-			Vector2.ZERO, then_spell_pos, Color.WHITE, 4.0
-		)
-
-	elif frame.type == Frame.Type.DECISION:
-		if else_spell == null:
-			push_error(name + " ElseSpell is null.")
-			return
-		var else_spell_pos : Vector2 = else_spell.global_position
-
-		draw_line(
-			Vector2.ZERO, then_spell_pos, Color.WHITE, 4.0
-		)
-
-		draw_line(
-			Vector2.ZERO, else_spell_pos, Color.WHITE, 4.0
-		)
 
 
 func cast() -> void:
