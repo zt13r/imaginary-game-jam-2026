@@ -95,6 +95,9 @@ func _add_spell() -> void:
 			posmod(current_ring.spells.find(spell) + 1, current_ring.spells.size())
 		spell.then_spell = current_ring.spells[next_index]
 
+	for sp : Spell in current_ring.spells:
+		sp.queue_redraw()
+
 
 func _delete_selected_spell() -> void:
 	if current_ring == null:
@@ -112,20 +115,24 @@ func _delete_selected_spell() -> void:
 
 		# The spell that had this deleted spell
 		# as its then_ and else_ spells, update before deletion
+		selected_spell.then_spell.get_previous_spell_then_spell(current_ring.spells)
 		if is_instance_valid(selected_spell.previous_spell):
-			selected_spell.previous_spell.get_previous_spell_then_spell(current_ring.spells)
 			if selected_spell.previous_spell.frame.type == Frame.Type.DECISION:
 				selected_spell.previous_spell.else_spell = null
 
 		selected_spell.queue_free()
 		selected_spell = null
 
+	for sp : Spell in current_ring.spells:
+		sp.queue_redraw()
+
 
 func _on_spell_selected(spell : Spell) -> void:
 	# Debug, reset color of selected spell
 	if current_ring != null:
 		if selected_spell != spell and selected_spell != null:
-			selected_spell.next_spell.modulate = Color.WHITE
+			if is_instance_valid(selected_spell.then_spell):
+				selected_spell.then_spell.modulate = Color.WHITE
 			selected_spell.modulate = Color.WHITE
 
 	if selected_spell != null:
@@ -152,7 +159,7 @@ func _on_spell_selected(spell : Spell) -> void:
 
 	# Debug, color selected spell
 	selected_spell.modulate = Color.GOLD
-	if selected_spell.then_spell != null:
+	if is_instance_valid(selected_spell.then_spell):
 		selected_spell.then_spell.modulate = Color.DARK_GOLDENROD
 
 
