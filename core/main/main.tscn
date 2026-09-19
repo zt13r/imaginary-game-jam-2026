@@ -20,6 +20,14 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
+[node name="TargetOther" parent="Game" unique_id=427346703 instance=ExtResource("4_yibi5")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="TargetSelf" parent="Game" unique_id=350207515 instance=ExtResource("3_vwfi5")]
+unique_name_in_owner = true
+layout_mode = 1
+
 [node name="RulebookPlaceholder" type="ColorRect" parent="Game" unique_id=1255787517]
 layout_mode = 1
 offset_left = 16.0
@@ -38,23 +46,16 @@ text = "Rulebook"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MagicGlyph" parent="Game" unique_id=1773691080 node_paths=PackedStringArray("sigil_button", "turn_count_button", "target_button") instance=ExtResource("2_6vymn")]
+[node name="MagicGlyph" parent="Game" unique_id=1773691080 node_paths=PackedStringArray("debug_spell_hovered_label", "sigil_button", "turn_count_button", "target_button") instance=ExtResource("2_6vymn")]
 layout_mode = 0
 offset_left = 825.0
 offset_top = 360.0
 offset_right = 825.0
 offset_bottom = 360.0
+debug_spell_hovered_label = NodePath("../../DebugLayer/DebugRoot/HoveredSpellInfo")
 sigil_button = NodePath("../../HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/Sigil/SigilButton")
 turn_count_button = NodePath("../../HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/TurnCount/TurnCountButton")
 target_button = NodePath("../../HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/Target/TargetButton")
-
-[node name="TargetOther" parent="Game" unique_id=427346703 instance=ExtResource("4_yibi5")]
-unique_name_in_owner = true
-layout_mode = 1
-
-[node name="TargetSelf" parent="Game" unique_id=350207515 instance=ExtResource("3_vwfi5")]
-unique_name_in_owner = true
-layout_mode = 1
 
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1002820559]
 process_mode = 1
@@ -160,6 +161,37 @@ text = "Add Spell"
 layout_mode = 2
 size_flags_vertical = 8
 text = "Delete Selected Spell"
+
+[node name="DebugLayer" type="CanvasLayer" parent="." unique_id=1308931346]
+
+[node name="DebugRoot" type="Control" parent="DebugLayer" unique_id=339630372]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HoveredSpellInfo" type="Label" parent="DebugLayer/DebugRoot" unique_id=2020431104]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -39.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Spell#
+Previous: Spell#
+Then: Spell#
+Else: Spell#"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [connection signal="pressed" from="HudLayer/HudRoot/CastButton" to="Game/MagicGlyph" method="_on_cast_button_pressed"]
 [connection signal="item_selected" from="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/Sigil/SigilButton" to="Game/MagicGlyph" method="_on_sigil_button_item_selected"]

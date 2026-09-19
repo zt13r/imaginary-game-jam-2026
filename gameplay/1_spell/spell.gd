@@ -3,6 +3,7 @@ extends Control
 
 
 signal spell_selected(spell : Spell)
+signal debug_spell_hovered(spell : Spell)
 
 
 enum SpellTarget {
@@ -94,14 +95,19 @@ var target_id : int = -1
 @onready var turn_count_sprite : TextureRect = %TurnCountSprite
 @onready var target_sprite : TextureRect = %TargetSprite
 
+@onready var debug_spell_name : Label = $DebugSpellName
+
 
 func _ready() -> void:
 	name = "Spell"
+	debug_spell_name.text = name
 
 
 func _gui_input(event : InputEvent) -> void:
 	if event is InputEventMouseButton:
 		spell_selected.emit(self)
+	elif event is InputEventMouseMotion:
+		debug_spell_hovered.emit(self)
 
 
 func _draw() -> void:

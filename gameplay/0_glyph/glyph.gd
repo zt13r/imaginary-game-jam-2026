@@ -9,6 +9,8 @@ const SIGIL_RESOURCES : Array[Sigil] = [
 ]
 
 
+@export var debug_spell_hovered_label : Label = null
+
 @export var sigil_button : OptionButton = null
 @export var turn_count_button : OptionButton = null
 @export var target_button : OptionButton = null
@@ -39,9 +41,11 @@ func _init_spell_stuff() -> void:
 	for spell : Spell in outer_spells.get_children():
 		outer_spells.spells.append(spell)
 		spell.spell_selected.connect(_on_spell_selected)
+		spell.debug_spell_hovered.connect(_debug_on_spell_hovered) # debug
 	for spell : Spell in inner_spells.get_children():
 		inner_spells.spells.append(spell)
 		spell.spell_selected.connect(_on_spell_selected)
+		spell.debug_spell_hovered.connect(_debug_on_spell_hovered) # debug
 
 
 func _assign_initial_spell_connections() -> void:
@@ -77,11 +81,14 @@ func _add_spell() -> void:
 		return
 
 	if current_ring.spells.size() >= current_ring.max_spell_count:
+		#push_error("Hey big man, selected ring maximum of %d spells." % current_ring.max_spell_count)
 		return
 
 	var spell : Spell = SPELL_SCENE.instantiate() as Spell
 	spell.spell_selected.connect(_on_spell_selected)
 	current_ring.spells.append(spell)
+
+	spell.debug_spell_hovered.connect(_debug_on_spell_hovered)
 
 	current_ring.add_child(spell)
 
@@ -104,21 +111,20 @@ func _delete_selected_spell() -> void:
 		push_error("Current RingContainer reference is null.")
 		return
 
-	if current_ring.spells.size() == current_ring.min_spell_count:
+	if current_ring.spells.size() <= current_ring.min_spell_count:
 		#push_error("Hey big man, selected ring needs at least %d spells." % current_ring.min_spell_count)
 		return
 
 	if is_instance_valid(selected_spell):
 		current_ring.spells.erase(selected_spell)
-		if is_instance_valid(selected_spell.then_spell):
-			selected_spell.then_spell.modulate = Color.WHITE
+		selected_spell.then_spell.modulate = Color.WHITE
 
 		# The spell that had this deleted spell
 		# as its then_ and else_ spells, update before deletion
-		selected_spell.then_spell.get_previous_spell_then_spell(current_ring.spells)
-		if is_instance_valid(selected_spell.previous_spell):
-			if selected_spell.previous_spell.frame.type == Frame.Type.DECISION:
-				selected_spell.previous_spell.else_spell = null
+		selected_spell.previous_spell.then_spell = selected_spell.then_spell
+		if selected_spell.previous_spell.frame.type == Frame.Type.DECISION:
+			selected_spell.previous_spell.else_spell = null
+		selected_spell.then_spell.previous_spell = selected_spell.previous_spell
 
 		selected_spell.queue_free()
 		selected_spell = null
@@ -129,19 +135,16 @@ func _delete_selected_spell() -> void:
 
 func _on_spell_selected(spell : Spell) -> void:
 	# Debug, reset color of selected spell
-	if current_ring != null:
-		if selected_spell != spell and selected_spell != null:
-			if is_instance_valid(selected_spell.then_spell):
-				selected_spell.then_spell.modulate = Color.WHITE
-			selected_spell.modulate = Color.WHITE
-
-	if selected_spell != null:
+	if selected_spell != spell and selected_spell != null:
+		selected_spell.then_spell.modulate = Color.WHITE
+		selected_spell.modulate = Color.WHITE
 		selected_spell.z_index = 0
 
 	if spell.get_parent() is RingContainer:
 		current_ring = spell.get_parent()
 	else:
 		push_error("Selected spell's parent is somehow NOT a RingContainer.")
+
 	selected_spell = spell
 
 	selected_spell.z_index = 1
@@ -159,8 +162,7 @@ func _on_spell_selected(spell : Spell) -> void:
 
 	# Debug, color selected spell
 	selected_spell.modulate = Color.GOLD
-	if is_instance_valid(selected_spell.then_spell):
-		selected_spell.then_spell.modulate = Color.DARK_GOLDENROD
+	selected_spell.then_spell.modulate = Color.DARK_GOLDENROD
 
 
 func _on_add_spell_button_pressed() -> void:
@@ -230,3 +232,21 @@ func _on_target_button_item_selected(index : int) -> void:
 
 	selected_spell.spell_target = Spell.SpellTarget.find_key(index)
 	selected_spell.target_id = target_button.get_item_id(index)
+
+
+func _debug_on_spell_hovered(spell : Spell) -> void:
+	if debug_spell_hovered_label == null:
+		push_error("HEY DEBUG SPELL INFO LABEL IS NULL")
+		return
+
+	debug_spell_hovered_label.text = """
+Current: %s
+Previous: %s
+Then: %s
+Else: %s
+	""" % [
+		spell.name if spell != null else &"NULL",
+		spell.previous_spell.name if spell.previous_spell != null else &"NULL",
+		spell.then_spell.name if spell.then_spell != null else &"NULL",
+		spell.else_spell.name if spell.frame.type == Frame.Type.DECISION else &"NULL"
+	]
