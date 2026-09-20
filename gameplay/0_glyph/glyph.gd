@@ -214,8 +214,8 @@ func _on_turn_count_button_item_selected(index : int) -> void:
 		push_error("No spell selected, can't edit spell.")
 		return
 
-	selected_spell.turn_count = index
 	selected_spell.turn_count_id = turn_count_button.get_item_id(index)
+	selected_spell.turn_count = selected_spell.turn_count_id
 
 
 func _on_target_button_item_selected(index : int) -> void:
@@ -225,7 +225,7 @@ func _on_target_button_item_selected(index : int) -> void:
 		push_error("No spell selected, can't edit spell.")
 		return
 
-	selected_spell.spell_target = Spell.SpellTarget.find_key(index)
+	selected_spell.spell_target = index as Spell.SpellTarget
 	selected_spell.target_id = target_button.get_item_id(index)
 
 

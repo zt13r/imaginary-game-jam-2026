@@ -46,13 +46,12 @@ text = "Rulebook"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MagicGlyph" parent="Game" unique_id=1773691080 node_paths=PackedStringArray("debug_spell_hovered_label", "sigil_button", "turn_count_button", "target_button") instance=ExtResource("2_6vymn")]
+[node name="MagicGlyph" parent="Game" unique_id=1773691080 node_paths=PackedStringArray("sigil_button", "turn_count_button", "target_button") instance=ExtResource("2_6vymn")]
 layout_mode = 0
 offset_left = 825.0
 offset_top = 312.0
 offset_right = 825.0
 offset_bottom = 312.0
-debug_spell_hovered_label = NodePath("../../DebugLayer/DebugRoot/HoveredSpellInfo")
 sigil_button = NodePath("../../HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/Sigil/SigilButton")
 turn_count_button = NodePath("../../HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/TurnCount/TurnCountButton")
 target_button = NodePath("../../HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/Target/TargetButton")
