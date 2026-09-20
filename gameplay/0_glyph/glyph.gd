@@ -56,7 +56,7 @@ func _assign_initial_spell_connections() -> void:
 		spell.get_previous_spell_then_spell(outer_spells.spells)
 	for spell : Spell in inner_spells.spells:
 		spell.get_previous_spell_then_spell(inner_spells.spells)
-	connections.queue_redraw()
+	connections.queue_redraw.call_deferred()
 
 
 func _populate_sigil_button() -> void:
@@ -105,7 +105,10 @@ func _add_spell() -> void:
 			posmod(current_ring.spells.find(spell) + 1, current_ring.spells.size())
 		spell.then_spell = current_ring.spells[next_index]
 
-	connections.queue_redraw()
+	# Update first spell's previous spell
+	current_ring.spells.front().previous_spell = spell
+
+	connections.queue_redraw.call_deferred()
 
 
 func _delete_selected_spell() -> void:
@@ -131,7 +134,7 @@ func _delete_selected_spell() -> void:
 		selected_spell.queue_free()
 		selected_spell = null
 
-	connections.queue_redraw()
+	connections.queue_redraw.call_deferred()
 
 
 func _on_spell_selected(spell : Spell) -> void:
@@ -265,8 +268,6 @@ func _on_add_inner_ring_button_pressed() -> void:
 	if current_ring != inner_spells:
 		current_ring = inner_spells
 
-	# Add two spells in inner ring idk
-	_add_spell()
 	_add_spell()
 
 
@@ -274,4 +275,4 @@ func _on_delete_inner_ring_button_pressed() -> void:
 	for spell : Spell in inner_spells.spells:
 		inner_spells.spells.erase(spell)
 		spell.queue_free()
-	connections.queue_redraw()
+	connections.queue_redraw.call_deferred()

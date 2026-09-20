@@ -53,13 +53,19 @@ func _arrange_children() -> void:
 	var center : Vector2 = size / 2.0
 
 	for sp : Spell in spells:
-		var step : float = TAU / spells.size()
-		var angle : float = (index * step) - deg_to_rad(90.0)
+		var pos : Vector2 = Vector2.ZERO
 
-		var pos : Vector2 = Vector2(
-			center.x + cos(angle) * radius,
-			center.y + sin(angle) * radius
-		)
+		if spells.size() > 1:
+			var step : float = TAU / spells.size()
+			var angle : float = (index * step) - deg_to_rad(90.0)
+
+			pos = Vector2(
+				center.x + cos(angle) * radius,
+				center.y + sin(angle) * radius
+			)
+
+		else:
+			pos = center
 
 		var spell_size : Vector2 = sp.get_combined_minimum_size()
 		pos -= spell_size / 2.0

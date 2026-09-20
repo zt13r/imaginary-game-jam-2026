@@ -6,6 +6,7 @@ extends Control
 @export var inner_ring : RingContainer = null
 
 @export var line_width : float = 4.0
+@export var line_color : Color = Color.WHITE
 
 
 func _draw() -> void:
@@ -38,7 +39,7 @@ func _draw() -> void:
 
 			if spell.frame.type == Frame.Type.EXECUTION:
 				draw_line(
-					prev_spell_pos, then_spell_pos, Color.WHITE, 4.0
+					prev_spell_pos, then_spell_pos, line_color, line_width
 				)
 
 			elif spell.frame.type == Frame.Type.DECISION:
@@ -48,9 +49,9 @@ func _draw() -> void:
 				var else_spell_pos : Vector2 = spell.else_spell.global_position
 
 				draw_line(
-					prev_spell_pos, then_spell_pos, Color.WHITE, 4.0
+					prev_spell_pos, then_spell_pos, line_color, line_width
 				)
 
 				draw_line(
-					prev_spell_pos, else_spell_pos, Color.WHITE, 4.0
+					prev_spell_pos, else_spell_pos, line_color, line_width
 				)

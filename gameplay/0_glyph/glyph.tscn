@@ -23,6 +23,7 @@ inner_ring = NodePath("../InnerSpells")
 unique_name_in_owner = true
 layout_mode = 1
 script = ExtResource("2_vgo1i")
+min_spell_count = 3
 radius = 192.0
 metadata/_custom_type_script = "uid://cnk411b1ildly"
 
@@ -30,6 +31,9 @@ metadata/_custom_type_script = "uid://cnk411b1ildly"
 layout_mode = 2
 
 [node name="Spell2" parent="OuterSpells" unique_id=320477941 instance=ExtResource("3_61afr")]
+layout_mode = 2
+
+[node name="Spell3" parent="OuterSpells" unique_id=394901250 instance=ExtResource("3_61afr")]
 layout_mode = 2
 
 [node name="InnerSpells" type="Container" parent="." unique_id=1220517910]
