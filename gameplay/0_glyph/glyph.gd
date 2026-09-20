@@ -134,6 +134,9 @@ func _delete_selected_spell() -> void:
 		selected_spell.queue_free()
 		selected_spell = null
 
+	await get_tree().process_frame
+	connections.redraw()
+
 
 func _on_spell_selected(spell : Spell) -> void:
 	# Debug, reset color of selected spell
