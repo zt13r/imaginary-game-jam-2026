@@ -36,6 +36,7 @@ func _ready() -> void:
 	_populate_sigil_button()
 	_populate_turn_count_button()
 	_populate_target_button()
+	connections.redraw()
 
 
 func _init_spell_stuff() -> void:
@@ -56,7 +57,6 @@ func _assign_initial_spell_connections() -> void:
 		spell.get_previous_spell_then_spell(outer_spells.spells)
 	for spell : Spell in inner_spells.spells:
 		spell.get_previous_spell_then_spell(inner_spells.spells)
-	connections.queue_redraw.call_deferred()
 
 
 func _populate_sigil_button() -> void:
@@ -108,7 +108,7 @@ func _add_spell() -> void:
 	# Update first spell's previous spell
 	current_ring.spells.front().previous_spell = spell
 
-	connections.queue_redraw.call_deferred()
+	connections.redraw()
 
 
 func _delete_selected_spell() -> void:
@@ -124,8 +124,8 @@ func _delete_selected_spell() -> void:
 		current_ring.spells.erase(selected_spell)
 		selected_spell.then_spell.modulate = Color.WHITE
 
-		# The spell that had this deleted spell
-		# as its then_ and else_ spells, update before deletion
+		# Think LinkedList node removal:
+		# reconnect neighboring nodes and all that stuff
 		selected_spell.previous_spell.then_spell = selected_spell.then_spell
 		if selected_spell.previous_spell.frame.type == Frame.Type.DECISION:
 			selected_spell.previous_spell.else_spell = null
@@ -133,8 +133,6 @@ func _delete_selected_spell() -> void:
 
 		selected_spell.queue_free()
 		selected_spell = null
-
-	connections.queue_redraw.call_deferred()
 
 
 func _on_spell_selected(spell : Spell) -> void:
@@ -163,7 +161,6 @@ func _on_spell_selected(spell : Spell) -> void:
 
 	# Debug, color selected spell
 	selected_spell.modulate = Color.GOLD
-	selected_spell.then_spell.modulate = Color.DARK_GOLDENROD
 
 
 func _on_add_spell_button_pressed() -> void:
@@ -275,4 +272,4 @@ func _on_delete_inner_ring_button_pressed() -> void:
 	for spell : Spell in inner_spells.spells:
 		inner_spells.spells.erase(spell)
 		spell.queue_free()
-	connections.queue_redraw.call_deferred()
+	connections.redraw()

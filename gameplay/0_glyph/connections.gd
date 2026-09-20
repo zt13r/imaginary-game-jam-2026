@@ -29,17 +29,15 @@ func _draw() -> void:
 			# Convert to local pozetion da global pozetion
 			# Why I say it like that/
 
-			var prev_spell_pos : Vector2 =\
-				get_global_transform().affine_inverse() *\
-				spell.previous_spell.global_position
+			var spell_pos : Vector2 =\
+				to_local(spell.global_position)
 
 			var then_spell_pos : Vector2 =\
-				get_global_transform().affine_inverse() *\
-				spell.then_spell.global_position
+				to_local(spell.then_spell.global_position)
 
 			if spell.frame.type == Frame.Type.EXECUTION:
 				draw_line(
-					prev_spell_pos, then_spell_pos, line_color, line_width
+					spell_pos, then_spell_pos, line_color, line_width
 				)
 
 			elif spell.frame.type == Frame.Type.DECISION:
@@ -49,9 +47,17 @@ func _draw() -> void:
 				var else_spell_pos : Vector2 = spell.else_spell.global_position
 
 				draw_line(
-					prev_spell_pos, then_spell_pos, line_color, line_width
+					spell_pos, then_spell_pos, line_color, line_width
 				)
 
 				draw_line(
-					prev_spell_pos, else_spell_pos, line_color, line_width
+					spell_pos, else_spell_pos, line_color, line_width
 				)
+
+
+func redraw() -> void:
+	queue_redraw.call_deferred()
+
+
+func to_local(global : Vector2) -> Vector2:
+	return get_global_transform().affine_inverse() * global

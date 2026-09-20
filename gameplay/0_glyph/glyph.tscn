@@ -12,9 +12,13 @@ script = ExtResource("1_vgo1i")
 
 [node name="Connections" type="Control" parent="." unique_id=1546512360 node_paths=PackedStringArray("outer_ring", "inner_ring")]
 unique_name_in_owner = true
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("2_eq0x3")
 outer_ring = NodePath("../OuterSpells")
 inner_ring = NodePath("../InnerSpells")
@@ -23,7 +27,7 @@ inner_ring = NodePath("../InnerSpells")
 unique_name_in_owner = true
 layout_mode = 1
 script = ExtResource("2_vgo1i")
-min_spell_count = 3
+min_spell_count = 4
 radius = 192.0
 metadata/_custom_type_script = "uid://cnk411b1ildly"
 
@@ -34,6 +38,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Spell3" parent="OuterSpells" unique_id=394901250 instance=ExtResource("3_61afr")]
+layout_mode = 2
+
+[node name="Spell4" parent="OuterSpells" unique_id=389064945 instance=ExtResource("3_61afr")]
 layout_mode = 2
 
 [node name="InnerSpells" type="Container" parent="." unique_id=1220517910]
