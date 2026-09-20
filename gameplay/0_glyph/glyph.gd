@@ -9,8 +9,6 @@ const SIGIL_RESOURCES : Array[Sigil] = [
 ]
 
 
-@export var debug_spell_hovered_label : Label = null
-
 @export var sigil_button : OptionButton = null
 @export var turn_count_button : OptionButton = null
 @export var target_button : OptionButton = null
@@ -44,11 +42,9 @@ func _init_spell_stuff() -> void:
 	for spell : Spell in outer_spells.get_children():
 		outer_spells.spells.append(spell)
 		spell.spell_selected.connect(_on_spell_selected)
-		spell.debug_spell_hovered.connect(_debug_on_spell_hovered) # debug
 	for spell : Spell in inner_spells.get_children():
 		inner_spells.spells.append(spell)
 		spell.spell_selected.connect(_on_spell_selected)
-		spell.debug_spell_hovered.connect(_debug_on_spell_hovered) # debug
 
 
 func _assign_initial_spell_connections() -> void:
@@ -90,8 +86,6 @@ func _add_spell() -> void:
 	var spell : Spell = SPELL_SCENE.instantiate() as Spell
 	spell.spell_selected.connect(_on_spell_selected)
 	current_ring.spells.append(spell)
-
-	spell.debug_spell_hovered.connect(_debug_on_spell_hovered)
 
 	current_ring.add_child(spell)
 
@@ -233,35 +227,6 @@ func _on_target_button_item_selected(index : int) -> void:
 
 	selected_spell.spell_target = Spell.SpellTarget.find_key(index)
 	selected_spell.target_id = target_button.get_item_id(index)
-
-
-func _debug_on_spell_hovered(spell : Spell) -> void:
-	if debug_spell_hovered_label == null:
-		push_error("HEY DEBUG SPELL INFO LABEL IS NULL")
-		return
-
-	debug_spell_hovered_label.text = """
-Current: %s (%d, %d)
-Previous: %s (%d, %d)
-Then: %s (%d, %d)
-Else: %s (%d, %d)
-	""" % [
-		spell.name if spell != null else &"NULL",
-		spell.global_position.x if spell != null else 67.67,
-		spell.global_position.y if spell != null else 67.67,
-
-		spell.previous_spell.name if spell.previous_spell != null else &"NULL",
-		spell.previous_spell.global_position.x if spell.previous_spell != null else 67.67,
-		spell.previous_spell.global_position.y if spell.previous_spell != null else 67.67,
-
-		spell.then_spell.name if spell.then_spell != null else &"NULL",
-		spell.then_spell.global_position.x if spell.then_spell != null else 67.67,
-		spell.then_spell.global_position.y if spell.then_spell != null else 67.67,
-
-		spell.else_spell.name if spell.frame.type == Frame.Type.DECISION else &"NULL",
-		spell.else_spell.global_position.x if spell.else_spell != null else 67.67,
-		spell.else_spell.global_position.y if spell.else_spell != null else 67.67
-	]
 
 
 func _on_add_inner_ring_button_pressed() -> void:

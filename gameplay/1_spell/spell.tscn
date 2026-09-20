@@ -67,13 +67,3 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 offset_transform_enabled = true
-
-[node name="DebugSpellName" type="Label" parent="." unique_id=1910295050]
-layout_mode = 0
-offset_left = -32.0
-offset_top = 32.0
-offset_right = 32.0
-offset_bottom = 55.0
-text = "Spell"
-horizontal_alignment = 1
-vertical_alignment = 1
