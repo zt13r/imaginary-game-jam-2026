@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://do33dwe5lth1"]
+
+[ext_resource type="Texture2D" uid="uid://ct7w8ax23mc5h" path="res://assets/art/1_sigils/button_background/background.png" id="1_74fga"]
+[ext_resource type="Script" uid="uid://crkyrtardocv6" path="res://gameplay/3_sigil/button/sigil_button.gd" id="2_67h43"]
+[ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="2_74fga"]
+
+[node name="SigilButton" type="TextureButton" unique_id=1000219137]
+self_modulate = Color(0.12532622, 0.12532622, 0.12532622, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_74fga")
+script = ExtResource("2_67h43")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1839873554]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_74fga")
+stretch_mode = 2

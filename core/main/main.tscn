@@ -46,15 +46,12 @@ text = "Rulebook"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MagicGlyph" parent="Game" unique_id=1773691080 node_paths=PackedStringArray("sigil_button", "turn_count_button", "target_button") instance=ExtResource("2_6vymn")]
+[node name="MagicGlyph" parent="Game" unique_id=1773691080 instance=ExtResource("2_6vymn")]
 layout_mode = 0
 offset_left = 825.0
 offset_top = 312.0
 offset_right = 825.0
 offset_bottom = 312.0
-sigil_button = NodePath("../../HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/Sigil/SigilButton")
-turn_count_button = NodePath("../../HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/TurnCount/TurnCountButton")
-target_button = NodePath("../../HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/Target/TargetButton")
 
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1002820559]
 process_mode = 1
@@ -78,7 +75,7 @@ offset_right = 856.0
 offset_bottom = 703.0
 text = "Cast"
 
-[node name="SpellCustomizer" type="PanelContainer" parent="HudLayer/HudRoot" unique_id=1073032822]
+[node name="SpellEditor" type="PanelContainer" parent="HudLayer/HudRoot" unique_id=1073032822]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -86,131 +83,77 @@ anchor_bottom = 1.0
 offset_left = 16.0
 offset_top = -352.0
 offset_right = 368.0
-offset_bottom = -16.0
+offset_bottom = -96.0
 grow_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/SpellCustomizer" unique_id=231075285]
+[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/SpellEditor" unique_id=231075285]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Contents" type="VBoxContainer" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer" unique_id=1937768666]
+[node name="Contents" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer" unique_id=1937768666]
 layout_mode = 2
 
-[node name="BigHeader" type="Label" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents" unique_id=1211973652]
+[node name="BigHeader" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Contents" unique_id=1211973652]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Edit Spell"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ActualSpellCustomizer" type="HBoxContainer" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents" unique_id=1393803556]
+[node name="ActualSpellEditor" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Contents" unique_id=1242227934]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 32
+size_flags_vertical = 3
 
-[node name="Sigil" type="VBoxContainer" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer" unique_id=500304651]
+[node name="Sigils" type="ScrollContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Contents/ActualSpellEditor" unique_id=1090399521]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_vertical = 3
 
-[node name="SigilLabel" type="Label" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/Sigil" unique_id=1203471711]
+[node name="SigilContainer" type="GridContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Contents/ActualSpellEditor/Sigils" unique_id=414948429]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
-text = "Sigil"
+size_flags_horizontal = 6
+columns = 5
 
-[node name="SigilButton" type="OptionButton" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/Sigil" unique_id=559128397]
-layout_mode = 2
-focus_mode = 0
-allow_reselect = true
-
-[node name="TurnCount" type="VBoxContainer" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer" unique_id=2112073582]
-layout_mode = 2
-
-[node name="TurnCountLabel" type="Label" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/TurnCount" unique_id=2035981110]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Turn Count"
-
-[node name="TurnCountButton" type="OptionButton" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/TurnCount" unique_id=2015310121]
-layout_mode = 2
-
-[node name="Target" type="VBoxContainer" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer" unique_id=487674586]
-layout_mode = 2
-
-[node name="TargetLabel" type="Label" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/Target" unique_id=912756335]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Target"
-
-[node name="TargetButton" type="OptionButton" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/Target" unique_id=1753254319]
-layout_mode = 2
-
-[node name="AddDeleteSpell" type="HBoxContainer" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents" unique_id=1674901993]
-layout_mode = 2
+[node name="AddDeleteSpell" type="HBoxContainer" parent="HudLayer/HudRoot" unique_id=1674901993]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 638.0
+offset_right = 318.0
+offset_bottom = 669.0
 size_flags_horizontal = 4
 size_flags_vertical = 10
 
-[node name="AddSpellButton" type="Button" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/AddDeleteSpell" unique_id=1475347289]
+[node name="AddSpellButton" type="Button" parent="HudLayer/HudRoot/AddDeleteSpell" unique_id=1475347289]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Add Spell"
 
-[node name="DeleteSelectedSpellButton" type="Button" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/AddDeleteSpell" unique_id=544102181]
+[node name="DeleteSelectedSpellButton" type="Button" parent="HudLayer/HudRoot/AddDeleteSpell" unique_id=544102181]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Delete Selected Spell"
 
-[node name="AddDeleteInnerRing" type="HBoxContainer" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents" unique_id=43643327]
-layout_mode = 2
+[node name="AddDeleteInnerRing" type="HBoxContainer" parent="HudLayer/HudRoot" unique_id=43643327]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 673.0
+offset_right = 326.0
+offset_bottom = 704.0
 size_flags_horizontal = 4
 
-[node name="AddInnerRingButton" type="Button" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/AddDeleteInnerRing" unique_id=1946417644]
+[node name="AddInnerRingButton" type="Button" parent="HudLayer/HudRoot/AddDeleteInnerRing" unique_id=1946417644]
 layout_mode = 2
 text = "Add Inner Ring"
 
-[node name="DeleteInnerRingButton" type="Button" parent="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/AddDeleteInnerRing" unique_id=260670044]
+[node name="DeleteInnerRingButton" type="Button" parent="HudLayer/HudRoot/AddDeleteInnerRing" unique_id=260670044]
 layout_mode = 2
 text = "Delete Inner Ring"
 
-[node name="DebugLayer" type="CanvasLayer" parent="." unique_id=1308931346]
-
-[node name="DebugRoot" type="Control" parent="DebugLayer" unique_id=339630372]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_lock_ = true
-
-[node name="HoveredSpellInfo" type="Label" parent="DebugLayer/DebugRoot" unique_id=2020431104]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -56.0
-offset_top = -39.0
-offset_right = -16.0
-offset_bottom = -16.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Current: Spell#
-Previous: Spell#
-Then: Spell#
-Else: Spell#"
-horizontal_alignment = 2
-vertical_alignment = 2
-
 [connection signal="pressed" from="HudLayer/HudRoot/CastButton" to="Game/MagicGlyph" method="_on_cast_button_pressed"]
-[connection signal="item_selected" from="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/Sigil/SigilButton" to="Game/MagicGlyph" method="_on_sigil_button_item_selected"]
-[connection signal="item_selected" from="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/TurnCount/TurnCountButton" to="Game/MagicGlyph" method="_on_turn_count_button_item_selected"]
-[connection signal="item_selected" from="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/ActualSpellCustomizer/Target/TargetButton" to="Game/MagicGlyph" method="_on_target_button_item_selected"]
-[connection signal="pressed" from="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/AddDeleteSpell/AddSpellButton" to="Game/MagicGlyph" method="_on_add_spell_button_pressed"]
-[connection signal="pressed" from="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/AddDeleteSpell/DeleteSelectedSpellButton" to="Game/MagicGlyph" method="_on_delete_selected_spell_button_pressed"]
-[connection signal="pressed" from="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/AddDeleteInnerRing/AddInnerRingButton" to="Game/MagicGlyph" method="_on_add_inner_ring_button_pressed"]
-[connection signal="pressed" from="HudLayer/HudRoot/SpellCustomizer/MarginContainer/Contents/AddDeleteInnerRing/DeleteInnerRingButton" to="Game/MagicGlyph" method="_on_delete_inner_ring_button_pressed"]
+[connection signal="pressed" from="HudLayer/HudRoot/AddDeleteSpell/AddSpellButton" to="Game/MagicGlyph" method="_on_add_spell_button_pressed"]
+[connection signal="pressed" from="HudLayer/HudRoot/AddDeleteSpell/DeleteSelectedSpellButton" to="Game/MagicGlyph" method="_on_delete_selected_spell_button_pressed"]
+[connection signal="pressed" from="HudLayer/HudRoot/AddDeleteInnerRing/AddInnerRingButton" to="Game/MagicGlyph" method="_on_add_inner_ring_button_pressed"]
+[connection signal="pressed" from="HudLayer/HudRoot/AddDeleteInnerRing/DeleteInnerRingButton" to="Game/MagicGlyph" method="_on_delete_inner_ring_button_pressed"]

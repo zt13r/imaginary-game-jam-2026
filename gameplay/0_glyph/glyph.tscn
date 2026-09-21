@@ -22,13 +22,14 @@ mouse_filter = 2
 script = ExtResource("2_eq0x3")
 outer_ring = NodePath("../OuterSpells")
 inner_ring = NodePath("../InnerSpells")
+line_width = 8.0
 
 [node name="OuterSpells" type="Container" parent="." unique_id=1601305977]
 unique_name_in_owner = true
 layout_mode = 1
 script = ExtResource("2_vgo1i")
 min_spell_count = 4
-radius = 192.0
+radius = 224.0
 metadata/_custom_type_script = "uid://cnk411b1ildly"
 
 [node name="Spell" parent="OuterSpells" unique_id=1914145428 instance=ExtResource("3_61afr")]
@@ -48,5 +49,5 @@ unique_name_in_owner = true
 layout_mode = 1
 script = ExtResource("2_vgo1i")
 max_spell_count = 4
-radius = 64.0
+radius = 96.0
 metadata/_custom_type_script = "uid://cnk411b1ildly"

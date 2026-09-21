@@ -9,11 +9,6 @@ const SIGIL_RESOURCES : Array[Sigil] = [
 ]
 
 
-@export var sigil_button : OptionButton = null
-@export var turn_count_button : OptionButton = null
-@export var target_button : OptionButton = null
-
-
 var current_ring : RingContainer = null :
 	get:
 		if not current_ring:
@@ -31,9 +26,6 @@ var selected_spell : Spell = null
 func _ready() -> void:
 	_init_spell_stuff()
 	_assign_initial_spell_connections()
-	_populate_sigil_button()
-	_populate_turn_count_button()
-	_populate_target_button()
 	connections.redraw()
 
 
@@ -53,25 +45,6 @@ func _assign_initial_spell_connections() -> void:
 		spell.get_previous_spell_then_spell(outer_spells.spells)
 	for spell : Spell in inner_spells.spells:
 		spell.get_previous_spell_then_spell(inner_spells.spells)
-
-
-func _populate_sigil_button() -> void:
-	for i in range(SIGIL_RESOURCES.size()):
-		var sigil : Sigil = SIGIL_RESOURCES[i]
-		sigil_button.add_item(sigil.name)
-		sigil_button.set_item_metadata(i, sigil)
-
-
-func _populate_turn_count_button() -> void:
-	for i in range(Spell.MIN_TURN_COUNT, Spell.MAX_TURN_COUNT + 1):
-		turn_count_button.add_item(str(i), i)
-
-
-func _populate_target_button() -> void:
-	for i in range(Spell.SpellTarget.size()):
-		target_button.add_item(
-			str(Spell.SpellTarget.find_key(i))
-		)
 
 
 func _add_spell() -> void:
@@ -145,17 +118,6 @@ func _on_spell_selected(spell : Spell) -> void:
 
 	selected_spell = spell
 
-	# Update SpellCustomizer UI buttons
-	sigil_button.select(
-		sigil_button.get_item_index(selected_spell.sigil_id)
-	)
-	turn_count_button.select(
-		turn_count_button.get_item_index(selected_spell.turn_count_id)
-	)
-	target_button.select(
-		target_button.get_item_index(selected_spell.target_id)
-	)
-
 	# Debug, color selected spell
 	selected_spell.modulate = Color.GOLD
 
@@ -194,39 +156,6 @@ func _on_cast_button_pressed() -> void:
 		spell.modulate = Color.WHITE
 
 	outer_spells.spells.front().cast()
-
-
-func _on_sigil_button_item_selected(index : int) -> void:
-	# Temporary error,
-	# should be moved to UI display
-	if selected_spell == null:
-		push_error("No spell selected, can't edit spell.")
-		return
-
-	selected_spell.sigil = sigil_button.get_item_metadata(index)
-	selected_spell.sigil_id = sigil_button.get_item_id(index)
-
-
-func _on_turn_count_button_item_selected(index : int) -> void:
-	# Temporary error,
-	# should be moved to UI display
-	if selected_spell == null:
-		push_error("No spell selected, can't edit spell.")
-		return
-
-	selected_spell.turn_count_id = turn_count_button.get_item_id(index)
-	selected_spell.turn_count = selected_spell.turn_count_id
-
-
-func _on_target_button_item_selected(index : int) -> void:
-	# Temporary error,
-	# should be moved to UI display
-	if selected_spell == null:
-		push_error("No spell selected, can't edit spell.")
-		return
-
-	selected_spell.spell_target = index as Spell.SpellTarget
-	selected_spell.target_id = target_button.get_item_id(index)
 
 
 func _on_add_inner_ring_button_pressed() -> void:

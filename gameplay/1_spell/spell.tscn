@@ -23,6 +23,7 @@ offset_left = -28.0
 offset_top = -28.0
 offset_right = 28.0
 offset_bottom = 28.0
+offset_transform_scale = Vector2(1.75, 1.75)
 texture = ExtResource("3_n6ucn")
 
 [node name="FrameSprite" type="TextureRect" parent="." unique_id=100125774]
@@ -32,6 +33,7 @@ offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0
 offset_bottom = 32.0
+offset_transform_scale = Vector2(1.75, 1.75)
 texture = ExtResource("4_wodfq")
 
 [node name="Contents" type="VBoxContainer" parent="." unique_id=1994695319]
@@ -49,15 +51,18 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 size_flags_stretch_ratio = 1.5
+offset_transform_scale = Vector2(1.25, 1.25)
 
 [node name="SigilSprite" type="TextureRect" parent="Contents" unique_id=937374395]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+offset_transform_scale = Vector2(1.25, 1.25)
 
 [node name="TargetSprite" type="TextureRect" parent="Contents" unique_id=1503966234]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+offset_transform_scale = Vector2(1.25, 1.25)
