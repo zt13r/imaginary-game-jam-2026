@@ -1,11 +1,16 @@
 [gd_resource type="Resource" script_class="Sigil" format=3 uid="uid://dgmnu4kavulx2"]
 
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_b67kb"]
 [ext_resource type="Script" uid="uid://3yp8s4u1e65d" path="res://gameplay/3_sigil/sigil.gd" id="1_getc2"]
 [ext_resource type="Texture2D" uid="uid://c1jnvvpobqxs0" path="res://assets/art/1_sigils/earth_sigil.png" id="2_getc2"]
+[ext_resource type="Resource" uid="uid://d1xaej4mixmov" path="res://gameplay/4_effects/resources/earth/1_grounded.tres" id="2_pdgsq"]
+[ext_resource type="Resource" uid="uid://b0fe5yjx22xqd" path="res://gameplay/4_effects/resources/earth/2_rooted.tres" id="3_x0jv2"]
+[ext_resource type="Resource" uid="uid://cl7vmg578dmm0" path="res://gameplay/4_effects/resources/earth/3_buried.tres" id="4_jojft"]
 
 [resource]
 script = ExtResource("1_getc2")
 name = "Earth"
+id = 2
 texture = ExtResource("2_getc2")
-effect = "Grounded"
+effects = Array[ExtResource("1_b67kb")]([ExtResource("2_pdgsq"), ExtResource("3_x0jv2"), ExtResource("4_jojft")])
 metadata/_custom_type_script = "uid://3yp8s4u1e65d"

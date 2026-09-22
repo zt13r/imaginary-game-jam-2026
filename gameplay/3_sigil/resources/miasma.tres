@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Sigil" format=3 uid="uid://c6inqib5eiwpl"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_k7swu"]
+[ext_resource type="Resource" uid="uid://p5j0wyco7uod" path="res://gameplay/4_effects/resources/miasma/1_tainted.tres" id="2_b2e6h"]
+[ext_resource type="Script" uid="uid://3yp8s4u1e65d" path="res://gameplay/3_sigil/sigil.gd" id="2_c3tg8"]
+[ext_resource type="Resource" uid="uid://fvh0ulenh0ek" path="res://gameplay/4_effects/resources/miasma/2_diseased.tres" id="3_5kr7y"]
+[ext_resource type="Texture2D" uid="uid://mr7el1k5hq5r" path="res://assets/art/1_sigils/miasma_sigil.png" id="3_k7swu"]
+[ext_resource type="Resource" uid="uid://b510dwpchdb5m" path="res://gameplay/4_effects/resources/miasma/3_withered.tres" id="4_ad4p0"]
+
+[resource]
+script = ExtResource("2_c3tg8")
+name = "Miasma"
+id = 5
+texture = ExtResource("3_k7swu")
+effects = Array[ExtResource("1_k7swu")]([ExtResource("2_b2e6h"), ExtResource("3_5kr7y"), ExtResource("4_ad4p0")])
+metadata/_custom_type_script = "uid://3yp8s4u1e65d"

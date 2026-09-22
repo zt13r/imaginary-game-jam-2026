@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://cyekycqu1svh3"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_s647a"]
+
+[resource]
+script = ExtResource("1_s647a")
+name = "Suspended"
+level = 3
+metadata/_custom_type_script = "uid://bfgjgbme5si06"

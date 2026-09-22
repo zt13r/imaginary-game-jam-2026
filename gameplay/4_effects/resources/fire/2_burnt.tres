@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://dfa40x2a41e6f"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_eul6v"]
+
+[resource]
+script = ExtResource("1_eul6v")
+name = "Burnt"
+level = 2
+metadata/_custom_type_script = "uid://bfgjgbme5si06"

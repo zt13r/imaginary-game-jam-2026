@@ -3,9 +3,13 @@
 [ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_1erph"]
 [ext_resource type="Script" uid="uid://3yp8s4u1e65d" path="res://gameplay/3_sigil/sigil.gd" id="1_sq1bd"]
 [ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="2_13quy"]
+[ext_resource type="Resource" uid="uid://cwjtiej55dnvq" path="res://gameplay/4_effects/resources/fire/1_warm.tres" id="2_dhckv"]
+[ext_resource type="Resource" uid="uid://dfa40x2a41e6f" path="res://gameplay/4_effects/resources/fire/2_burnt.tres" id="3_4flmo"]
+[ext_resource type="Resource" uid="uid://drtgachdk03il" path="res://gameplay/4_effects/resources/fire/3_scorched.tres" id="4_4flmo"]
 
 [resource]
 script = ExtResource("1_sq1bd")
 name = "Fire"
 texture = ExtResource("2_13quy")
+effects = Array[ExtResource("1_1erph")]([ExtResource("2_dhckv"), ExtResource("3_4flmo"), ExtResource("4_4flmo")])
 metadata/_custom_type_script = "uid://3yp8s4u1e65d"

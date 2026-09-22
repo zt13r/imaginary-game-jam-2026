@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Sigil" format=3 uid="uid://dqct5kwpciyv8"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_j4eio"]
+[ext_resource type="Script" uid="uid://3yp8s4u1e65d" path="res://gameplay/3_sigil/sigil.gd" id="2_7dhvf"]
+[ext_resource type="Resource" uid="uid://bd2ebk50oaotb" path="res://gameplay/4_effects/resources/aether/1_awakened.tres" id="2_s6qql"]
+[ext_resource type="Resource" uid="uid://cfcy38lsq8eu0" path="res://gameplay/4_effects/resources/aether/2_revitalized.tres" id="3_een1h"]
+[ext_resource type="Texture2D" uid="uid://ddwyfyk8do6ip" path="res://assets/art/1_sigils/aether_sigil.png" id="3_j4eio"]
+[ext_resource type="Resource" uid="uid://vnavrhbwefhv" path="res://gameplay/4_effects/resources/aether/3_restored.tres" id="4_np4p8"]
+
+[resource]
+script = ExtResource("2_7dhvf")
+name = "Aether"
+id = 4
+texture = ExtResource("3_j4eio")
+effects = Array[ExtResource("1_j4eio")]([ExtResource("2_s6qql"), ExtResource("3_een1h"), ExtResource("4_np4p8")])
+metadata/_custom_type_script = "uid://3yp8s4u1e65d"
