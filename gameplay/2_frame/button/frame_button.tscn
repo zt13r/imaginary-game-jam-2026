@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b6rh1vntwsoyt"]
+
+[ext_resource type="Script" uid="uid://cmfhhrtcdamv1" path="res://gameplay/2_frame/button/frame_button.gd" id="1_sjq1q"]
+[ext_resource type="Texture2D" uid="uid://ct7w8ax23mc5h" path="res://assets/art/1_sigils/button_background/background_normal.png" id="1_ynciq"]
+[ext_resource type="Texture2D" uid="uid://84ci3mmiebyv" path="res://assets/art/1_sigils/button_background/background_pressed.png" id="2_dhrsi"]
+[ext_resource type="Texture2D" uid="uid://bp80w1ugi4cu" path="res://assets/art/1_sigils/button_background/background_hover.png" id="3_4y13c"]
+[ext_resource type="Texture2D" uid="uid://bl8usikvqxi66" path="res://assets/art/0_frames/execution.png" id="3_22ie5"]
+
+[node name="FrameButton" type="TextureButton" unique_id=262141997]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_4y13c")
+texture_pressed = ExtResource("1_ynciq")
+texture_hover = ExtResource("2_dhrsi")
+script = ExtResource("1_sjq1q")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1261063566]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_22ie5")
+expand_mode = 1

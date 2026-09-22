@@ -26,6 +26,10 @@ var selected_spell : Spell = null
 func _ready() -> void:
 	_init_spell_stuff()
 	_assign_initial_spell_connections()
+
+	var first_spell : Spell = current_ring.spells.front()
+	first_spell.spell_selected.emit(first_spell)
+
 	connections.redraw()
 
 

@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://db30is57gr86s" path="res://gameplay/0_glyph/glyph.tscn" id="2_6vymn"]
 [ext_resource type="PackedScene" uid="uid://bw21r5pdybmuu" path="res://gameplay/0_glyph/target/target_self.tscn" id="3_vwfi5"]
 [ext_resource type="PackedScene" uid="uid://dgkdfi68avc88" path="res://gameplay/0_glyph/target/target_other.tscn" id="4_yibi5"]
+[ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="5_k5wvu"]
+[ext_resource type="Texture2D" uid="uid://bl8usikvqxi66" path="res://assets/art/0_frames/execution.png" id="6_81xgm"]
 
 [node name="Main" type="Node" unique_id=684111938]
 process_mode = 3
@@ -27,24 +29,6 @@ layout_mode = 1
 [node name="TargetSelf" parent="Game" unique_id=350207515 instance=ExtResource("3_vwfi5")]
 unique_name_in_owner = true
 layout_mode = 1
-
-[node name="RulebookPlaceholder" type="ColorRect" parent="Game" unique_id=1255787517]
-layout_mode = 1
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 368.0
-offset_bottom = 352.0
-color = Color(0.627451, 0.1254902, 0.9411765, 1)
-
-[node name="RulebookLabel" type="Label" parent="Game/RulebookPlaceholder" unique_id=1358852619]
-layout_mode = 0
-offset_top = 40.0
-offset_right = 352.0
-offset_bottom = 120.0
-theme_override_font_sizes/font_size = 50
-text = "Rulebook"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="MagicGlyph" parent="Game" unique_id=1773691080 instance=ExtResource("2_6vymn")]
 layout_mode = 0
@@ -77,14 +61,10 @@ text = "Cast"
 
 [node name="SpellEditor" type="PanelContainer" parent="HudLayer/HudRoot" unique_id=1073032822]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
 offset_left = 16.0
-offset_top = -352.0
+offset_top = 16.0
 offset_right = 368.0
-offset_bottom = -96.0
-grow_vertical = 0
+offset_bottom = 385.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/SpellEditor" unique_id=231075285]
 layout_mode = 2
@@ -93,29 +73,171 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Contents" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer" unique_id=1937768666]
+[node name="Content" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer" unique_id=1937768666]
 layout_mode = 2
+theme_override_constants/separation = 8
 
-[node name="BigHeader" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Contents" unique_id=1211973652]
+[node name="BigHeader" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content" unique_id=1211973652]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Edit Spell"
+theme_override_font_sizes/font_size = 24
+text = "Click on a spell to edit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ActualSpellEditor" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Contents" unique_id=1242227934]
+[node name="SigilEditor" type="PanelContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content" unique_id=833616251]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/SigilEditor" unique_id=1534074817]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Content" type="HBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/SigilEditor/MarginContainer" unique_id=1952051738]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Sigils" type="ScrollContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Contents/ActualSpellEditor" unique_id=1090399521]
+[node name="ChooseSigil" type="ScrollContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/SigilEditor/MarginContainer/Content" unique_id=1090399521]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SigilContainer" type="GridContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Contents/ActualSpellEditor/Sigils" unique_id=414948429]
+[node name="SigilContainer" type="GridContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/SigilEditor/MarginContainer/Content/ChooseSigil" unique_id=414948429]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 2
+columns = 3
+
+[node name="SigilInfo" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/SigilEditor/MarginContainer/Content" unique_id=1787778593]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SigilTexture" type="TextureRect" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/SigilEditor/MarginContainer/Content/SigilInfo" unique_id=1760130975]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("5_k5wvu")
+stretch_mode = 5
+
+[node name="SigilName" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/SigilEditor/MarginContainer/Content/SigilInfo" unique_id=527489158]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "Sigil Name"
+horizontal_alignment = 1
+
+[node name="SigilEffects" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/SigilEditor/MarginContainer/Content/SigilInfo" unique_id=1520785767]
+layout_mode = 2
+
+[node name="EffectsLabel" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/SigilEditor/MarginContainer/Content/SigilInfo/SigilEffects" unique_id=1611460767]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Effects:"
+
+[node name="EffectsContainer" type="GridContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/SigilEditor/MarginContainer/Content/SigilInfo/SigilEffects" unique_id=1486313139]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
 columns = 5
+
+[node name="FrameEditor" type="PanelContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content" unique_id=973046910]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/FrameEditor" unique_id=2114834587]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Content" type="HBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/FrameEditor/MarginContainer" unique_id=1011629186]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ChooseFrame" type="ScrollContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/FrameEditor/MarginContainer/Content" unique_id=466270358]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FrameContainer" type="GridContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/FrameEditor/MarginContainer/Content/ChooseFrame" unique_id=1906356661]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+columns = 3
+
+[node name="FrameInfo" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/FrameEditor/MarginContainer/Content" unique_id=1550340746]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FrameTexture" type="TextureRect" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/FrameEditor/MarginContainer/Content/FrameInfo" unique_id=1003074781]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("6_81xgm")
+stretch_mode = 5
+
+[node name="FrameName" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/FrameEditor/MarginContainer/Content/FrameInfo" unique_id=1022869068]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "Frame Name"
+horizontal_alignment = 1
+
+[node name="FrameDescription" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/FrameEditor/MarginContainer/Content/FrameInfo" unique_id=1119885908]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Description"
+
+[node name="OtherEditors" type="PanelContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content" unique_id=1280025279]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/OtherEditors" unique_id=1381969706]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Content" type="HBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/OtherEditors/MarginContainer" unique_id=1561417382]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="TurnCountEditor" type="HBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/OtherEditors/MarginContainer/Content" unique_id=1713972861]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/OtherEditors/MarginContainer/Content/TurnCountEditor" unique_id=1805663223]
+layout_mode = 2
+text = "Turn count"
+
+[node name="OptionButton" type="OptionButton" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/OtherEditors/MarginContainer/Content/TurnCountEditor" unique_id=1870237558]
+layout_mode = 2
+
+[node name="SpellTargetEditor" type="HBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/OtherEditors/MarginContainer/Content" unique_id=1533345204]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/OtherEditors/MarginContainer/Content/SpellTargetEditor" unique_id=87714711]
+layout_mode = 2
+text = "Spell target"
+
+[node name="OptionButton" type="OptionButton" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/Content/OtherEditors/MarginContainer/Content/SpellTargetEditor" unique_id=1525873706]
+layout_mode = 2
 
 [node name="AddDeleteSpell" type="HBoxContainer" parent="HudLayer/HudRoot" unique_id=1674901993]
 layout_mode = 0
