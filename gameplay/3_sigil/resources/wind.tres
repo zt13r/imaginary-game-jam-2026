@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Sigil" format=3 uid="uid://cf8vdy41wb0lk"]
+
+[ext_resource type="Script" uid="uid://3yp8s4u1e65d" path="res://gameplay/3_sigil/sigil.gd" id="1_bqjmt"]
+[ext_resource type="Texture2D" uid="uid://05ekdtum322c" path="res://assets/art/1_sigils/wind_sigil.png" id="2_bqjmt"]
+
+[resource]
+script = ExtResource("1_bqjmt")
+name = "Wind"
+texture = ExtResource("2_bqjmt")
+effect = "Airborne"
+metadata/_custom_type_script = "uid://3yp8s4u1e65d"

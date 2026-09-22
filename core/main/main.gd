@@ -7,6 +7,9 @@ const FRAME_BUTTON_SCENE : PackedScene = preload("uid://b6rh1vntwsoyt")
 
 const SIGILS : Array[Sigil] = [
 	preload("uid://0k4l5lbx5apa"), # fire
+	preload("uid://dgmnu4kavulx2"), # earth
+	preload("uid://hjn3masc2j5q"), # water
+	preload("uid://cf8vdy41wb0lk"), # wind
 ]
 
 const FRAMES : Array[Frame] = [

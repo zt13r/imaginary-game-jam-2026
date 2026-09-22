@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp80w1ugi4cu"
-path="res://.godot/imported/background_hover.png-c7f5e45194bc509e44cf0839a8e24cab.ctex"
+uid="uid://c1jnvvpobqxs0"
+path="res://.godot/imported/earth_sigil.png-ffdf2719934314543978c3a5269ffd12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/1_sigils/button_background/background_hover.png"
-dest_files=["res://.godot/imported/background_hover.png-c7f5e45194bc509e44cf0839a8e24cab.ctex"]
+source_file="res://assets/art/1_sigils/earth_sigil.png"
+dest_files=["res://.godot/imported/earth_sigil.png-ffdf2719934314543978c3a5269ffd12.ctex"]
 
 [params]
 
