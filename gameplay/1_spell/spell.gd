@@ -5,20 +5,9 @@ extends Control
 signal spell_selected(spell : Spell)
 
 
-enum SpellTarget {
-	SELF,
-	OTHER,
-	BOTH
-}
-
-
 const TURN_COUNT_ONE_TEXTURE : Texture2D = preload("uid://do8d61ow3jgkm")
 const TURN_COUNT_TWO_TEXTURE : Texture2D = preload("uid://dywnlikybtil2")
 const TURN_COUNT_THREE_TEXTURE : Texture2D = preload("uid://ks3r2ajv4v8m")
-
-const TARGET_SELF_TEXTURE : Texture2D = preload("uid://dntcwmh02abrb")
-const TARGET_OTHER_TEXTURE : Texture2D = preload("uid://dk8drv6sufrat")
-const TARGET_BOTH_TEXTURE : Texture2D = preload("uid://bq0bm3wlquege")
 
 const MIN_TURN_COUNT : int = 1
 const MAX_TURN_COUNT : int = 3
@@ -62,14 +51,6 @@ const MAX_TURN_COUNT : int = 3
 			2 : turn_count_sprite.texture = TURN_COUNT_TWO_TEXTURE
 			3 : turn_count_sprite.texture = TURN_COUNT_THREE_TEXTURE
 			_ : push_error("Turn count is out of bounds.")
-@export var spell_target : SpellTarget = SpellTarget.OTHER :
-	set(value):
-		spell_target = value
-		match spell_target:
-			SpellTarget.SELF : target_sprite.texture = TARGET_SELF_TEXTURE
-			SpellTarget.OTHER : target_sprite.texture = TARGET_OTHER_TEXTURE
-			SpellTarget.BOTH : target_sprite.texture = TARGET_BOTH_TEXTURE
-			_ : push_error("SpellTarget value is out of bounds.")
 
 
 var previous_spell : Spell = null
@@ -82,7 +63,6 @@ var next_spell : Spell = null
 @onready var sigil_sprite : TextureRect = %SigilSprite
 
 @onready var turn_count_sprite : TextureRect = %TurnCountSprite
-@onready var target_sprite : TextureRect = %TargetSprite
 
 
 func _ready() -> void:
@@ -135,20 +115,7 @@ func _execute_spell() -> void:
 
 	var effect : String = sigil.effect
 
-	var target : Array[Target] = []
-	if spell_target == SpellTarget.SELF:
-		target = [Game.target_self]
-	elif spell_target == SpellTarget.OTHER:
-		target = [Game.target_other]
-	elif spell_target == SpellTarget.BOTH:
-		target = [Game.target_self, Game.target_other]
-
-	if target.is_empty():
-		push_error("Can't cast spell, no target(s) found.")
-		return
-
-	for t in target:
-		if not t.has_effect(effect):
-			t.add_effect(effect, turn_count)
+	if not Game.target.has_effect(effect):
+		Game.target.add_effect(effect, turn_count)
 
 	next_spell = then_spell

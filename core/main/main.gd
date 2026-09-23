@@ -17,22 +17,51 @@ const SIGILS : Array[Sigil] = [
 static var seconds_turn_increment : float = 1.0
 
 
-@onready var target_self : Target = %TargetSelf
-@onready var target_other : Target = %TargetOther
+@onready var target : Target = %Target
+@onready var magic_glyph : MagicGlyph = %MagicGlyph
 
 @onready var sigil_container : GridContainer = %SigilContainer
+@onready var sigil_texture : TextureRect = %SigilTexture
+@onready var sigil_name : Label = %SigilName
+
+@onready var turn_count_menu : OptionButton = %TurnCountMenu
 
 
 func _ready() -> void:
-	_populate_spell_editor()
+	_populate_sigil_editor()
 
-	Game.target_self = target_self
-	Game.target_other = target_other
+	Game.target = target
 
 
-func _populate_spell_editor() -> void:
-	# Sigil editor
+func _populate_sigil_editor() -> void:
 	for sigil : Sigil in SIGILS:
 		var button : SigilButton = SIGIL_BUTTON_SCENE.instantiate()
-		button.texture = sigil.texture
+		button.sigil = sigil
 		sigil_container.add_child(button)
+
+		if magic_glyph != null:
+			button.pressed.connect(
+				magic_glyph._on_sigil_selected.bind(button.sigil)
+			)
+
+		button.pressed.connect(
+			_update_sigil_info.bind(button.sigil)
+		)
+
+	if magic_glyph != null:
+		magic_glyph.spell_selected.connect(
+			_update_spell_info
+		)
+
+	# Turn count
+	for i in range(3):
+		turn_count_menu.add_item(str(i + 1))
+
+
+func _update_spell_info(spell : Spell) -> void:
+	_update_sigil_info(spell.sigil)
+
+
+func _update_sigil_info(sigil : Sigil) -> void:
+	sigil_texture.texture = sigil.texture
+	sigil_name.text = sigil.name

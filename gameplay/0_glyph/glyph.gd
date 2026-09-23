@@ -2,11 +2,17 @@ class_name MagicGlyph
 extends Control
 
 
+signal spell_selected(spell : Spell)
+
+
 const SPELL_SCENE : PackedScene = preload("uid://bn0pur841hkr6")
 
 const SIGIL_RESOURCES : Array[Sigil] = [
 	preload("uid://0k4l5lbx5apa"), # Fire
 ]
+
+
+@export var turn_count_menu : OptionButton = null
 
 
 var current_ring : RingContainer = null :
@@ -108,10 +114,14 @@ func _delete_selected_spell() -> void:
 
 
 func _on_spell_selected(spell : Spell) -> void:
-	# Debug, reset color of selected spell
-	if selected_spell != spell and selected_spell != null:
-		selected_spell.then_spell.modulate = Color.WHITE
-		selected_spell.modulate = Color.WHITE
+	if selected_spell != null:
+		if selected_spell != spell:
+			# Debug, reset color of selected spell
+			selected_spell.then_spell.modulate = Color.WHITE
+			selected_spell.modulate = Color.WHITE
+
+			if spell.sigil != null:
+				spell_selected.emit(spell)
 
 	if spell.get_parent() is RingContainer:
 		current_ring = spell.get_parent()
@@ -157,15 +167,25 @@ func _on_cast_button_pressed() -> void:
 	outer_spells.spells.front().cast()
 
 
-func _on_add_inner_ring_button_pressed() -> void:
-	if current_ring != inner_spells:
-		current_ring = inner_spells
+func _on_sigil_selected(sigil : Sigil) -> void:
+	# Temporary error,
+	# should be moved to UI display
+	if selected_spell == null:
+		push_error("No spell selected, can't edit sigil.")
+		return
 
-	_add_spell()
+	selected_spell.sigil = sigil
 
 
-func _on_delete_inner_ring_button_pressed() -> void:
-	for spell : Spell in inner_spells.spells:
-		inner_spells.spells.erase(spell)
-		spell.queue_free()
-	connections.redraw()
+func _on_turn_count_menu_item_selected(index : int) -> void:
+	# Temporary errors,
+	# should be moved to UI display
+	if selected_spell == null:
+		push_error("No spell selected, can't edit turn count.")
+		return
+	if turn_count_menu == null:
+		push_error("No turn count menu reference, can't edit turn count.")
+		return
+
+	selected_spell.turn_count = turn_count_menu.get_item_id(index) + 1
+	print(selected_spell.turn_count)
