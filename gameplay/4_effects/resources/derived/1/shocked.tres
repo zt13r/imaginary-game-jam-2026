@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://bvmrplusf00ka"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_ms4jd"]
+
+[resource]
+script = ExtResource("1_ms4jd")
+name = "Shocked"
+metadata/_custom_type_script = "uid://bfgjgbme5si06"

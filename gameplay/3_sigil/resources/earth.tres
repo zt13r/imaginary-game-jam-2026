@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Sigil" format=3 uid="uid://dgmnu4kavulx2"]
 
+[ext_resource type="Resource" uid="uid://bta2jv2vjxu55" path="res://gameplay/4_effects/resources/base/grounded.tres" id="1_5e75w"]
 [ext_resource type="Script" uid="uid://3yp8s4u1e65d" path="res://gameplay/3_sigil/sigil.gd" id="1_getc2"]
 [ext_resource type="Texture2D" uid="uid://c1jnvvpobqxs0" path="res://assets/art/1_sigils/earth_sigil.png" id="2_getc2"]
 
@@ -7,4 +8,5 @@
 script = ExtResource("1_getc2")
 name = "Earth"
 texture = ExtResource("2_getc2")
+base_effect = ExtResource("1_5e75w")
 metadata/_custom_type_script = "uid://3yp8s4u1e65d"

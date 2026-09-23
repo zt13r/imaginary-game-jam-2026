@@ -9,9 +9,6 @@ const TURN_COUNT_ONE_TEXTURE : Texture2D = preload("uid://do8d61ow3jgkm")
 const TURN_COUNT_TWO_TEXTURE : Texture2D = preload("uid://dywnlikybtil2")
 const TURN_COUNT_THREE_TEXTURE : Texture2D = preload("uid://ks3r2ajv4v8m")
 
-const MIN_TURN_COUNT : int = 1
-const MAX_TURN_COUNT : int = 3
-
 
 @export var frame : Frame = null :
 	set(value):
@@ -43,9 +40,9 @@ const MAX_TURN_COUNT : int = 3
 			queue_redraw()
 
 @export_group("Modifiers")
-@export_range(MIN_TURN_COUNT, MAX_TURN_COUNT, 1) var turn_count : int = 1 :
+@export var turn_count : int = -1 :
 	set(value):
-		turn_count = clampi(value, 1, 5)
+		turn_count = min(value, 3)
 		match turn_count:
 			1 : turn_count_sprite.texture = TURN_COUNT_ONE_TEXTURE
 			2 : turn_count_sprite.texture = TURN_COUNT_TWO_TEXTURE
@@ -113,7 +110,7 @@ func _execute_spell() -> void:
 		push_error(name + " ThenSpell is null.")
 		return
 
-	var effect : String = sigil.effect
+	var effect : Effect = sigil.base_effect
 
 	if not Game.target.has_effect(effect):
 		Game.target.add_effect(effect, turn_count)

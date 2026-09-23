@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://6o3bnr6ksfhh"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_w7xae"]
+
+[resource]
+script = ExtResource("1_w7xae")
+name = "Corrupted"
+metadata/_custom_type_script = "uid://bfgjgbme5si06"

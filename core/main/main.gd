@@ -60,6 +60,9 @@ func _populate_sigil_editor() -> void:
 
 func _update_spell_info(spell : Spell) -> void:
 	_update_sigil_info(spell.sigil)
+	turn_count_menu.selected = spell.turn_count - 1
+	print(turn_count_menu.selected)
+	print(spell.turn_count)
 
 
 func _update_sigil_info(sigil : Sigil) -> void:

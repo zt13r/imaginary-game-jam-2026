@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="Sigil" format=3 uid="uid://hjn3masc2j5q"]
 
 [ext_resource type="Script" uid="uid://3yp8s4u1e65d" path="res://gameplay/3_sigil/sigil.gd" id="1_gq1gy"]
+[ext_resource type="Resource" uid="uid://b2olfrjxdg46x" path="res://gameplay/4_effects/resources/base/soaked.tres" id="1_ta4ln"]
 [ext_resource type="Texture2D" uid="uid://bia6tku2yqlls" path="res://assets/art/1_sigils/water_sigil.png" id="2_gq1gy"]
 
 [resource]
 script = ExtResource("1_gq1gy")
 name = "Water"
 texture = ExtResource("2_gq1gy")
+base_effect = ExtResource("1_ta4ln")
 metadata/_custom_type_script = "uid://3yp8s4u1e65d"

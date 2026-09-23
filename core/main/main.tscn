@@ -214,6 +214,7 @@ text = "Turn count"
 [node name="TurnCountMenu" type="OptionButton" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/OtherEditors/MarginContainer/Content/TurnCountEditor" unique_id=1870237558]
 unique_name_in_owner = true
 layout_mode = 2
+allow_reselect = true
 
 [node name="Effects" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer" unique_id=1190070550]
 visible = false

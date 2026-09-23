@@ -176,6 +176,9 @@ func _on_sigil_selected(sigil : Sigil) -> void:
 
 	selected_spell.sigil = sigil
 
+	if selected_spell.turn_count == -1:
+		selected_spell.turn_count = 1
+
 
 func _on_turn_count_menu_item_selected(index : int) -> void:
 	# Temporary errors,
@@ -188,4 +191,3 @@ func _on_turn_count_menu_item_selected(index : int) -> void:
 		return
 
 	selected_spell.turn_count = turn_count_menu.get_item_id(index) + 1
-	print(selected_spell.turn_count)

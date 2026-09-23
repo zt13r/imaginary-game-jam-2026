@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Sigil" format=3 uid="uid://c6inqib5eiwpl"]
 
+[ext_resource type="Resource" uid="uid://b0kc4q0rifv2f" path="res://gameplay/4_effects/resources/base/tainted.tres" id="1_k7swu"]
 [ext_resource type="Script" uid="uid://3yp8s4u1e65d" path="res://gameplay/3_sigil/sigil.gd" id="2_c3tg8"]
 [ext_resource type="Texture2D" uid="uid://mr7el1k5hq5r" path="res://assets/art/1_sigils/miasma_sigil.png" id="3_k7swu"]
 
@@ -7,4 +8,5 @@
 script = ExtResource("2_c3tg8")
 name = "Miasma"
 texture = ExtResource("3_k7swu")
+base_effect = ExtResource("1_k7swu")
 metadata/_custom_type_script = "uid://3yp8s4u1e65d"

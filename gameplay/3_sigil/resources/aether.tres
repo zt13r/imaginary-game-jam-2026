@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Sigil" format=3 uid="uid://dqct5kwpciyv8"]
 
+[ext_resource type="Resource" uid="uid://7lqwmo6a80k5" path="res://gameplay/4_effects/resources/base/awakened.tres" id="1_j4eio"]
 [ext_resource type="Script" uid="uid://3yp8s4u1e65d" path="res://gameplay/3_sigil/sigil.gd" id="2_7dhvf"]
 [ext_resource type="Texture2D" uid="uid://ddwyfyk8do6ip" path="res://assets/art/1_sigils/aether_sigil.png" id="3_j4eio"]
 
@@ -7,4 +8,5 @@
 script = ExtResource("2_7dhvf")
 name = "Aether"
 texture = ExtResource("3_j4eio")
+base_effect = ExtResource("1_j4eio")
 metadata/_custom_type_script = "uid://3yp8s4u1e65d"

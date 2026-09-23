@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Reaction" format=3 uid="uid://4p63ahuyhuc"]
+
+[ext_resource type="Resource" uid="uid://bta2jv2vjxu55" path="res://gameplay/4_effects/resources/base/grounded.tres" id="1_i3dtv"]
+[ext_resource type="Resource" uid="uid://b5th8g3h38hu3" path="res://gameplay/4_effects/resources/base/airborne.tres" id="2_g1iwk"]
+[ext_resource type="Script" uid="uid://dda4k5dlbbpyx" path="res://gameplay/5_reactions/reaction.gd" id="3_3fypi"]
+
+[resource]
+script = ExtResource("3_3fypi")
+effect_a = ExtResource("1_i3dtv")
+effect_b = ExtResource("2_g1iwk")
+metadata/_custom_type_script = "uid://dda4k5dlbbpyx"

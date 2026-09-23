@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Reaction" format=3 uid="uid://c7cs7g2reu5vp"]
+
+[ext_resource type="Resource" uid="uid://b5th8g3h38hu3" path="res://gameplay/4_effects/resources/base/airborne.tres" id="1_2aurr"]
+[ext_resource type="Script" uid="uid://dda4k5dlbbpyx" path="res://gameplay/5_reactions/reaction.gd" id="1_qlibn"]
+[ext_resource type="Resource" uid="uid://7lqwmo6a80k5" path="res://gameplay/4_effects/resources/base/awakened.tres" id="2_2nsxc"]
+[ext_resource type="Resource" uid="uid://cqgldhtbu22mw" path="res://gameplay/4_effects/resources/derived/1/disoriented.tres" id="3_2nsxc"]
+
+[resource]
+script = ExtResource("1_qlibn")
+effect_a = ExtResource("1_2aurr")
+effect_b = ExtResource("2_2nsxc")
+result = ExtResource("3_2nsxc")
+metadata/_custom_type_script = "uid://dda4k5dlbbpyx"

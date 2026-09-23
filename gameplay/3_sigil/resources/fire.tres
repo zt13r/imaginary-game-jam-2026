@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Sigil" format=3 uid="uid://0k4l5lbx5apa"]
 
+[ext_resource type="Resource" uid="uid://lo7eorsbhbjk" path="res://gameplay/4_effects/resources/base/burnt.tres" id="1_1erph"]
 [ext_resource type="Script" uid="uid://3yp8s4u1e65d" path="res://gameplay/3_sigil/sigil.gd" id="1_sq1bd"]
 [ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="2_13quy"]
 
@@ -7,4 +8,5 @@
 script = ExtResource("1_sq1bd")
 name = "Fire"
 texture = ExtResource("2_13quy")
+base_effect = ExtResource("1_1erph")
 metadata/_custom_type_script = "uid://3yp8s4u1e65d"
