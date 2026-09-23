@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://bn0pur841hkr6"]
 
 [ext_resource type="Script" uid="uid://b2aeipqeu7si8" path="res://gameplay/1_spell/spell.gd" id="1_ruybx"]
-[ext_resource type="Texture2D" uid="uid://b5mbml6kvpup2" path="res://assets/art/0_frames/execution_bg.png" id="3_n6ucn"]
-[ext_resource type="Texture2D" uid="uid://bl8usikvqxi66" path="res://assets/art/0_frames/execution.png" id="4_wodfq"]
+[ext_resource type="Texture2D" uid="uid://by1owune1tih6" path="res://assets/art/0_frames/ring_bg_1.png" id="2_53gpb"]
+[ext_resource type="Texture2D" uid="uid://q6liseeshuv7" path="res://assets/art/0_frames/ring_frame_1.png" id="3_guayo"]
+[ext_resource type="Texture2D" uid="uid://ks3r2ajv4v8m" path="res://assets/art/2_modifiers/0_turn_count/three_turns.png" id="4_wodfq"]
+[ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="5_ox52j"]
+[ext_resource type="Texture2D" uid="uid://bq0bm3wlquege" path="res://assets/art/2_modifiers/1_target/target_both.png" id="6_p3x0b"]
 
 [node name="Spell" type="Control" unique_id=1914145428]
 layout_mode = 3
@@ -19,39 +22,39 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 self_modulate = Color(0.22149268, 0.22149268, 0.22149259, 1)
 layout_mode = 0
-offset_left = -28.0
-offset_top = -28.0
-offset_right = 28.0
-offset_bottom = 28.0
-offset_transform_scale = Vector2(1.75, 1.75)
-texture = ExtResource("3_n6ucn")
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 56.0
+texture = ExtResource("2_53gpb")
 
 [node name="FrameSprite" type="TextureRect" parent="." unique_id=100125774]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
-offset_transform_scale = Vector2(1.75, 1.75)
-texture = ExtResource("4_wodfq")
+offset_left = -56.0
+offset_top = -55.999996
+offset_right = 56.0
+offset_bottom = 56.000004
+texture = ExtResource("3_guayo")
 
 [node name="Contents" type="VBoxContainer" parent="." unique_id=1994695319]
 layout_mode = 0
-offset_left = -24.0
-offset_top = -24.0
-offset_right = 24.0
-offset_bottom = 24.0
-theme_override_constants/separation = 0
+offset_left = -48.0
+offset_top = -56.0
+offset_right = 48.0
+offset_bottom = 52.0
+theme_override_constants/separation = -4
 alignment = 1
 
 [node name="TurnCountSprite" type="TextureRect" parent="Contents" unique_id=268765498]
 unique_name_in_owner = true
+custom_maximum_size = Vector2(-1, 8)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 size_flags_stretch_ratio = 1.5
 offset_transform_scale = Vector2(1.25, 1.25)
+texture = ExtResource("4_wodfq")
 
 [node name="SigilSprite" type="TextureRect" parent="Contents" unique_id=937374395]
 unique_name_in_owner = true
@@ -59,10 +62,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 offset_transform_scale = Vector2(1.25, 1.25)
+texture = ExtResource("5_ox52j")
 
 [node name="TargetSprite" type="TextureRect" parent="Contents" unique_id=1503966234]
 unique_name_in_owner = true
+custom_maximum_size = Vector2(-1, 8)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 offset_transform_scale = Vector2(1.25, 1.25)
+texture = ExtResource("6_p3x0b")

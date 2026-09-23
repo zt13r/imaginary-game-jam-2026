@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bw21r5pdybmuu" path="res://gameplay/0_glyph/target/target_self.tscn" id="3_vwfi5"]
 [ext_resource type="PackedScene" uid="uid://dgkdfi68avc88" path="res://gameplay/0_glyph/target/target_other.tscn" id="4_yibi5"]
 [ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="5_k5wvu"]
+[ext_resource type="Texture2D" uid="uid://bl8usikvqxi66" path="res://assets/art/0_frames/execution.png" id="6_81xgm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5alkf"]
 bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
@@ -97,7 +98,7 @@ layout_mode = 1
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 368.0
-offset_bottom = 356.0
+offset_bottom = 385.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5alkf")
 
 [node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/SpellEditor" unique_id=231075285]
@@ -189,6 +190,64 @@ layout_mode = 2
 size_flags_vertical = 3
 columns = 5
 
+[node name="FrameEditor" type="PanelContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=973046910]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_81xgm")
+
+[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/FrameEditor" unique_id=2114834587]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Content" type="HBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/FrameEditor/MarginContainer" unique_id=1011629186]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ChooseFrame" type="ScrollContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/FrameEditor/MarginContainer/Content" unique_id=466270358]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.22
+theme_override_constants/scrollbar_h_separation = 4
+
+[node name="FrameContainer" type="GridContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/FrameEditor/MarginContainer/Content/ChooseFrame" unique_id=1906356661]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+columns = 3
+
+[node name="FrameInfo" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/FrameEditor/MarginContainer/Content" unique_id=1550340746]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FrameTexture" type="TextureRect" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/FrameEditor/MarginContainer/Content/FrameInfo" unique_id=1003074781]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("6_81xgm")
+stretch_mode = 5
+
+[node name="FrameName" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/FrameEditor/MarginContainer/Content/FrameInfo" unique_id=1022869068]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "Frame Name"
+horizontal_alignment = 1
+
+[node name="FrameDescription" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/FrameEditor/MarginContainer/Content/FrameInfo" unique_id=1119885908]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Description"
+horizontal_alignment = 1
+
 [node name="OtherEditors" type="PanelContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=1280025279]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_81xgm")
@@ -205,7 +264,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="TurnCountEditor" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/OtherEditors/MarginContainer/Content" unique_id=757264737]
+[node name="TurnCountEditor" type="HBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/OtherEditors/MarginContainer/Content" unique_id=1713972861]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_constants/separation = 8
@@ -217,7 +276,7 @@ text = "Turn count"
 [node name="OptionButton" type="OptionButton" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/OtherEditors/MarginContainer/Content/TurnCountEditor" unique_id=1870237558]
 layout_mode = 2
 
-[node name="SpellTargetEditor" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/OtherEditors/MarginContainer/Content" unique_id=678227399]
+[node name="SpellTargetEditor" type="HBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/OtherEditors/MarginContainer/Content" unique_id=1533345204]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_constants/separation = 8

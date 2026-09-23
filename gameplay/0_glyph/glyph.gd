@@ -98,8 +98,6 @@ func _delete_selected_spell() -> void:
 		# Think LinkedList node removal:
 		# reconnect neighboring nodes and all that stuff
 		selected_spell.previous_spell.then_spell = selected_spell.then_spell
-		if selected_spell.previous_spell.frame.type == Frame.Type.DECISION:
-			selected_spell.previous_spell.else_spell = null
 		selected_spell.then_spell.previous_spell = selected_spell.previous_spell
 
 		selected_spell.queue_free()
@@ -146,9 +144,6 @@ func _on_cast_button_pressed() -> void:
 			return
 		if spell.then_spell == null:
 			push_error(spell.name, " ThenSpell is null.")
-			return
-		if spell.else_spell == null and spell.frame.type == Frame.Type.DECISION:
-			push_error(spell.name, " ElseSpell is null.")
 			return
 
 	# Debug, reset colors before casting

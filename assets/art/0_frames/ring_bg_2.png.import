@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5mbml6kvpup2"
-path="res://.godot/imported/execution_bg.png-e19b73370becde993f2f5b09052ca52e.ctex"
+uid="uid://be2oa756mq6s"
+path="res://.godot/imported/ring_bg_2.png-f2b5949437f7120f009dadfb04829bfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/0_frames/execution_bg.png"
-dest_files=["res://.godot/imported/execution_bg.png-e19b73370becde993f2f5b09052ca52e.ctex"]
+source_file="res://assets/art/0_frames/ring_bg_2.png"
+dest_files=["res://.godot/imported/ring_bg_2.png-f2b5949437f7120f009dadfb04829bfc.ctex"]
 
 [params]
 

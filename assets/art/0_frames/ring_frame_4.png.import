@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsif5pw0120s1"
-path="res://.godot/imported/decision.png-5b15987e67c46759c7f9c08ac3589051.ctex"
+uid="uid://k8p2iu38c4vk"
+path="res://.godot/imported/ring_frame_4.png-e3df7b7183543e2df9883c1f5ba09b97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/0_frames/decision.png"
-dest_files=["res://.godot/imported/decision.png-5b15987e67c46759c7f9c08ac3589051.ctex"]
+source_file="res://assets/art/0_frames/ring_frame_4.png"
+dest_files=["res://.godot/imported/ring_frame_4.png-e3df7b7183543e2df9883c1f5ba09b97.ctex"]
 
 [params]
 

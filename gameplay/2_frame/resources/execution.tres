@@ -1,11 +1,17 @@
 [gd_resource type="Resource" script_class="Frame" format=3 uid="uid://bsh5gkkxtblsi"]
 
-[ext_resource type="Texture2D" uid="uid://b5mbml6kvpup2" path="res://assets/art/0_frames/execution_bg.png" id="1_26h0r"]
+[ext_resource type="Texture2D" uid="uid://by1owune1tih6" path="res://assets/art/0_frames/ring_bg_1.png" id="1_4rbre"]
 [ext_resource type="Script" uid="uid://b2d785254hvfs" path="res://gameplay/2_frame/frame.gd" id="1_os0iq"]
-[ext_resource type="Texture2D" uid="uid://bl8usikvqxi66" path="res://assets/art/0_frames/execution.png" id="3_4rgf3"]
+[ext_resource type="Texture2D" uid="uid://be2oa756mq6s" path="res://assets/art/0_frames/ring_bg_2.png" id="2_67ej5"]
+[ext_resource type="Texture2D" uid="uid://dja74dwjaqjt7" path="res://assets/art/0_frames/ring_bg_3.png" id="3_r080q"]
+[ext_resource type="Texture2D" uid="uid://8u3eyyqo6sjc" path="res://assets/art/0_frames/ring_bg_4.png" id="4_jxf5q"]
+[ext_resource type="Texture2D" uid="uid://q6liseeshuv7" path="res://assets/art/0_frames/ring_frame_1.png" id="6_x47hd"]
+[ext_resource type="Texture2D" uid="uid://8xrkp022f0ge" path="res://assets/art/0_frames/ring_frame_2.png" id="7_goffk"]
+[ext_resource type="Texture2D" uid="uid://dca0dm2h85nmd" path="res://assets/art/0_frames/ring_frame_3.png" id="8_gvqd8"]
+[ext_resource type="Texture2D" uid="uid://k8p2iu38c4vk" path="res://assets/art/0_frames/ring_frame_4.png" id="9_ghumr"]
 
 [resource]
 script = ExtResource("1_os0iq")
-texture = ExtResource("3_4rgf3")
-background = ExtResource("1_26h0r")
+textures = Array[Texture2D]([ExtResource("6_x47hd"), ExtResource("7_goffk"), ExtResource("8_gvqd8"), ExtResource("9_ghumr")])
+backgrounds = Array[Texture2D]([ExtResource("1_4rbre"), ExtResource("2_67ej5"), ExtResource("3_r080q"), ExtResource("4_jxf5q")])
 metadata/_custom_type_script = "uid://b2d785254hvfs"

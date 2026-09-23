@@ -30,8 +30,9 @@ const MAX_TURN_COUNT : int = 3
 		if frame == null:
 			frame_sprite.hide()
 		else:
-			frame_sprite.texture = frame.texture
-			frame_background_sprite.texture = frame.background
+			var random_index : int = randi_range(0, frame.textures.size() - 1)
+			frame_sprite.texture = frame.textures[random_index]
+			frame_background_sprite.texture = frame.backgrounds[random_index]
 	get:
 		if frame == null:
 			frame = preload("uid://bsh5gkkxtblsi")
@@ -49,11 +50,6 @@ const MAX_TURN_COUNT : int = 3
 		then_spell = value
 		if frame != null and frame.type == Frame.Type.EXECUTION:
 			next_spell = then_spell
-		if not Engine.is_editor_hint():
-			queue_redraw()
-@export var else_spell : Spell = null :
-	set(value):
-		else_spell = value
 		if not Engine.is_editor_hint():
 			queue_redraw()
 
@@ -78,10 +74,6 @@ const MAX_TURN_COUNT : int = 3
 
 var previous_spell : Spell = null
 var next_spell : Spell = null
-
-var sigil_id : int = -1
-var turn_count_id : int = -1
-var target_id : int = -1
 
 
 @onready var frame_background_sprite : TextureRect = %FrameBackground
@@ -108,8 +100,6 @@ func cast() -> void:
 
 	if frame.type == Frame.Type.EXECUTION:
 		_execute_spell()
-	elif frame.type == Frame.Type.DECISION:
-		_decide_spell()
 
 	await get_tree().create_timer(
 		MainGame.seconds_turn_increment).timeout
@@ -162,39 +152,3 @@ func _execute_spell() -> void:
 			t.add_effect(effect, turn_count)
 
 	next_spell = then_spell
-
-
-func _decide_spell() -> void:
-	if then_spell == null:
-		push_error(name + " ThenSpell is null.")
-		return
-	if else_spell == null:
-		push_error(name + " ElseSpell is null.")
-		return
-
-	var effect : String = sigil.effect
-
-	var target : Array[Target] = []
-	if spell_target == Spell.SpellTarget.SELF:
-		target = [Game.target_self]
-	elif spell_target == Spell.SpellTarget.OTHER:
-		target = [Game.target_other]
-	elif spell_target == Spell.SpellTarget.BOTH:
-		target = [Game.target_self, Game.target_other]
-
-	if target.is_empty():
-		push_error("Can't cast spell, no target(s) found.")
-		return
-
-	var conditions_satisfied : bool = false
-
-	for t in target:
-		if t.has_effect(effect):
-			conditions_satisfied = true
-			continue
-		conditions_satisfied = false
-
-	if conditions_satisfied:
-		next_spell = then_spell
-	else:
-		next_spell = else_spell

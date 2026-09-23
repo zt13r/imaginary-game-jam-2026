@@ -40,20 +40,6 @@ func _draw() -> void:
 					spell_pos, then_spell_pos, line_color, line_width
 				)
 
-			elif spell.frame.type == Frame.Type.DECISION:
-				if spell.else_spell == null:
-					push_error(name + " ElseSpell is null.")
-					return
-				var else_spell_pos : Vector2 = spell.else_spell.global_position
-
-				draw_line(
-					spell_pos, then_spell_pos, line_color, line_width
-				)
-
-				draw_line(
-					spell_pos, else_spell_pos, line_color, line_width
-				)
-
 
 func redraw() -> void:
 	queue_redraw.call_deferred()

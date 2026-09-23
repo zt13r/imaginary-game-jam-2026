@@ -4,11 +4,11 @@ extends Resource
 
 enum Type {
 	EXECUTION,
-	DECISION
+	#DECISION
 }
 
 
 @export var type : Type = Type.EXECUTION
 
-@export var texture : Texture2D = null
-@export var background : Texture2D = null
+@export var textures : Array[Texture2D] = []
+@export var backgrounds : Array[Texture2D] = []

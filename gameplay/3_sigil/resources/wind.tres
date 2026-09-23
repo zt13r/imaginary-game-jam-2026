@@ -1,16 +1,10 @@
 [gd_resource type="Resource" script_class="Sigil" format=3 uid="uid://cf8vdy41wb0lk"]
 
 [ext_resource type="Script" uid="uid://3yp8s4u1e65d" path="res://gameplay/3_sigil/sigil.gd" id="1_bqjmt"]
-[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_miop2"]
 [ext_resource type="Texture2D" uid="uid://05ekdtum322c" path="res://assets/art/1_sigils/wind_sigil.png" id="2_bqjmt"]
-[ext_resource type="Resource" uid="uid://gr1xcnxo3jfy" path="res://gameplay/4_effects/resources/wind/1_airborne.tres" id="2_y08jv"]
-[ext_resource type="Resource" uid="uid://cuwyvlpbyg6f" path="res://gameplay/4_effects/resources/wind/2_lifted.tres" id="3_ww6gr"]
-[ext_resource type="Resource" uid="uid://cyekycqu1svh3" path="res://gameplay/4_effects/resources/wind/3_suspended.tres" id="4_mo70w"]
 
 [resource]
 script = ExtResource("1_bqjmt")
 name = "Wind"
-id = 3
 texture = ExtResource("2_bqjmt")
-effects = Array[ExtResource("1_miop2")]([ExtResource("2_y08jv"), ExtResource("3_ww6gr"), ExtResource("4_mo70w")])
 metadata/_custom_type_script = "uid://3yp8s4u1e65d"
