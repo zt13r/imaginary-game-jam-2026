@@ -64,6 +64,7 @@ var next_spell : Spell = null
 
 func _ready() -> void:
 	name = "Spell"
+	turn_count = 3
 
 
 func _gui_input(event : InputEvent) -> void:
@@ -78,6 +79,7 @@ func cast() -> void:
 	if frame.type == Frame.Type.EXECUTION:
 		_execute_spell()
 
+	Game.target.end_turn()
 	await get_tree().create_timer(
 		MainGame.seconds_turn_increment).timeout
 
@@ -108,6 +110,8 @@ func get_previous_spell_then_spell(existing_spells : Array[Spell]) -> void:
 func _execute_spell() -> void:
 	if then_spell == null:
 		push_error(name + " ThenSpell is null.")
+		return
+	if sigil == null:
 		return
 
 	var effect : Effect = sigil.base_effect

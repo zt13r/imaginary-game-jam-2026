@@ -6,6 +6,9 @@ extends Control
 var effects : Dictionary[Effect, int] = {}
 
 
+@onready var debug_effects_label: Label = %DebugEffectsLabel
+
+
 func _ready() -> void:
 	if mouse_filter != MOUSE_FILTER_IGNORE:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -21,7 +24,7 @@ func add_effect(effect : Effect, turn_count : int) -> void:
 	effects[effect] = turn_count
 
 
-func next_turn() -> void:
+func end_turn() -> void:
 	var subtractive_pairs : Array[Array] = []
 	var new_effects : Dictionary[Effect, int] = effects.duplicate()
 
@@ -76,3 +79,14 @@ func next_turn() -> void:
 			new_effects[effect] = turns_left
 
 	effects = new_effects
+
+	debug_effects_label.text = "Effects:" + format_effects(effects)
+	print(format_effects(effects))
+
+
+func format_effects(new_effects : Dictionary[Effect, int]) -> String:
+	var formatted : String = ""
+	for effect in new_effects:
+		var turns_left : int = new_effects[effect]
+		formatted += "\n" + str(effect.name) + " : " + str(turns_left) 
+	return formatted
