@@ -19,3 +19,8 @@ My individual twist: **Failure**
 - A set of rules that change the requirements to pass the exam.
 - Might include a ban on some sigils, or... I don't know, that's really the only thing I thought of.
 - Basically the "Official Bulletin" in *Papers, Please*.
+
+
+## Credits
+- Font: [BrookeShappell8](https://www.fontspace.com/brookeshappell8-font-f15898)
+- Color palette: [Lost Century 24](https://lospec.com/palette-list/lost-century-24)

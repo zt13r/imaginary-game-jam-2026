@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://cndqm4gq4ogbd" path="res://core/main/main.gd" id="1_8fcwd"]
 [ext_resource type="PackedScene" uid="uid://db30is57gr86s" path="res://gameplay/0_glyph/glyph.tscn" id="2_6vymn"]
+[ext_resource type="Texture2D" uid="uid://bfdbhufc154s4" path="res://assets/art/3_ui/parchment.png" id="4_k5wvu"]
 [ext_resource type="PackedScene" uid="uid://dgkdfi68avc88" path="res://gameplay/0_glyph/target/target.tscn" id="4_yibi5"]
 [ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="5_k5wvu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5alkf"]
-bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+bg_color = Color(0.78431374, 0.61960787, 0.42352942, 0)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -17,25 +18,21 @@ content_margin_left = 8.0
 content_margin_top = 8.0
 content_margin_right = 8.0
 content_margin_bottom = 8.0
-bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
+bg_color = Color(0.10980392, 0.10980392, 0.10980392, 0)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhrsi"]
-bg_color = Color(0.15686275, 0.15686275, 0.15686275, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5wvu"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+bg_color = Color(0.004019165, 0.004019165, 0.004019165, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81xgm"]
-bg_color = Color(0.15686275, 0.15686275, 0.15686275, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6rnl"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+bg_color = Color(11.708403, 11.708403, 11.708403, 0)
 
 [node name="Main" type="Node" unique_id=684111938]
 process_mode = 3
@@ -56,9 +53,9 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 layout_mode = 1
 offset_left = 16.0
-offset_top = 344.0
+offset_top = 368.0
 offset_right = -1130.0
-offset_bottom = -229.0
+offset_bottom = -205.0
 
 [node name="MagicGlyph" parent="Game" unique_id=1773691080 node_paths=PackedStringArray("turn_count_menu") instance=ExtResource("2_6vymn")]
 unique_name_in_owner = true
@@ -67,7 +64,7 @@ offset_left = 825.0
 offset_top = 312.0
 offset_right = 825.0
 offset_bottom = 312.0
-turn_count_menu = NodePath("../../HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/OtherEditors/MarginContainer/Content/TurnCountEditor/TurnCountMenu")
+turn_count_menu = NodePath("../../HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor/TurnCountMenu")
 
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1002820559]
 process_mode = 1
@@ -91,74 +88,71 @@ offset_right = 856.0
 offset_bottom = 703.0
 text = "Cast"
 
-[node name="SpellEditor" type="PanelContainer" parent="HudLayer/HudRoot" unique_id=1073032822]
+[node name="Parchment" type="TextureRect" parent="HudLayer/HudRoot" unique_id=406762555]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -80.0
+offset_right = 440.0
+offset_bottom = 400.0
+texture = ExtResource("4_k5wvu")
+
+[node name="SpellEditor" type="PanelContainer" parent="HudLayer/HudRoot/Parchment" unique_id=1073032822]
 layout_mode = 1
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 368.0
-offset_bottom = 328.0
+offset_left = 28.0
+offset_top = 88.0
+offset_right = 400.0
+offset_bottom = 408.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5alkf")
 
-[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/SpellEditor" unique_id=231075285]
+[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/Parchment/SpellEditor" unique_id=231075285]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="TabContainer" type="TabContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer" unique_id=106063731]
+[node name="TabContainer" type="TabContainer" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer" unique_id=106063731]
 layout_mode = 2
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hovered_color = Color(0.13343662, 0.13343647, 0.1334365, 1)
+theme_override_colors/font_unselected_color = Color(0.4112081, 0.4112078, 0.41120785, 1)
+theme_override_font_sizes/font_size = 32
 theme_override_styles/panel = SubResource("StyleBoxFlat_qctb3")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_k5wvu")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_k5wvu")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_e6rnl")
 tab_alignment = 1
 current_tab = 0
 
-[node name="Spells" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer" unique_id=1937768666]
+[node name="Spells" type="VBoxContainer" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer" unique_id=1937768666]
 layout_mode = 2
 theme_override_constants/separation = 8
 metadata/_tab_index = 0
 
-[node name="BigHeader" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=1211973652]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Click on a spell to edit"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SigilEditor" type="PanelContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=833616251]
-custom_minimum_size = Vector2(0, 160)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dhrsi")
-
-[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor" unique_id=1534074817]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="Content" type="HBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/MarginContainer" unique_id=1952051738]
+[node name="SigilEditor" type="HBoxContainer" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=1952051738]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ChooseSigil" type="ScrollContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/MarginContainer/Content" unique_id=1090399521]
+[node name="ChooseSigil" type="ScrollContainer" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor" unique_id=1090399521]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.22
 theme_override_constants/scrollbar_h_separation = 4
 
-[node name="SigilContainer" type="GridContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/MarginContainer/Content/ChooseSigil" unique_id=414948429]
+[node name="SigilContainer" type="GridContainer" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/ChooseSigil" unique_id=414948429]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 columns = 3
 
-[node name="SigilInfo" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/MarginContainer/Content" unique_id=1787778593]
+[node name="SigilInfo" type="VBoxContainer" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor" unique_id=1787778593]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SigilTexture" type="TextureRect" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/MarginContainer/Content/SigilInfo" unique_id=1760130975]
+[node name="SigilTexture" type="TextureRect" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo" unique_id=1760130975]
 unique_name_in_owner = true
+self_modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(64, 64)
 custom_maximum_size = Vector2(64, 64)
 layout_mode = 2
@@ -167,67 +161,67 @@ size_flags_vertical = 3
 texture = ExtResource("5_k5wvu")
 stretch_mode = 5
 
-[node name="SigilName" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/MarginContainer/Content/SigilInfo" unique_id=527489158]
+[node name="SigilName" type="Label" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo" unique_id=527489158]
 unique_name_in_owner = true
+self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 24
 text = "Sigil Name"
 horizontal_alignment = 1
 
-[node name="SigilEffects" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/MarginContainer/Content/SigilInfo" unique_id=1520785767]
+[node name="SigilEffects" type="VBoxContainer" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo" unique_id=1520785767]
 layout_mode = 2
 
-[node name="EffectsLabel" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/MarginContainer/Content/SigilInfo/SigilEffects" unique_id=1611460767]
+[node name="EffectsLabel" type="Label" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo/SigilEffects" unique_id=1611460767]
+self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Effects:"
 
-[node name="EffectsContainer" type="GridContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/MarginContainer/Content/SigilInfo/SigilEffects" unique_id=1486313139]
+[node name="EffectsContainer" type="GridContainer" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo/SigilEffects" unique_id=1486313139]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 columns = 5
 
-[node name="OtherEditors" type="PanelContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=1280025279]
+[node name="TurnCountEditor" type="HBoxContainer" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=1561417382]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_81xgm")
-
-[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/OtherEditors" unique_id=1381969706]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="Content" type="HBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/OtherEditors/MarginContainer" unique_id=1561417382]
-layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="TurnCountEditor" type="HBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/OtherEditors/MarginContainer/Content" unique_id=1439217811]
+[node name="Label" type="Label" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor" unique_id=1805663223]
+self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-size_flags_horizontal = 6
-theme_override_constants/separation = 8
+theme_override_font_sizes/font_size = 20
+text = "The effect will last for"
 
-[node name="Label" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/OtherEditors/MarginContainer/Content/TurnCountEditor" unique_id=1805663223]
-layout_mode = 2
-text = "Turn count"
-
-[node name="TurnCountMenu" type="OptionButton" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/OtherEditors/MarginContainer/Content/TurnCountEditor" unique_id=1870237558]
+[node name="TurnCountMenu" type="OptionButton" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor" unique_id=1870237558]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 4
 allow_reselect = true
 
-[node name="Effects" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer" unique_id=1190070550]
+[node name="Label2" type="Label" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor" unique_id=1468289519]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "turns"
+
+[node name="Tutorial?" type="Label" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=1211973652]
+self_modulate = Color(0.3148827, 0.3148827, 0.3148827, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Click on a spell to edit it"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rulebook" type="VBoxContainer" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer" unique_id=107618108]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
-
-[node name="Rulebook" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer" unique_id=107618108]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 2
 
 [node name="AddDeleteSpell" type="HBoxContainer" parent="HudLayer/HudRoot" unique_id=1674901993]
 layout_mode = 0
@@ -249,6 +243,6 @@ size_flags_vertical = 8
 text = "Delete Selected Spell"
 
 [connection signal="pressed" from="HudLayer/HudRoot/CastButton" to="Game/MagicGlyph" method="_on_cast_button_pressed"]
-[connection signal="item_selected" from="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/OtherEditors/MarginContainer/Content/TurnCountEditor/TurnCountMenu" to="Game/MagicGlyph" method="_on_turn_count_menu_item_selected"]
+[connection signal="item_selected" from="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor/TurnCountMenu" to="Game/MagicGlyph" method="_on_turn_count_menu_item_selected"]
 [connection signal="pressed" from="HudLayer/HudRoot/AddDeleteSpell/AddSpellButton" to="Game/MagicGlyph" method="_on_add_spell_button_pressed"]
 [connection signal="pressed" from="HudLayer/HudRoot/AddDeleteSpell/DeleteSelectedSpellButton" to="Game/MagicGlyph" method="_on_delete_selected_spell_button_pressed"]
