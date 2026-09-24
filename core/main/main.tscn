@@ -90,19 +90,20 @@ text = "Cast"
 
 [node name="Parchment" type="TextureRect" parent="HudLayer/HudRoot" unique_id=406762555]
 layout_mode = 0
-offset_left = 8.0
-offset_top = -80.0
-offset_right = 440.0
-offset_bottom = 400.0
+offset_top = -88.0
+offset_right = 448.0
+offset_bottom = 415.0
 texture = ExtResource("4_k5wvu")
+flip_v = true
 
 [node name="SpellEditor" type="PanelContainer" parent="HudLayer/HudRoot/Parchment" unique_id=1073032822]
 layout_mode = 1
-offset_left = 28.0
-offset_top = 88.0
-offset_right = 400.0
-offset_bottom = 408.0
+offset_left = 64.0
+offset_top = 112.0
+offset_right = 385.0
+offset_bottom = 432.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5alkf")
+metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/Parchment/SpellEditor" unique_id=231075285]
 layout_mode = 2
@@ -211,7 +212,7 @@ theme_override_font_sizes/font_size = 20
 text = "turns"
 
 [node name="Tutorial?" type="Label" parent="HudLayer/HudRoot/Parchment/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=1211973652]
-self_modulate = Color(0.3148827, 0.3148827, 0.3148827, 1)
+self_modulate = Color(0.6039216, 0.60784316, 0.654902, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Click on a spell to edit it"
