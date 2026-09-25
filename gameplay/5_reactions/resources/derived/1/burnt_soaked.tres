@@ -3,9 +3,11 @@
 [ext_resource type="Resource" uid="uid://lo7eorsbhbjk" path="res://gameplay/4_effects/resources/base/burnt.tres" id="1_ilfbj"]
 [ext_resource type="Script" uid="uid://dda4k5dlbbpyx" path="res://gameplay/5_reactions/reaction.gd" id="1_qrik2"]
 [ext_resource type="Resource" uid="uid://b2olfrjxdg46x" path="res://gameplay/4_effects/resources/base/soaked.tres" id="2_j6l27"]
+[ext_resource type="Resource" uid="uid://6o3bnr6ksfhh" path="res://gameplay/4_effects/resources/derived/1/corrupted.tres" id="3_pu2pb"]
 
 [resource]
 script = ExtResource("1_qrik2")
 effect_a = ExtResource("1_ilfbj")
 effect_b = ExtResource("2_j6l27")
+result = ExtResource("3_pu2pb")
 metadata/_custom_type_script = "uid://dda4k5dlbbpyx"

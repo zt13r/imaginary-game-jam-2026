@@ -17,10 +17,6 @@ var resources: Array[Reaction] = [
 	preload("uid://cmwuqd85afibm"), # soaked-awakened
 	preload("uid://pg7wgkt4v0tm"), # soaked-grounded
 	preload("uid://m3qvrk8ffype"), # soaked-tainted
-
-	preload("uid://bjg2i0whn1bso"), # grounded-shocked
-	preload("uid://b1bw7paw5j8l7"), # soaked-shocked
-	
 ]
 
 

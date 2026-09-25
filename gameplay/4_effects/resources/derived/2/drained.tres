@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://bmsxh10t3ecll"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_iko2w"]
+
+[resource]
+script = ExtResource("1_iko2w")
+name = "Drained"
+metadata/_custom_type_script = "uid://bfgjgbme5si06"

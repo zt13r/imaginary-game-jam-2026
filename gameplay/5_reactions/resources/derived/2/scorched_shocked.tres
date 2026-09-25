@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Reaction" format=3]
+
+[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/1/scorched.tres" id="1_bryou"]
+[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/1/shocked.tres" id="2_vbxll"]
+[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/2/electrified.tres" id="3_jcokb"]
+[ext_resource type="Script" path="res://gameplay/5_reactions/reaction.gd" id="4_w4x0o"]
+
+[resource]
+script = ExtResource("4_w4x0o")
+effect_a = ExtResource("1_bryou")
+effect_b = ExtResource("2_vbxll")
+result = ExtResource("3_jcokb")

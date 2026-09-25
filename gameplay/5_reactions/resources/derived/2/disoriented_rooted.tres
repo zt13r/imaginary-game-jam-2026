@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Reaction" format=3]
+
+[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/1/disoriented.tres" id="1_vfimg"]
+[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/1/rooted.tres" id="2_36et5"]
+[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/2/dazed.tres" id="3_ylsg7"]
+[ext_resource type="Script" path="res://gameplay/5_reactions/reaction.gd" id="4_t7dgb"]
+
+[resource]
+script = ExtResource("4_t7dgb")
+effect_a = ExtResource("1_vfimg")
+effect_b = ExtResource("2_36et5")
+result = ExtResource("3_ylsg7")

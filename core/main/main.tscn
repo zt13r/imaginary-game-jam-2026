@@ -226,7 +226,7 @@ text = "Click on a spell to edit it"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Rulebook" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer" unique_id=107618108]
+[node name="Effects" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer" unique_id=107618108]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1

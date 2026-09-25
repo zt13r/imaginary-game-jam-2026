@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://c4t7t1k76pskl"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_2xmme"]
+
+[resource]
+script = ExtResource("1_2xmme")
+name = "Cursed"
+metadata/_custom_type_script = "uid://bfgjgbme5si06"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo14rh1iyyycl"
-path="res://.godot/imported/icon.svg-8941868ee22bd0efaf8d27ba38379f39.ctex"
+uid="uid://bwes7v4f4bxxf"
+path="res://.godot/imported/lost-century-24-1x.png-8bd61bd3c337df030862d3078070515a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-8941868ee22bd0efaf8d27ba38379f39.ctex"]
+source_file="res://assets/art/4_other/lost-century-24-1x.png"
+dest_files=["res://.godot/imported/lost-century-24-1x.png-8bd61bd3c337df030862d3078070515a.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

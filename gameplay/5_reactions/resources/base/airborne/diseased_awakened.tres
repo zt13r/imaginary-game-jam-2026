@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Reaction" format=3 uid="uid://vssgi5fjly2n"]
+
+[ext_resource type="Resource" uid="uid://j6inlj13f22p" path="res://gameplay/4_effects/resources/derived/1/diseased.tres" id="1_wkpu5"]
+[ext_resource type="Resource" uid="uid://7lqwmo6a80k5" path="res://gameplay/4_effects/resources/base/awakened.tres" id="2_wkpu5"]
+[ext_resource type="Resource" uid="uid://b5th8g3h38hu3" path="res://gameplay/4_effects/resources/base/airborne.tres" id="3_1jx7b"]
+[ext_resource type="Script" uid="uid://dda4k5dlbbpyx" path="res://gameplay/5_reactions/reaction.gd" id="4_fucrl"]
+
+[resource]
+script = ExtResource("4_fucrl")
+effect_a = ExtResource("1_wkpu5")
+effect_b = ExtResource("2_wkpu5")
+result = ExtResource("3_1jx7b")
+metadata/_custom_type_script = "uid://dda4k5dlbbpyx"

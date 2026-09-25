@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://b2r70wb263eiu"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_60b6j"]
+
+[resource]
+script = ExtResource("1_60b6j")
+name = "Suffocated"
+metadata/_custom_type_script = "uid://bfgjgbme5si06"

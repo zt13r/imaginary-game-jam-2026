@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Reaction" format=3 uid="uid://bay5bfx8kir3x"]
+
+[ext_resource type="Resource" uid="uid://cf7jnlcddv201" path="res://gameplay/4_effects/resources/derived/1/choked.tres" id="1_7urdb"]
+[ext_resource type="Script" uid="uid://dda4k5dlbbpyx" path="res://gameplay/5_reactions/reaction.gd" id="1_eeme6"]
+[ext_resource type="Resource" uid="uid://lo7eorsbhbjk" path="res://gameplay/4_effects/resources/base/burnt.tres" id="2_rd0i8"]
+[ext_resource type="Resource" uid="uid://7lqwmo6a80k5" path="res://gameplay/4_effects/resources/base/awakened.tres" id="3_rd0i8"]
+
+[resource]
+script = ExtResource("1_eeme6")
+effect_a = ExtResource("1_7urdb")
+effect_b = ExtResource("2_rd0i8")
+result = ExtResource("3_rd0i8")
+metadata/_custom_type_script = "uid://dda4k5dlbbpyx"

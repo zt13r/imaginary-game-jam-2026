@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Reaction" format=3]
+
+[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/1/blighted.tres" id="1_x4kao"]
+[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/1/charred.tres" id="2_rucop"]
+[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/2/withered.tres" id="3_07rkv"]
+[ext_resource type="Script" path="res://gameplay/5_reactions/reaction.gd" id="4_ast0g"]
+
+[resource]
+script = ExtResource("4_ast0g")
+effect_a = ExtResource("1_x4kao")
+effect_b = ExtResource("2_rucop")
+result = ExtResource("3_07rkv")

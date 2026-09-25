@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Reaction" format=3]
+
+[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/1/frozen.tres" id="1_e2otk"]
+[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/1/shocked.tres" id="2_chwvt"]
+[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/2/silenced.tres" id="3_yiftu"]
+[ext_resource type="Script" path="res://gameplay/5_reactions/reaction.gd" id="4_prlwk"]
+
+[resource]
+script = ExtResource("4_prlwk")
+effect_a = ExtResource("1_e2otk")
+effect_b = ExtResource("2_chwvt")
+result = ExtResource("3_yiftu")

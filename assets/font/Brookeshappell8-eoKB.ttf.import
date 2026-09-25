@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cu8jvsb1edmg8"
-path="res://.godot/imported/Brookeshappell8-eoKB.ttf-ff9bca194ea05fd5d11b06e5d9c68756.fontdata"
+path="res://.godot/imported/Brookeshappell8-eoKB.ttf-66985cc4e51e44c0b036cd5da7fff6da.fontdata"
 
 [deps]
 
-source_file="res://assets/art/Brookeshappell8-eoKB.ttf"
-dest_files=["res://.godot/imported/Brookeshappell8-eoKB.ttf-ff9bca194ea05fd5d11b06e5d9c68756.fontdata"]
+source_file="res://assets/font/Brookeshappell8-eoKB.ttf"
+dest_files=["res://.godot/imported/Brookeshappell8-eoKB.ttf-66985cc4e51e44c0b036cd5da7fff6da.fontdata"]
 
 [params]
 
