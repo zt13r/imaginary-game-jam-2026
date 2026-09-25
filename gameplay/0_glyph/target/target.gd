@@ -42,11 +42,11 @@ func end_turn() -> void:
 			var effect_b : Effect = effect_list[j]
 
 			# Skip if current pair has no reaction
-			if not ReactionDatabase.has_reaction(effect_a, effect_b):
+			if not Database.has_reaction(effect_a, effect_b):
 				continue
 
 			var reaction : Effect =\
-				ReactionDatabase.get_reaction(effect_a, effect_b)
+				Database.get_reaction(effect_a, effect_b)
 
 			if reaction != null and not has_effect(reaction):
 				# Add new effect

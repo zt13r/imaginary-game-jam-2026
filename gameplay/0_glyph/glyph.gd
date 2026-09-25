@@ -165,9 +165,15 @@ func _on_cast_button_pressed() -> void:
 		var next_spell : Spell = spells.pop_front()
 		next_spell.cast()
 
+		# Debug
+		next_spell.modulate = Color.PURPLE
+
 		await get_tree().create_timer(
 			MainGame.seconds_turn_increment).timeout
 		Game.target.end_turn()
+
+		# Debug also, probably
+		next_spell.modulate = Color.WHITE
 
 		turns += 1
 

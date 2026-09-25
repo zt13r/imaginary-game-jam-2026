@@ -73,14 +73,19 @@ func _gui_input(event : InputEvent) -> void:
 
 
 func cast() -> void:
-	# Debug, change color to indicate that this spell is being cast
-	modulate = Color.PURPLE
+	if then_spell == null:
+		push_error(name + " ThenSpell is null.")
+		return
+	if sigil == null:
+		return
 
-	if frame.type == Frame.Type.EXECUTION:
-		_execute_spell()
+	var effect : Effect = sigil.base_effect
 
-	# Debug, reset color
-	modulate = Color.WHITE
+	if not Game.target.has_effect(effect):
+		Game.target.add_effect(effect, turn_count)
+
+	next_spell = then_spell
+
 
 
 func get_previous_spell_then_spell(existing_spells : Array[Spell]) -> void:
@@ -96,18 +101,3 @@ func get_previous_spell_then_spell(existing_spells : Array[Spell]) -> void:
 		#previous_spell.then_spell.name,
 		#name
 	#])
-
-
-func _execute_spell() -> void:
-	if then_spell == null:
-		push_error(name + " ThenSpell is null.")
-		return
-	if sigil == null:
-		return
-
-	var effect : Effect = sigil.base_effect
-
-	if not Game.target.has_effect(effect):
-		Game.target.add_effect(effect, turn_count)
-
-	next_spell = then_spell

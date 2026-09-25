@@ -18,7 +18,7 @@ config/icon="res://assets/art/4_other/icon.svg"
 [autoload]
 
 Game="*uid://ybn6fc6rfwxq"
-ReactionDatabase="*uid://psiwsbujqqrl"
+Database="*uid://psiwsbujqqrl"
 
 [display]
 

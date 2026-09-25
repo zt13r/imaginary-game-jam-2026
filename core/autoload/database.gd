@@ -88,10 +88,12 @@ var resources: Array[Reaction] = [
 
 
 var reactions : Dictionary[String, Effect] = {}
+var library : Dictionary[Effect, Array] = {}
 
 
 func _ready() -> void:
 	_build_reactions()
+	_build_library()
 
 
 func has_reaction(effect_a : Effect, effect_b : Effect) -> bool:
@@ -116,6 +118,28 @@ func _build_reactions() -> void:
 			reaction.effect_a,
 			reaction.effect_b
 		)
-		var value : Effect = reaction.result
+		var result : Effect = reaction.result
 
-		reactions[key] = value
+		reactions[key] = result
+
+
+# In-game Effect library
+func _build_library() -> void:
+	for reaction : Reaction in resources:
+		var result : Effect = reaction.result
+		if not library.has(result):
+			library[result] = []
+		library[result].append(reaction)
+	print(format(library))
+
+
+
+func format(_library : Dictionary[Effect, Array]) -> String:
+	var formatted : String = ""
+	for effect : Effect in _library:
+		formatted += effect.name + ": "
+		var _reactions : Array = _library[effect]
+		for reaction : Reaction in _reactions:
+			formatted += "[%s-%s], " % [reaction.effect_a.name, reaction.effect_b.name]
+		formatted += "\n"
+	return formatted

@@ -24,11 +24,19 @@ static var seconds_turn_increment : float = 1.0
 @onready var sigil_texture : TextureRect = %SigilTexture
 @onready var sigil_name : Label = %SigilName
 
+@onready var effect_container : GridContainer = %EffectContainer
+@onready var effect_texture : TextureRect = %EffectTexture
+@onready var effect_name : Label = %EffectName
+
+@onready var reactions_label : Label = %ReactionsLabel
+@onready var reactions_container : VBoxContainer = %ReactionsContainer
+
 @onready var turn_count_menu : OptionButton = %TurnCountMenu
 
 
 func _ready() -> void:
 	_populate_sigil_editor()
+	_populate_library()
 
 	Game.target = target
 
@@ -56,6 +64,10 @@ func _populate_sigil_editor() -> void:
 	# Turn count
 	for i in range(3):
 		turn_count_menu.add_item(str(i + 1))
+
+
+func _populate_library() -> void:
+	pass
 
 
 func _update_spell_info(spell : Spell) -> void:

@@ -130,9 +130,10 @@ theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_k5wvu")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_81xgm")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_yibi5")
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="Spells" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer" unique_id=1937768666]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 8
 metadata/_tab_index = 0
@@ -227,9 +228,65 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Effects" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer" unique_id=107618108]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="EffectInfo" type="HBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Effects" unique_id=717078505]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InfoForReal" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo" unique_id=2099128535]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EffectTexture" type="TextureRect" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal" unique_id=322842477]
+unique_name_in_owner = true
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("5_k5wvu")
+stretch_mode = 5
+
+[node name="EffectName" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal" unique_id=1495940340]
+unique_name_in_owner = true
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 24
+text = "Effect Name"
+horizontal_alignment = 1
+
+[node name="Reactions" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal" unique_id=553869239]
+layout_mode = 2
+
+[node name="ReactionsLabel" type="Label" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal/Reactions" unique_id=279983862]
+unique_name_in_owner = true
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Reactions:"
+
+[node name="ReactionsContainer" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal/Reactions" unique_id=374668872]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ChooseEffect" type="ScrollContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo" unique_id=775829336]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.22
+theme_override_constants/scrollbar_h_separation = 4
+
+[node name="EffectContainer" type="GridContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/ChooseEffect" unique_id=1339042953]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+columns = 3
 
 [node name="AddDeleteSpell" type="HBoxContainer" parent="HudLayer/HudRoot" unique_id=1674901993]
 layout_mode = 0
