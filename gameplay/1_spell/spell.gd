@@ -79,17 +79,8 @@ func cast() -> void:
 	if frame.type == Frame.Type.EXECUTION:
 		_execute_spell()
 
-	Game.target.end_turn()
-	await get_tree().create_timer(
-		MainGame.seconds_turn_increment).timeout
-
 	# Debug, reset color
 	modulate = Color.WHITE
-
-	if next_spell != null:
-		next_spell.cast()
-	else:
-		push_error(name, "'s next_spell is somehow null.")
 
 
 func get_previous_spell_then_spell(existing_spells : Array[Spell]) -> void:

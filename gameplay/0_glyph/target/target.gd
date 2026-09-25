@@ -22,10 +22,15 @@ func has_effect(effect : Effect) -> bool:
 
 func add_effect(effect : Effect, turn_count : int) -> void:
 	effects[effect] = turn_count
+	debug_effects_label.text = "Effects:" + format_effects(effects)
+
+
+func clear_effects() -> void:
+	effects.clear()
+	debug_effects_label.text = "Effects:"
 
 
 func end_turn() -> void:
-	var subtractive_pairs : Array[Array] = []
 	var new_effects : Dictionary[Effect, int] = effects.duplicate()
 
 	var effect_list : Array[Effect] = effects.keys()
@@ -43,32 +48,16 @@ func end_turn() -> void:
 			var reaction : Effect =\
 				ReactionDatabase.get_reaction(effect_a, effect_b)
 
-			if reaction != null:
-
-				# If effect_a in subtractive_pairs,
-				# remove all instances of effect in subtractive_pairs
-				for k : int in range(subtractive_pairs.size() - 1, -1, -1):
-					var pair : Array = subtractive_pairs[k]
-					if effect_a in pair or effect_b in pair:
-						subtractive_pairs.remove_at(k)
-
+			if reaction != null and not has_effect(reaction):
 				# Add new effect
 				var new_turn_count : int =\
 					max(effects[effect_a], effects[effect_b])
+
 				new_effects[reaction] = new_turn_count
 
 				# Remove effects
-				new_effects.erase(effect_a)
-				new_effects.erase(effect_b)
-
-			else:
-				subtractive_pairs.append([effect_a, effect_b])
-
-	# Subtractive effects
-	for effect : Effect in new_effects.duplicate():
-		for pair : Array in subtractive_pairs:
-			if effect in pair:
-				new_effects.erase(effect)
+				#new_effects.erase(effect_a)
+				#new_effects.erase(effect_b)
 
 	# Remove effects that are out of turns
 	for effect : Effect in new_effects.duplicate():
@@ -81,7 +70,6 @@ func end_turn() -> void:
 	effects = new_effects
 
 	debug_effects_label.text = "Effects:" + format_effects(effects)
-	print(format_effects(effects))
 
 
 func format_effects(new_effects : Dictionary[Effect, int]) -> String:

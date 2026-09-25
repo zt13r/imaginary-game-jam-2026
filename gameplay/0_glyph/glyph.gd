@@ -26,7 +26,6 @@ var selected_spell : Spell = null
 @onready var connections : Connections = %Connections
 
 @onready var outer_spells : RingContainer = %OuterSpells
-@onready var inner_spells : RingContainer = %InnerSpells
 
 
 func _ready() -> void:
@@ -44,17 +43,12 @@ func _init_spell_stuff() -> void:
 	for spell : Spell in outer_spells.get_children():
 		outer_spells.spells.append(spell)
 		spell.spell_selected.connect(_on_spell_selected)
-	for spell : Spell in inner_spells.get_children():
-		inner_spells.spells.append(spell)
-		spell.spell_selected.connect(_on_spell_selected)
 
 
 func _assign_initial_spell_connections() -> void:
 	# Get each spell's previous spell's then spells (???)
 	for spell : Spell in outer_spells.spells:
 		spell.get_previous_spell_then_spell(outer_spells.spells)
-	for spell : Spell in inner_spells.spells:
-		spell.get_previous_spell_then_spell(inner_spells.spells)
 
 
 func _add_spell() -> void:
@@ -161,10 +155,21 @@ func _on_cast_button_pressed() -> void:
 	# What
 	for spell : Spell in outer_spells.spells:
 		spell.modulate = Color.WHITE
-	for spell : Spell in inner_spells.spells:
-		spell.modulate = Color.WHITE
 
-	outer_spells.spells.front().cast()
+	Game.target.clear_effects()
+
+	var turns : int = 1
+	var spells : Array[Spell] = outer_spells.spells.duplicate()
+
+	while turns <= outer_spells.spells.size():
+		var next_spell : Spell = spells.pop_front()
+		next_spell.cast()
+
+		await get_tree().create_timer(
+			MainGame.seconds_turn_increment).timeout
+		Game.target.end_turn()
+
+		turns += 1
 
 
 func _on_sigil_selected(sigil : Sigil) -> void:

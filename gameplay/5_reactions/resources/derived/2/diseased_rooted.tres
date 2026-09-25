@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Reaction" format=3]
+[gd_resource type="Resource" script_class="Reaction" format=3 uid="uid://b4kxdscrid34q"]
 
-[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/1/diseased.tres" id="1_lpdo3"]
-[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/1/rooted.tres" id="2_2hwne"]
-[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/2/drained.tres" id="3_mh2ps"]
-[ext_resource type="Script" path="res://gameplay/5_reactions/reaction.gd" id="4_hopyw"]
+[ext_resource type="Resource" uid="uid://j6inlj13f22p" path="res://gameplay/4_effects/resources/derived/1/diseased.tres" id="1_lpdo3"]
+[ext_resource type="Resource" uid="uid://ot04mad2wk5t" path="res://gameplay/4_effects/resources/derived/1/rooted.tres" id="2_2hwne"]
+[ext_resource type="Resource" uid="uid://bmsxh10t3ecll" path="res://gameplay/4_effects/resources/derived/2/drained.tres" id="3_mh2ps"]
+[ext_resource type="Script" uid="uid://dda4k5dlbbpyx" path="res://gameplay/5_reactions/reaction.gd" id="4_hopyw"]
 
 [resource]
 script = ExtResource("4_hopyw")

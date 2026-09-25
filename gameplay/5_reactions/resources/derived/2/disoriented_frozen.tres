@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Reaction" format=3]
+[gd_resource type="Resource" script_class="Reaction" format=3 uid="uid://b5yt5wxcv00kl"]
 
-[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/1/disoriented.tres" id="1_45j2f"]
-[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/1/frozen.tres" id="2_q41gi"]
-[ext_resource type="Resource" path="res://gameplay/4_effects/resources/derived/2/paralyzed.tres" id="3_iclwb"]
-[ext_resource type="Script" path="res://gameplay/5_reactions/reaction.gd" id="4_dsdjg"]
+[ext_resource type="Resource" uid="uid://cqgldhtbu22mw" path="res://gameplay/4_effects/resources/derived/1/disoriented.tres" id="1_45j2f"]
+[ext_resource type="Resource" uid="uid://qcvvbl5yt5bl" path="res://gameplay/4_effects/resources/derived/1/frozen.tres" id="2_q41gi"]
+[ext_resource type="Resource" uid="uid://mg6g4gqat2ej" path="res://gameplay/4_effects/resources/derived/2/paralyzed.tres" id="3_iclwb"]
+[ext_resource type="Script" uid="uid://dda4k5dlbbpyx" path="res://gameplay/5_reactions/reaction.gd" id="4_dsdjg"]
 
 [resource]
 script = ExtResource("4_dsdjg")

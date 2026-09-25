@@ -3,18 +3,17 @@ extends Control
 
 
 @export var outer_ring : RingContainer = null
-@export var inner_ring : RingContainer = null
 
 @export var line_width : float = 4.0
 @export var line_color : Color = Color.WHITE
 
 
 func _draw() -> void:
-	if outer_ring == null or inner_ring == null:
+	if outer_ring == null:
 		push_error("A RingContainer reference is null, can't draw connections.")
 		return
 
-	for ring : RingContainer in [outer_ring, inner_ring]:
+	for ring : RingContainer in [outer_ring]:
 		for spell : Spell in ring.spells:
 			if spell.frame == null:
 				push_error(name + " Frame is null.")

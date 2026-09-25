@@ -66,9 +66,9 @@ metadata/_edit_lock_ = true
 [node name="Target" parent="Game" unique_id=427346703 instance=ExtResource("4_yibi5")]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 16.0
+offset_left = 32.0
 offset_top = 368.0
-offset_right = -1130.0
+offset_right = -1114.0
 offset_bottom = -205.0
 
 [node name="MagicGlyph" parent="Game" unique_id=1773691080 node_paths=PackedStringArray("turn_count_menu") instance=ExtResource("2_6vymn")]
@@ -141,19 +141,6 @@ metadata/_tab_index = 0
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ChooseSigil" type="ScrollContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor" unique_id=1090399521]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.22
-theme_override_constants/scrollbar_h_separation = 4
-
-[node name="SigilContainer" type="GridContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/ChooseSigil" unique_id=414948429]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 2
-columns = 3
-
 [node name="SigilInfo" type="VBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor" unique_id=1787778593]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -193,6 +180,19 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 columns = 5
+
+[node name="ChooseSigil" type="ScrollContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor" unique_id=1090399521]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.22
+theme_override_constants/scrollbar_h_separation = 4
+
+[node name="SigilContainer" type="GridContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/ChooseSigil" unique_id=414948429]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+columns = 3
 
 [node name="TurnCountEditor" type="HBoxContainer" parent="HudLayer/HudRoot/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=1561417382]
 layout_mode = 2
