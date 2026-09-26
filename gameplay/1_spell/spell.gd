@@ -44,11 +44,12 @@ const TURN_COUNT_THREE_TEXTURE : Texture2D = preload("uid://ks3r2ajv4v8m")
 @export_group("Modifiers")
 @export var turn_count : int = -1 :
 	set(value):
-		turn_count = min(value, 3)
+		turn_count = value
 		match turn_count:
 			1 : turn_count_sprite.texture = TURN_COUNT_ONE_TEXTURE
 			2 : turn_count_sprite.texture = TURN_COUNT_TWO_TEXTURE
 			3 : turn_count_sprite.texture = TURN_COUNT_THREE_TEXTURE
+			_ : turn_count_sprite.texture = null
 
 
 var previous_spell : Spell = null

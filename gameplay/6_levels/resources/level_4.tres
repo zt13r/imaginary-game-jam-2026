@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Level" format=3 uid="uid://boqvu00pafukl"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_8il8p"]
+[ext_resource type="Resource" uid="uid://ot04mad2wk5t" path="res://gameplay/4_effects/resources/derived-1/rooted.tres" id="3_w0vrk"]
+[ext_resource type="Resource" uid="uid://qcvvbl5yt5bl" path="res://gameplay/4_effects/resources/derived-1/frozen.tres" id="4_spjyb"]
+[ext_resource type="Script" uid="uid://domco8oq82qsp" path="res://gameplay/6_levels/rules/rule.gd" id="5_tygk5"]
+[ext_resource type="Script" uid="uid://ej5tbiwk8j25" path="res://gameplay/6_levels/rules/only_rule.gd" id="5_yj3wr"]
+[ext_resource type="Script" uid="uid://nskebog7ywln" path="res://gameplay/6_levels/level.gd" id="7_1gcu0"]
+
+[sub_resource type="Resource" id="Resource_fowhj"]
+script = ExtResource("5_yj3wr")
+metadata/_custom_type_script = "uid://ej5tbiwk8j25"
+
+[resource]
+script = ExtResource("7_1gcu0")
+goal_effects = Array[ExtResource("1_8il8p")]([ExtResource("4_spjyb"), ExtResource("3_w0vrk")])
+rules = Array[ExtResource("5_tygk5")]([SubResource("Resource_fowhj")])
+metadata/_custom_type_script = "uid://nskebog7ywln"

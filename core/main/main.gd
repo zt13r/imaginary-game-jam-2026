@@ -234,7 +234,7 @@ func _on_next_level_button_pressed() -> void:
 	while magic_glyph.current_ring.spells.size() > 2:
 		var spells : Array[Spell] =\
 			magic_glyph.current_ring.spells
-		magic_glyph.selected_spell = spells.pop_back()
+		magic_glyph.selected_spell = spells.back()
 		magic_glyph._delete_selected_spell()
 
 	# Remove existing spell sigils

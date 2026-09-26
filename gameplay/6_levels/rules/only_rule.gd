@@ -4,7 +4,7 @@ extends Rule
 
 func get_display() -> String:
 	var display : String =\
-		"The last statuses must only be the target statuses"
+		"The effects after the last turn must only be the target effects"
 	return display
 
 

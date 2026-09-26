@@ -73,7 +73,7 @@ func end_turn() -> void:
 	# Remove effects that are out of turns
 	for effect : Effect in new_effects.duplicate():
 		var turns_left : int = new_effects[effect] - 1
-		if turns_left < 0:
+		if turns_left <= 0:
 			new_effects.erase(effect)
 		else:
 			new_effects[effect] = turns_left

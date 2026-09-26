@@ -110,7 +110,6 @@ func _delete_selected_spell() -> void:
 		# reconnect neighboring nodes and all that stuff
 		selected_spell.previous_spell.then_spell = selected_spell.then_spell
 		selected_spell.then_spell.previous_spell = selected_spell.previous_spell
-		print("B")
 		selected_spell.queue_free()
 		selected_spell = null
 
@@ -122,7 +121,6 @@ func _on_spell_selected(spell : Spell) -> void:
 	if selected_spell != null:
 		if selected_spell != spell:
 			# Debug, reset color of selected spell
-			selected_spell.then_spell.modulate = Color.WHITE
 			selected_spell.modulate = Color.WHITE
 
 			if spell.sigil != null:
