@@ -13,6 +13,13 @@ const LEVELS : Array[Level] = [
 ]
 
 
+@export var main_game : MainGame = null :
+	get:
+		if not main_game:
+			main_game = get_parent()
+		return main_game
+
+
 var current_level : Level = null
 var level_index : int = 0
 
@@ -47,6 +54,10 @@ func next_level() -> void:
 		button.custom_maximum_size = Vector2(32, 32)
 		button.effect = goal_effect
 		goal_effects.add_child(button)
+
+		button.pressed.connect(
+			main_game._update_effect_info.bind(button.effect)
+		)
 
 	if not current_level.rules.is_empty(): # has rules
 		rulebook.custom_minimum_size = Vector2(0.0, 288.0)

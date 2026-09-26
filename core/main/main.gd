@@ -27,11 +27,12 @@ static var seconds_turn_increment : float = 1.0
 @onready var sigil_container : GridContainer = %SigilContainer
 @onready var sigil_texture : TextureRect = %SigilTexture
 @onready var sigil_name : Label = %SigilName
-@onready var sigil_effect_texture : TextureRect = %SigilEffectTexture
+@onready var sigil_effect_button : EffectButton = %SigilEffectButton
 
 @onready var effect_container : GridContainer = %EffectContainer
 @onready var effect_name : Label = %EffectName
 @onready var library_effect_texture : TextureRect = %LibraryEffectTexture
+@onready var effects_library : VBoxContainer = %Effects
 
 @onready var reactions_container : VBoxContainer = %ReactionsContainer
 
@@ -53,17 +54,17 @@ func _populate_sigil_editor() -> void:
 
 		if magic_glyph != null:
 			button.pressed.connect(
-				magic_glyph._on_sigil_selected.bind(button.sigil)
-			)
+				magic_glyph._on_sigil_selected.bind(button.sigil))
 
 		button.pressed.connect(
-			_update_sigil_info.bind(button.sigil)
-		)
+			_update_sigil_info.bind(button.sigil))
+
+	sigil_effect_button.pressed.connect(
+		_update_effect_info.bind(sigil_effect_button.effect)
+	)
 
 	if magic_glyph != null:
-		magic_glyph.spell_selected.connect(
-			_update_spell_info
-		)
+		magic_glyph.spell_selected.connect(_update_spell_info)
 
 	# Turn count
 	for i in range(3):
@@ -93,10 +94,11 @@ func _update_spell_info(spell : Spell) -> void:
 func _update_sigil_info(sigil : Sigil) -> void:
 	sigil_texture.texture = sigil.texture
 	sigil_name.text = sigil.name
-	sigil_effect_texture.texture = sigil.base_effect.icon
+	sigil_effect_button.effect = sigil.base_effect
 
 
 func _update_effect_info(effect : Effect) -> void:
+	print(effect)
 	effect_name.text = effect.name
 	library_effect_texture.texture = effect.icon
 
@@ -142,3 +144,5 @@ func _update_effect_info(effect : Effect) -> void:
 		h_box.add_child(button_2)
 
 		reactions_container.add_child(h_box)
+
+	effects_library.show()

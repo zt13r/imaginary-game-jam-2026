@@ -218,6 +218,7 @@ func _on_cast_button_pressed() -> void:
 			satisfied = true
 		else:
 			satisfied = false
+			break
 	print("TARGET EFFECTS: ", Game.target.format_effects(Game.target.effects))
 
 	if satisfied:

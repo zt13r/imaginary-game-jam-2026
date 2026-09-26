@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dgkdfi68avc88" path="res://gameplay/0_glyph/target/target.tscn" id="4_yibi5"]
 [ext_resource type="Texture2D" uid="uid://c5q7j5qcrugwh" path="res://assets/art/3_effects/burnt.png" id="5_81xgm"]
 [ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="5_k5wvu"]
+[ext_resource type="PackedScene" uid="uid://bch1wjqs2art5" path="res://gameplay/4_effects/button/effect_button.tscn" id="7_qctb3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5alkf"]
 bg_color = Color(0.7372549, 0.52156866, 0.3882353, 1)
@@ -79,7 +80,7 @@ corner_radius_bottom_left = 16
 process_mode = 3
 script = ExtResource("1_8fcwd")
 
-[node name="Puzzle" type="Control" parent="." unique_id=1106131826]
+[node name="Puzzle" type="Control" parent="." unique_id=1106131826 node_paths=PackedStringArray("main_game")]
 unique_name_in_owner = true
 process_mode = 1
 layout_mode = 3
@@ -90,6 +91,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_81xgm")
+main_game = NodePath("..")
 metadata/_edit_lock_ = true
 
 [node name="Target" parent="Puzzle" unique_id=427346703 instance=ExtResource("4_yibi5")]
@@ -224,11 +226,10 @@ theme_override_font_sizes/font_size = 20
 text = "Effects:"
 horizontal_alignment = 1
 
-[node name="SigilEffectTexture" type="TextureRect" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo/PanelContainer/Name" unique_id=1331324216]
+[node name="SigilEffectButton" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo/PanelContainer/Name" unique_id=346843868 instance=ExtResource("7_qctb3")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_81xgm")
 
 [node name="SigilContainer" type="GridContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=414948429]
 unique_name_in_owner = true
@@ -281,6 +282,7 @@ theme_override_font_sizes/font_size = 20
 text = "Delete Selected Spell"
 
 [node name="Effects" type="VBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer" unique_id=107618108]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1

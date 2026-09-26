@@ -50,8 +50,8 @@ func end_turn() -> void:
 
 			if reaction != null and not has_effect(reaction):
 				# Add new effect
-				var new_turn_count : int =\
-					max(effects[effect_a], effects[effect_b])
+				var new_turn_count : int = 3
+					#max(effects[effect_a], effects[effect_b])
 
 				new_effects[reaction] = new_turn_count
 
@@ -62,7 +62,7 @@ func end_turn() -> void:
 	# Remove effects that are out of turns
 	for effect : Effect in new_effects.duplicate():
 		var turns_left : int = new_effects[effect] - 1
-		if turns_left <= 0:
+		if turns_left < 0:
 			new_effects.erase(effect)
 		else:
 			new_effects[effect] = turns_left
