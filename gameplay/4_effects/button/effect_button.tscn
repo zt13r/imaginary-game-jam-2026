@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bch1wjqs2art5"]
+
+[ext_resource type="Script" uid="uid://d2hqkglvfevhu" path="res://gameplay/4_effects/button/effect_button.gd" id="1_6djpa"]
+[ext_resource type="Texture2D" uid="uid://bvw1s37cayd2u" path="res://assets/art/3_effects/tainted.png" id="1_hj484"]
+
+[node name="EffectButton" type="TextureButton" unique_id=346843868]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_hj484")
+stretch_mode = 5
+script = ExtResource("1_6djpa")

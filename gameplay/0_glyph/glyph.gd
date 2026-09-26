@@ -12,6 +12,14 @@ const SIGIL_RESOURCES : Array[Sigil] = [
 ]
 
 
+@export var puzzle : Puzzle = null :
+	get:
+		if not puzzle:
+			if get_parent() is Puzzle:
+				puzzle = get_parent()
+			else:
+				push_error("Glyph parent is not Puzzle.")
+		return puzzle
 @export var turn_count_menu : OptionButton = null
 
 
@@ -150,6 +158,10 @@ func _on_cast_button_pressed() -> void:
 			push_error(spell.name, " ThenSpell is null.")
 			return
 
+	if puzzle == null:
+		push_error("Puzzle is null")
+		return
+
 	# Debug, reset colors before casting
 	# Because there is also coloring during casting idk
 	# What
@@ -176,6 +188,43 @@ func _on_cast_button_pressed() -> void:
 		next_spell.modulate = Color.WHITE
 
 		turns += 1
+
+	var satisfied : bool = false
+
+	for rule : Rule in puzzle.current_level.rules:
+		if rule is OnlyRule:
+			if rule.is_satisfied(Game.target, puzzle.current_level.goal_effects):
+				satisfied = true
+				continue
+			else:
+				push_error("OnlyRule not satisifed")
+		elif rule is BannedRule:
+			if not rule.is_satisfied(current_ring.spells):
+				satisfied = true
+				continue
+			else:
+				push_error("BannedRule not satisifed")
+		elif rule is SpellCountRule:
+			if not rule.is_satisfied(current_ring.spells.size()):
+				satisfied = true
+				continue
+			else:
+				push_error("SpellCountRule not satisifed")
+
+	print("GOAL EFFECTS: ")
+	for goal_effect : Effect in puzzle.current_level.goal_effects:
+		print("%s, " % goal_effect.name)
+		if Game.target.has_effect(goal_effect):
+			satisfied = true
+		else:
+			satisfied = false
+	print("TARGET EFFECTS: ", Game.target.format_effects(Game.target.effects))
+
+	if satisfied:
+		print("YAY YOU BEAT THE LEVEL")
+		puzzle.next_level()
+	else:
+		print("You no beat level :(")
 
 
 func _on_sigil_selected(sigil : Sigil) -> void:

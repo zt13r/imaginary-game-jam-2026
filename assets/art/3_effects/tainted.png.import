@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo14rh1iyyycl"
-path="res://.godot/imported/icon.svg-2cf69d3bce45d2e734e2ca33109bd14c.ctex"
+uid="uid://bvw1s37cayd2u"
+path="res://.godot/imported/tainted.png-bf2b10d88fad3287961a71b7ef2502a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/4_other/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-2cf69d3bce45d2e734e2ca33109bd14c.ctex"]
+source_file="res://assets/art/3_effects/tainted.png"
+dest_files=["res://.godot/imported/tainted.png-bf2b10d88fad3287961a71b7ef2502a5.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

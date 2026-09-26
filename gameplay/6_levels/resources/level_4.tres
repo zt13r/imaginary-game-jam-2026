@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Level" format=3 uid="uid://wwq4lulpp0hr"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_8il8p"]
+[ext_resource type="Resource" uid="uid://bvmrplusf00ka" path="res://gameplay/4_effects/resources/derived/1/shocked.tres" id="2_afni1"]
+[ext_resource type="Resource" uid="uid://6o3bnr6ksfhh" path="res://gameplay/4_effects/resources/derived/1/corrupted.tres" id="3_w0vrk"]
+[ext_resource type="Script" uid="uid://domco8oq82qsp" path="res://gameplay/6_levels/rules/rule.gd" id="5_tygk5"]
+[ext_resource type="Script" uid="uid://bcrewijtb3lqh" path="res://gameplay/6_levels/rules/spell_count_rule.gd" id="6_kcmqy"]
+[ext_resource type="Script" uid="uid://3yp8s4u1e65d" path="res://gameplay/3_sigil/sigil.gd" id="6_spjyb"]
+[ext_resource type="Script" uid="uid://nskebog7ywln" path="res://gameplay/6_levels/level.gd" id="7_1gcu0"]
+[ext_resource type="Resource" uid="uid://0k4l5lbx5apa" path="res://gameplay/3_sigil/resources/fire.tres" id="7_cuuec"]
+[ext_resource type="Script" uid="uid://dtoor0ftcv3cb" path="res://gameplay/6_levels/rules/banned_rule.gd" id="8_tygk5"]
+
+[sub_resource type="Resource" id="Resource_8il8p"]
+script = ExtResource("6_kcmqy")
+maximum = 5
+metadata/_custom_type_script = "uid://bcrewijtb3lqh"
+
+[sub_resource type="Resource" id="Resource_yj3wr"]
+script = ExtResource("8_tygk5")
+banned_sigils = Array[ExtResource("6_spjyb")]([ExtResource("7_cuuec")])
+metadata/_custom_type_script = "uid://dtoor0ftcv3cb"
+
+[resource]
+script = ExtResource("7_1gcu0")
+goal_effects = Array[ExtResource("1_8il8p")]([ExtResource("2_afni1"), ExtResource("3_w0vrk")])
+rules = Array[ExtResource("5_tygk5")]([SubResource("Resource_8il8p"), SubResource("Resource_yj3wr")])
+metadata/_custom_type_script = "uid://nskebog7ywln"

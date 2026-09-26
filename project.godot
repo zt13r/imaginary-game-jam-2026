@@ -13,7 +13,7 @@ config_version=5
 config/name="Magic Engineering"
 run/main_scene="uid://qtpxy54py8ri"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://assets/art/4_other/icon.svg"
+config/icon="res://assets/art/5_other/icon.svg"
 
 [autoload]
 

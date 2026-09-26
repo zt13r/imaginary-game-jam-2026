@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp80w1ugi4cu"
-path="res://.godot/imported/hover_bg.png-c31b98e0d9964b20786b657b74e97cd7.ctex"
+uid="uid://tkwukjdw2wmu"
+path="res://.godot/imported/awakened.png-44c9246e6cc475ee47b34a549894d1c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/1_sigils/button_background/hover_bg.png"
-dest_files=["res://.godot/imported/hover_bg.png-c31b98e0d9964b20786b657b74e97cd7.ctex"]
+source_file="res://assets/art/3_effects/awakened.png"
+dest_files=["res://.godot/imported/awakened.png-44c9246e6cc475ee47b34a549894d1c9.ctex"]
 
 [params]
 

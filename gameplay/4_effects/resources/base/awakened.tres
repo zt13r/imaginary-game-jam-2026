@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="Effect" format=3 uid="uid://7lqwmo6a80k5"]
 
+[ext_resource type="Texture2D" uid="uid://tkwukjdw2wmu" path="res://assets/art/3_effects/awakened.png" id="1_5p6s2"]
 [ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_ch5bi"]
 
 [resource]
 script = ExtResource("1_ch5bi")
 name = "Awakened"
+icon = ExtResource("1_5p6s2")
 metadata/_custom_type_script = "uid://bfgjgbme5si06"

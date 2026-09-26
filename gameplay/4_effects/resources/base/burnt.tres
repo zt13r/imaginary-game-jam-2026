@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="Effect" format=3 uid="uid://lo7eorsbhbjk"]
 
 [ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_4ctoh"]
+[ext_resource type="Texture2D" uid="uid://c5q7j5qcrugwh" path="res://assets/art/3_effects/burnt.png" id="1_jkrd7"]
 
 [resource]
 script = ExtResource("1_4ctoh")
 name = "Burnt"
+icon = ExtResource("1_jkrd7")
 metadata/_custom_type_script = "uid://bfgjgbme5si06"

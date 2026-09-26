@@ -64,7 +64,6 @@ var next_spell : Spell = null
 
 func _ready() -> void:
 	name = "Spell"
-	turn_count = 3
 
 
 func _gui_input(event : InputEvent) -> void:

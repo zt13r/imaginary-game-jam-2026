@@ -2,6 +2,27 @@ extends Node
 
 
 var resources: Array[Reaction] = [
+	preload("uid://k6lim12kj75"), # charred-soaked
+	preload("uid://vssgi5fjly2n"), # diseased-awakened
+	preload("uid://b2crfdbmtsht1"), # diseased-burnt
+	preload("uid://cby1b5f8de6ct"), # drenched-burnt
+	preload("uid://bgi0fb37gw60e"), # charred-tainted
+	preload("uid://bay5bfx8kir3x"), # choked-burnt
+	preload("uid://drbanedkpd6gq"), # shocked-tainted
+	preload("uid://dy6j86ar1cvxf"), # disoriented-soaked
+	preload("uid://b3punc0qfmifl"), # muddied-awakened
+	preload("uid://b4l8ow1hbp662"), # blighted-burnt
+	preload("uid://c7rm4e6voefyd"), # corrupted-airborne
+	preload("uid://8ah567b2vu8g"), # frozen-burnt
+	preload("uid://dtkbbopxl6tja"), # corrupted-grounded
+	preload("uid://c4wpj5gevamv7"), # diseased-ground
+	preload("uid://bd1dl0dueaut1"), # diseased-tainted
+	preload("uid://ckgpw8w8qaij3"), # charred-awakened
+	preload("uid://c81bs8bdofba8"), # charred-burnt
+	preload("uid://ce5k3uj6dmam"), # corrupted-awakened
+	preload("uid://bu3104exh2u1e"), # corrupted-burnt
+	preload("uid://uxho8rlhu484"), # corrupted-soaked
+
 	preload("uid://c7cs7g2reu5vp"), # airborne-awakened
 	preload("uid://dtfqnf3l6cmo"), # airborne-tainted
 	preload("uid://qfh2paknb43e"), # awakened-tainted
@@ -130,8 +151,7 @@ func _build_library() -> void:
 		if not library.has(result):
 			library[result] = []
 		library[result].append(reaction)
-	print(format(library))
-
+	#print(format(library))
 
 
 func format(_library : Dictionary[Effect, Array]) -> String:

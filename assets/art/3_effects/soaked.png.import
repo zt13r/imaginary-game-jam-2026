@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwes7v4f4bxxf"
-path="res://.godot/imported/lost-century-24-1x.png-8bd61bd3c337df030862d3078070515a.ctex"
+uid="uid://cemihlrrki40k"
+path="res://.godot/imported/soaked.png-c863b037b05a2766f936346fb401780c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/4_other/lost-century-24-1x.png"
-dest_files=["res://.godot/imported/lost-century-24-1x.png-8bd61bd3c337df030862d3078070515a.ctex"]
+source_file="res://assets/art/3_effects/soaked.png"
+dest_files=["res://.godot/imported/soaked.png-c863b037b05a2766f936346fb401780c.ctex"]
 
 [params]
 
