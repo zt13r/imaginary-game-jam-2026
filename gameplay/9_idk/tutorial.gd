@@ -49,14 +49,17 @@ func _gui_input(event : InputEvent) -> void:
 func _advance_tutorial() -> void:
 	current_step += 1
 
-	if current_step < TEXT.get(puzzle.level_index).size():
+	if current_step < TEXT.get(puzzle.level_index, {}).size():
 		show_text()
 	else:
 		_finish_tutorial()
 
 
 func show_text() -> void:
-	if visible == false: show()
+	if visible == false:
+		show()
+	if label.visible == false:
+		label.show()
 	var string_and_pos : Dictionary =\
 		TEXT.get(puzzle.level_index, {})
 	if string_and_pos.is_empty():

@@ -205,6 +205,13 @@ func _on_retry_button_pressed() -> void:
 	spell_editor.show()
 	cast_button.disabled = false
 
+	puzzle.rule_label.text = ""
+	var rule_number : int = 1
+	for rule : Rule in puzzle.current_level.rules:
+		var rule_display : String = rule.get_display()
+		puzzle.rule_label.text +=\
+			"%d. %s\n\n" % [rule_number, rule_display]
+
 
 func _on_next_level_button_pressed() -> void:
 	overlay.show()

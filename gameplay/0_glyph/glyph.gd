@@ -221,25 +221,45 @@ func _on_cast_button_pressed() -> void:
 		button.custom_minimum_size = Vector2(96, 96)
 		main_game.grid_container.add_child(button)
 
+	puzzle.rule_label.text = ""
+	var rule_number : int = 1
 	for rule : Rule in puzzle.current_level.rules:
 		if rule is OnlyRule:
 			if rule.is_satisfied(Game.target, puzzle.current_level.goal_effects):
 				satisfied = true
+				var rule_display : String = rule.get_display()
+				puzzle.rule_label.text +=\
+					"%d. %s (You = awesome)\n" % [rule_number, rule_display]
 				continue
 			else:
-				push_error("OnlyRule not satisifed")
+				var rule_display : String = rule.get_display()
+				puzzle.rule_label.text +=\
+					"%d. %s (Hmm...)\n" % [rule_number, rule_display]
 		elif rule is BannedRule:
-			if not rule.is_satisfied(current_ring.spells):
+			if rule.is_satisfied(current_ring.spells):
 				satisfied = true
+				var rule_display : String = rule.get_display()
+				puzzle.rule_label.text +=\
+					"%d. %s (You = great)\n" % [rule_number, rule_display]
 				continue
 			else:
-				push_error("BannedRule not satisifed")
+				var rule_display : String = rule.get_display()
+				puzzle.rule_label.text +=\
+					"%d. %s (Well...)\n" % [rule_number, rule_display]
 		elif rule is SpellCountRule:
-			if not rule.is_satisfied(current_ring.spells.size()):
+			if rule.is_satisfied(current_ring.spells.size()):
 				satisfied = true
+				var rule_display : String = rule.get_display()
+				puzzle.rule_label.text +=\
+					"%d. %s (You = cool)\n" % [rule_number, rule_display]
 				continue
 			else:
-				push_error("SpellCountRule not satisifed")
+				var rule_display : String = rule.get_display()
+				puzzle.rule_label.text +=\
+					"%d. %s (I mean...)\n" % [rule_number, rule_display]
+		rule_number += 1
+
+	
 
 	for goal_effect : Effect in puzzle.current_level.goal_effects:
 		if Game.target.has_effect(goal_effect):

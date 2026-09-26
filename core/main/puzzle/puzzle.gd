@@ -21,7 +21,7 @@ const LEVELS : Array[Level] = [
 
 
 var current_level : Level = null
-var level_index : int = 1
+@export var level_index : int = 0
 
 var finished : bool = false
 
@@ -69,7 +69,7 @@ func next_level() -> void:
 		for rule : Rule in current_level.rules:
 			var rule_display : String = rule.get_display()
 			rule_label.text +=\
-				"%d. %s" % [rule_number, rule_display]
+				"%d. %s\n" % [rule_number, rule_display]
 			rule_number += 1
 	else: # level has no rules
 		rulebook.custom_minimum_size = Vector2(0.0, 0.0)

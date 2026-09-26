@@ -103,6 +103,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_81xgm")
 main_game = NodePath("..")
+level_index = 3
 metadata/_edit_lock_ = true
 
 [node name="Background" type="ColorRect" parent="Puzzle" unique_id=704100760]
@@ -478,6 +479,7 @@ text = "1.
 2.
 3.
 4."
+autowrap_mode = 3
 
 [node name="Overlay" type="ColorRect" parent="HudLayer/HudRoot" unique_id=1706990705]
 unique_name_in_owner = true

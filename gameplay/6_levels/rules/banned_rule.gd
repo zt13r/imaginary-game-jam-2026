@@ -9,13 +9,15 @@ func get_display() -> String:
 	var display : String = "Can't use "
 	for i : int in range(banned_sigils.size()):
 		var sigil : Sigil = banned_sigils[i]
-		display += sigil.name
-		if i < banned_sigils.size():
+		display += sigil.name if sigil != null else "NULL "
+		if i < banned_sigils.size() - 2:
 			display += ", "
 		elif (i == banned_sigils.size() - 2):
-			display += "and "
-	if banned_sigils.size() == 1:
-		display += " Sigils."
+			if banned_sigils.size() == 2:
+				display += " and "
+			else:
+				display += ", and "
+	display += " sigils"
 	return display
 
 
