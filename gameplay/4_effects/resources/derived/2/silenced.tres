@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://y0g7gh58m1ny"]
-
-[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_rg4gn"]
-
-[resource]
-script = ExtResource("1_rg4gn")
-name = "Silenced"
-metadata/_custom_type_script = "uid://bfgjgbme5si06"

@@ -1,12 +1,14 @@
 class_name Target
-extends Control
+extends TextureRect
+
+
 
 
 #                    effect_name, turn_count
 var effects : Dictionary[Effect, int] = {}
 
 
-@onready var debug_effects_label: Label = %DebugEffectsLabel
+#@onready var debug_effects_label: Label = %DebugEffectsLabel
 
 
 func _ready() -> void:
@@ -22,12 +24,12 @@ func has_effect(effect : Effect) -> bool:
 
 func add_effect(effect : Effect, turn_count : int) -> void:
 	effects[effect] = turn_count
-	debug_effects_label.text = "Effects:" + format_effects(effects)
+	#debug_effects_label.text = "Effects:" + format_effects(effects)
 
 
 func clear_effects() -> void:
 	effects.clear()
-	debug_effects_label.text = "Effects:"
+	#debug_effects_label.text = "Effects:"
 
 
 func end_turn() -> void:
@@ -69,7 +71,9 @@ func end_turn() -> void:
 
 	effects = new_effects
 
-	debug_effects_label.text = "Effects:" + format_effects(effects)
+	
+
+	#debug_effects_label.text = "Effects:" + format_effects(effects)
 
 
 func format_effects(new_effects : Dictionary[Effect, int]) -> String:

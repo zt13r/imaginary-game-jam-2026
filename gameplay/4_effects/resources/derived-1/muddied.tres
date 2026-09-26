@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://csb3gd5253lcy"]
+
+[ext_resource type="Texture2D" uid="uid://bbb7dc2ql6saa" path="res://assets/art/3_effects/derived-1/muddied.png" id="1_ppda6"]
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="2_xajds"]
+
+[resource]
+script = ExtResource("2_xajds")
+name = "Muddied"
+icon = ExtResource("1_ppda6")
+metadata/_custom_type_script = "uid://bfgjgbme5si06"

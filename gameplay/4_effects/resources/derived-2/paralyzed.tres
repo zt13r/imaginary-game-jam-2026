@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://mg6g4gqat2ej"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_et0tm"]
+[ext_resource type="Texture2D" uid="uid://dcutawdhk6ois" path="res://assets/art/3_effects/derived-2/paralyzed.png" id="1_hrx5q"]
+
+[resource]
+script = ExtResource("1_et0tm")
+name = "Paralyzed"
+icon = ExtResource("1_hrx5q")
+metadata/_custom_type_script = "uid://bfgjgbme5si06"

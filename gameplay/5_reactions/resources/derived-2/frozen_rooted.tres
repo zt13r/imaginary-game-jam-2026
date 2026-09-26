@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Reaction" format=3 uid="uid://pw0kb1b2uimf"]
+
+[ext_resource type="Resource" uid="uid://qcvvbl5yt5bl" path="res://gameplay/4_effects/resources/derived-1/frozen.tres" id="1_hh6v5"]
+[ext_resource type="Resource" uid="uid://ot04mad2wk5t" path="res://gameplay/4_effects/resources/derived-1/rooted.tres" id="2_xcqfp"]
+[ext_resource type="Resource" uid="uid://mg6g4gqat2ej" path="res://gameplay/4_effects/resources/derived-2/paralyzed.tres" id="3_osrnf"]
+[ext_resource type="Script" uid="uid://dda4k5dlbbpyx" path="res://gameplay/5_reactions/reaction.gd" id="4_grqvi"]
+
+[resource]
+script = ExtResource("4_grqvi")
+effect_a = ExtResource("1_hh6v5")
+effect_b = ExtResource("2_xcqfp")
+result = ExtResource("3_osrnf")

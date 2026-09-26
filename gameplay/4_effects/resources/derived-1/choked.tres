@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://cf7jnlcddv201"]
+
+[ext_resource type="Texture2D" uid="uid://kuvb02hoajq1" path="res://assets/art/3_effects/derived-1/choked.png" id="1_ec6y0"]
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="2_4m0tw"]
+
+[resource]
+script = ExtResource("2_4m0tw")
+name = "Choked"
+icon = ExtResource("1_ec6y0")
+metadata/_custom_type_script = "uid://bfgjgbme5si06"

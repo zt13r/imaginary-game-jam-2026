@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bch1wjqs2art5"]
 
 [ext_resource type="Script" uid="uid://d2hqkglvfevhu" path="res://gameplay/4_effects/button/effect_button.gd" id="1_6djpa"]
-[ext_resource type="Texture2D" uid="uid://bvw1s37cayd2u" path="res://assets/art/3_effects/tainted.png" id="1_hj484"]
+[ext_resource type="Texture2D" uid="uid://c5q7j5qcrugwh" path="res://assets/art/3_effects/base/burnt.png" id="1_hj484"]
 
 [node name="EffectButton" type="TextureButton" unique_id=346843868]
 offset_right = 40.0

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Effect" format=3 uid="uid://b5th8g3h38hu3"]
 
 [ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_20141"]
-[ext_resource type="Texture2D" uid="uid://doa78405c7iut" path="res://assets/art/3_effects/airborne.png" id="1_r3x37"]
+[ext_resource type="Texture2D" uid="uid://doa78405c7iut" path="res://assets/art/3_effects/base/airborne.png" id="1_r3x37"]
 
 [resource]
 script = ExtResource("1_20141")

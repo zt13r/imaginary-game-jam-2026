@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Reaction" format=3 uid="uid://c81bs8bdofba8"]
 
-[ext_resource type="Resource" uid="uid://cf1pbxj8hy5wu" path="res://gameplay/4_effects/resources/derived/1/charred.tres" id="1_q58qr"]
+[ext_resource type="Resource" uid="uid://cf1pbxj8hy5wu" path="res://gameplay/4_effects/resources/derived-1/charred.tres" id="1_q58qr"]
 [ext_resource type="Resource" uid="uid://lo7eorsbhbjk" path="res://gameplay/4_effects/resources/base/burnt.tres" id="2_bsvcu"]
 [ext_resource type="Resource" uid="uid://b0kc4q0rifv2f" path="res://gameplay/4_effects/resources/base/tainted.tres" id="3_snam6"]
 [ext_resource type="Script" uid="uid://dda4k5dlbbpyx" path="res://gameplay/5_reactions/reaction.gd" id="4_fpjj0"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_f1dgl"]
 [ext_resource type="Script" uid="uid://domco8oq82qsp" path="res://gameplay/6_levels/rules/rule.gd" id="2_fn3w2"]
-[ext_resource type="Resource" uid="uid://csb3gd5253lcy" path="res://gameplay/4_effects/resources/derived/1/muddied.tres" id="2_xeh6w"]
+[ext_resource type="Resource" uid="uid://csb3gd5253lcy" path="res://gameplay/4_effects/resources/derived-1/muddied.tres" id="2_xeh6w"]
 [ext_resource type="Resource" uid="uid://b2olfrjxdg46x" path="res://gameplay/4_effects/resources/base/soaked.tres" id="3_ee1rc"]
 [ext_resource type="Script" uid="uid://nskebog7ywln" path="res://gameplay/6_levels/level.gd" id="3_xeh6w"]
 

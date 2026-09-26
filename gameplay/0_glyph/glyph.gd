@@ -12,6 +12,7 @@ const SIGIL_RESOURCES : Array[Sigil] = [
 ]
 
 
+@export var main_game : MainGame = null
 @export var puzzle : Puzzle = null :
 	get:
 		if not puzzle:
@@ -162,6 +163,10 @@ func _on_cast_button_pressed() -> void:
 		push_error("Puzzle is null")
 		return
 
+	await main_game.cast()
+
+	await get_tree().create_timer(2.0).timeout
+
 	# Debug, reset colors before casting
 	# Because there is also coloring during casting idk
 	# What
@@ -190,6 +195,8 @@ func _on_cast_button_pressed() -> void:
 		turns += 1
 
 	var satisfied : bool = false
+
+	main_game.done_cast()
 
 	for rule : Rule in puzzle.current_level.rules:
 		if rule is OnlyRule:

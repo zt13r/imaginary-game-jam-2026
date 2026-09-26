@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://cqgldhtbu22mw"]
+
+[ext_resource type="Texture2D" uid="uid://bmuapmag8bhdu" path="res://assets/art/3_effects/derived-1/disoriented.png" id="1_peu5k"]
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="2_np77h"]
+
+[resource]
+script = ExtResource("2_np77h")
+name = "Disoriented"
+icon = ExtResource("1_peu5k")
+metadata/_custom_type_script = "uid://bfgjgbme5si06"

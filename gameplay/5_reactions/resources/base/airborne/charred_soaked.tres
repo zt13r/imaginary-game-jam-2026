@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Reaction" format=3 uid="uid://k6lim12kj75"]
 
-[ext_resource type="Resource" uid="uid://cf1pbxj8hy5wu" path="res://gameplay/4_effects/resources/derived/1/charred.tres" id="1_pu7lx"]
+[ext_resource type="Resource" uid="uid://cf1pbxj8hy5wu" path="res://gameplay/4_effects/resources/derived-1/charred.tres" id="1_pu7lx"]
 [ext_resource type="Resource" uid="uid://b2olfrjxdg46x" path="res://gameplay/4_effects/resources/base/soaked.tres" id="2_dq6wi"]
 [ext_resource type="Resource" uid="uid://b5th8g3h38hu3" path="res://gameplay/4_effects/resources/base/airborne.tres" id="3_pu7lx"]
 [ext_resource type="Script" uid="uid://dda4k5dlbbpyx" path="res://gameplay/5_reactions/reaction.gd" id="4_asbis"]

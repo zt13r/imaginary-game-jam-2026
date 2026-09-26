@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Reaction" format=3 uid="uid://c7rm4e6voefyd"]
 
-[ext_resource type="Resource" uid="uid://6o3bnr6ksfhh" path="res://gameplay/4_effects/resources/derived/1/corrupted.tres" id="1_rafp5"]
+[ext_resource type="Resource" uid="uid://6o3bnr6ksfhh" path="res://gameplay/4_effects/resources/derived-1/corrupted.tres" id="1_rafp5"]
 [ext_resource type="Resource" uid="uid://b5th8g3h38hu3" path="res://gameplay/4_effects/resources/base/airborne.tres" id="2_832or"]
 [ext_resource type="Resource" uid="uid://bta2jv2vjxu55" path="res://gameplay/4_effects/resources/base/grounded.tres" id="3_c50dj"]
 [ext_resource type="Script" uid="uid://dda4k5dlbbpyx" path="res://gameplay/5_reactions/reaction.gd" id="4_c5vry"]

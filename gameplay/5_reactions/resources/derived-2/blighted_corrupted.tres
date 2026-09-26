@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Reaction" format=3 uid="uid://bndivxvhhg3b8"]
+
+[ext_resource type="Resource" uid="uid://cgt4l1pkte36g" path="res://gameplay/4_effects/resources/derived-1/blighted.tres" id="1_als0c"]
+[ext_resource type="Resource" uid="uid://6o3bnr6ksfhh" path="res://gameplay/4_effects/resources/derived-1/corrupted.tres" id="2_3vvv6"]
+[ext_resource type="Resource" uid="uid://e6dx5kdj1l5q" path="res://gameplay/4_effects/resources/derived-2/withered.tres" id="3_7ttxk"]
+[ext_resource type="Script" uid="uid://dda4k5dlbbpyx" path="res://gameplay/5_reactions/reaction.gd" id="4_yrqid"]
+
+[resource]
+script = ExtResource("4_yrqid")
+effect_a = ExtResource("1_als0c")
+effect_b = ExtResource("2_3vvv6")
+result = ExtResource("3_7ttxk")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Reaction" format=3 uid="uid://cegihe2lvsmbc"]
+
+[ext_resource type="Resource" uid="uid://lo7eorsbhbjk" path="res://gameplay/4_effects/resources/base/burnt.tres" id="1_ns4qn"]
+[ext_resource type="Script" uid="uid://dda4k5dlbbpyx" path="res://gameplay/5_reactions/reaction.gd" id="1_tl0e8"]
+[ext_resource type="Resource" uid="uid://b0kc4q0rifv2f" path="res://gameplay/4_effects/resources/base/tainted.tres" id="2_p4fy2"]
+[ext_resource type="Resource" uid="uid://cgt4l1pkte36g" path="res://gameplay/4_effects/resources/derived-1/blighted.tres" id="3_p4fy2"]
+
+[resource]
+script = ExtResource("1_tl0e8")
+effect_a = ExtResource("1_ns4qn")
+effect_b = ExtResource("2_p4fy2")
+result = ExtResource("3_p4fy2")
+metadata/_custom_type_script = "uid://dda4k5dlbbpyx"

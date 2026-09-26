@@ -17,8 +17,15 @@ const SIGILS : Array[Sigil] = [
 const REACTION_MAXIMUM_SIZE : Vector2 = Vector2(28, 28)
 
 
+@export var bg_color : Color = Color(0.172, 0.172, 0.172, 1.0)
+@export var cast_bg_color : Color = Color(0.056, 0.056, 0.056, 1.0)
+
+
 static var seconds_turn_increment : float = 1.0
 
+
+@onready var background : ColorRect = %Background
+@onready var overlay : ColorRect = %Overlay
 
 @onready var puzzle : Puzzle = %Puzzle
 @onready var target : Target = %Target
@@ -34,7 +41,9 @@ static var seconds_turn_increment : float = 1.0
 @onready var library_effect_texture : TextureRect = %LibraryEffectTexture
 @onready var effects_library : VBoxContainer = %Effects
 
-@onready var reactions_container : VBoxContainer = %ReactionsContainer
+@onready var reactions_container : GridContainer = %ReactionsContainer
+@onready var spell_editor : PanelContainer = %SpellEditor
+@onready var rulebook : PanelContainer = %Rulebook
 
 @onready var turn_count_menu : OptionButton = %TurnCountMenu
 
@@ -44,6 +53,9 @@ func _ready() -> void:
 	_populate_library()
 
 	Game.target = target
+
+	spell_editor.show()
+	rulebook.show()
 
 
 func _populate_sigil_editor() -> void:
@@ -98,7 +110,8 @@ func _update_sigil_info(sigil : Sigil) -> void:
 
 
 func _update_effect_info(effect : Effect) -> void:
-	print(effect)
+	if effect == null:
+		return
 	effect_name.text = effect.name
 	library_effect_texture.texture = effect.icon
 
@@ -116,8 +129,8 @@ func _update_effect_info(effect : Effect) -> void:
 		var button_1 : EffectButton =\
 			EFFECT_BUTTON_SCENE.instantiate()
 		button_1.custom_maximum_size = REACTION_MAXIMUM_SIZE
-		button_1.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-		button_1.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		button_1.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		button_1.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		button_1.effect = pair.effect_a
 
 		var label : Label = Label.new()
@@ -128,8 +141,8 @@ func _update_effect_info(effect : Effect) -> void:
 		var button_2 : EffectButton =\
 			EFFECT_BUTTON_SCENE.instantiate()
 		button_2.custom_maximum_size = REACTION_MAXIMUM_SIZE
-		button_2.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-		button_2.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		button_2.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		button_2.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		button_2.effect = pair.effect_b
 
 		button_1.pressed.connect(
@@ -146,3 +159,22 @@ func _update_effect_info(effect : Effect) -> void:
 		reactions_container.add_child(h_box)
 
 	effects_library.show()
+
+
+func cast() -> void:
+	overlay.show()
+	background.color = cast_bg_color
+
+	rulebook.hide()
+	spell_editor.hide()
+
+	await get_tree().create_timer(1.5).timeout
+
+	target.show()
+	overlay.hide()
+
+
+func done_cast() -> void:
+	background.color = bg_color
+	#target.hide()
+	#spell_editor.show()

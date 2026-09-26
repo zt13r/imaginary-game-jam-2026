@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://crkyrtardocv6" path="res://gameplay/3_sigil/button/sigil_button.gd" id="2_67h43"]
 
 [node name="SigilButton" type="TextureButton" unique_id=1000219137]
-self_modulate = Color(0, 0, 0, 1)
 custom_maximum_size = Vector2(48, 48)
 offset_right = 40.0
 offset_bottom = 40.0

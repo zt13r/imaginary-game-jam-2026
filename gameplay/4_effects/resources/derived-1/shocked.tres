@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://bvmrplusf00ka"]
+
+[ext_resource type="Texture2D" uid="uid://bho0ki6qnq8wr" path="res://assets/art/3_effects/derived-1/shocked.png" id="1_02suq"]
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="2_1mr3s"]
+
+[resource]
+script = ExtResource("2_1mr3s")
+name = "Shocked"
+icon = ExtResource("1_02suq")
+metadata/_custom_type_script = "uid://bfgjgbme5si06"

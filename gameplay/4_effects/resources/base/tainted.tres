@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Effect" format=3 uid="uid://b0kc4q0rifv2f"]
 
-[ext_resource type="Texture2D" uid="uid://bvw1s37cayd2u" path="res://assets/art/3_effects/tainted.png" id="1_5p5p0"]
+[ext_resource type="Texture2D" uid="uid://bvw1s37cayd2u" path="res://assets/art/3_effects/base/tainted.png" id="1_5p5p0"]
 [ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_o7lgc"]
 
 [resource]

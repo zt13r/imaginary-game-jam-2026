@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://dvno5facevss"]
-
-[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_sk72u"]
-
-[resource]
-script = ExtResource("1_sk72u")
-name = "Enchanted"
-metadata/_custom_type_script = "uid://bfgjgbme5si06"

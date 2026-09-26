@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Reaction" format=3 uid="uid://dceyh4k7ipnhj"]
+
+[ext_resource type="Resource" uid="uid://cf7jnlcddv201" path="res://gameplay/4_effects/resources/derived-1/choked.tres" id="1_lipuu"]
+[ext_resource type="Resource" uid="uid://j6inlj13f22p" path="res://gameplay/4_effects/resources/derived-1/diseased.tres" id="2_yu1cg"]
+[ext_resource type="Resource" uid="uid://c0i0pq0jj8dxr" path="res://gameplay/4_effects/resources/derived-2/weakened.tres" id="3_kwnpo"]
+[ext_resource type="Script" uid="uid://dda4k5dlbbpyx" path="res://gameplay/5_reactions/reaction.gd" id="4_s3dne"]
+
+[resource]
+script = ExtResource("4_s3dne")
+effect_a = ExtResource("1_lipuu")
+effect_b = ExtResource("2_yu1cg")
+result = ExtResource("3_kwnpo")

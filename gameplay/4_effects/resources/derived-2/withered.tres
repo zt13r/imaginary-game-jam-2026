@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://e6dx5kdj1l5q"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_2eyii"]
+[ext_resource type="Texture2D" uid="uid://bvy4rbk6v82pv" path="res://assets/art/3_effects/derived-2/withered.png" id="1_snufc"]
+
+[resource]
+script = ExtResource("1_2eyii")
+name = "Withered"
+icon = ExtResource("1_snufc")
+metadata/_custom_type_script = "uid://bfgjgbme5si06"

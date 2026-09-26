@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://db30is57gr86s" path="res://gameplay/0_glyph/glyph.tscn" id="2_6vymn"]
 [ext_resource type="Script" uid="uid://ta2wn5ijy4mc" path="res://core/main/puzzle/puzzle.gd" id="2_81xgm"]
 [ext_resource type="PackedScene" uid="uid://dgkdfi68avc88" path="res://gameplay/0_glyph/target/target.tscn" id="4_yibi5"]
-[ext_resource type="Texture2D" uid="uid://c5q7j5qcrugwh" path="res://assets/art/3_effects/burnt.png" id="5_81xgm"]
+[ext_resource type="Texture2D" uid="uid://c5q7j5qcrugwh" path="res://assets/art/3_effects/base/burnt.png" id="5_81xgm"]
 [ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="5_k5wvu"]
 [ext_resource type="PackedScene" uid="uid://bch1wjqs2art5" path="res://gameplay/4_effects/button/effect_button.tscn" id="7_qctb3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5alkf"]
-bg_color = Color(0.7372549, 0.52156866, 0.3882353, 1)
+bg_color = Color(0.20547974, 0.20547971, 0.20547968, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -20,11 +20,7 @@ content_margin_left = 16.0
 content_margin_top = 16.0
 content_margin_right = 16.0
 content_margin_bottom = 16.0
-bg_color = Color(0.827451, 0.7882353, 0.64705884, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
+bg_color = Color(0.3491902, 0.3491902, 0.3491902, 1)
 border_color = Color(0.827451, 0.7882353, 0.64705884, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -35,7 +31,8 @@ corner_radius_bottom_left = 16
 content_margin_left = 8.0
 content_margin_top = 8.0
 content_margin_right = 8.0
-bg_color = Color(0.59905463, 0.6138457, 0.4190288, 1)
+content_margin_bottom = 4.0
+bg_color = Color(0.25773177, 0.25773177, 0.25773177, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 
@@ -43,7 +40,8 @@ corner_radius_top_right = 8
 content_margin_left = 8.0
 content_margin_top = 8.0
 content_margin_right = 8.0
-bg_color = Color(0.7764706, 0.6431373, 0.5137255, 1)
+content_margin_bottom = 4.0
+bg_color = Color(0.3272699, 0.3272699, 0.32726988, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 
@@ -51,7 +49,8 @@ corner_radius_top_right = 8
 content_margin_left = 8.0
 content_margin_top = 8.0
 content_margin_right = 8.0
-bg_color = Color(0.827451, 0.7882353, 0.64705884, 1)
+content_margin_bottom = 4.0
+bg_color = Color(0.34901962, 0.34901962, 0.34901962, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 
@@ -60,16 +59,24 @@ content_margin_left = 8.0
 content_margin_top = 8.0
 content_margin_right = 8.0
 content_margin_bottom = 8.0
-bg_color = Color(0.6862745, 0.7019608, 0.5058824, 1)
+bg_color = Color(0.44975913, 0.44975913, 0.44975913, 1)
 corner_radius_top_right = 16
 corner_detail = 16
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxc0a"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.4509804, 0.4509804, 0.4509804, 1)
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_detail = 16
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qctb3"]
-bg_color = Color(0.827451, 0.7882353, 0.64705884, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
+content_margin_top = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.34901962, 0.34901962, 0.34901962, 1)
 border_color = Color(0.827451, 0.7882353, 0.64705884, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -79,6 +86,8 @@ corner_radius_bottom_left = 16
 [node name="Main" type="Node" unique_id=684111938]
 process_mode = 3
 script = ExtResource("1_8fcwd")
+bg_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+cast_bg_color = Color(0.06100855, 0.06100855, 0.06100855, 1)
 
 [node name="Puzzle" type="Control" parent="." unique_id=1106131826 node_paths=PackedStringArray("main_game")]
 unique_name_in_owner = true
@@ -94,21 +103,33 @@ script = ExtResource("2_81xgm")
 main_game = NodePath("..")
 metadata/_edit_lock_ = true
 
-[node name="Target" parent="Puzzle" unique_id=427346703 instance=ExtResource("4_yibi5")]
+[node name="Background" type="ColorRect" parent="Puzzle" unique_id=704100760]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 400.0
-offset_top = 16.0
-offset_right = -746.0
-offset_bottom = -557.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.17184411, 0.17184411, 0.17184411, 1)
 
-[node name="MagicGlyph" parent="Puzzle" unique_id=1773691080 node_paths=PackedStringArray("puzzle", "turn_count_menu") instance=ExtResource("2_6vymn")]
+[node name="Target" parent="Puzzle" unique_id=427346703 instance=ExtResource("4_yibi5")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_left = 224.0
+offset_top = 288.0
+offset_right = 416.0
+offset_bottom = 574.48987
+
+[node name="MagicGlyph" parent="Puzzle" unique_id=1773691080 node_paths=PackedStringArray("main_game", "puzzle", "turn_count_menu") instance=ExtResource("2_6vymn")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 825.0
 offset_top = 312.0
 offset_right = 825.0
 offset_bottom = 312.0
+main_game = NodePath("../..")
 puzzle = NodePath("..")
 turn_count_menu = NodePath("../../HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor/TurnCountMenu")
 
@@ -144,12 +165,14 @@ offset_right = 384.0
 offset_bottom = -16.0
 grow_vertical = 2
 theme_override_constants/separation = 16
+alignment = 2
+metadata/_edit_lock_ = true
 
 [node name="SpellEditor" type="PanelContainer" parent="HudLayer/HudRoot/VBoxContainer" unique_id=1073032822]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 384)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5alkf")
-metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor" unique_id=231075285]
 layout_mode = 2
@@ -159,10 +182,10 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="TabContainer" type="TabContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer" unique_id=106063731]
+custom_minimum_size = Vector2(428, 370)
 layout_mode = 2
-theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hovered_color = Color(0.28627452, 0.20392157, 0.23529412, 1)
-theme_override_colors/font_unselected_color = Color(0.29411766, 0.3529412, 0.3372549, 1)
+theme_override_colors/font_hovered_color = Color(0.45839155, 0.45839155, 0.45839155, 1)
+theme_override_colors/font_unselected_color = Color(0.29058397, 0.3512683, 0.33605894, 1)
 theme_override_constants/tab_separation = 16
 theme_override_font_sizes/font_size = 32
 theme_override_styles/panel = SubResource("StyleBoxFlat_dg81i")
@@ -176,7 +199,6 @@ current_tab = 0
 layout_mode = 2
 theme_override_constants/separation = 8
 metadata/_tab_index = 0
-metadata/_edit_group_ = true
 
 [node name="SigilEditor" type="HBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=1952051738]
 layout_mode = 2
@@ -188,7 +210,6 @@ size_flags_horizontal = 3
 
 [node name="SigilTexture" type="TextureRect" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo" unique_id=1760130975]
 unique_name_in_owner = true
-self_modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -207,7 +228,6 @@ size_flags_horizontal = 3
 
 [node name="SigilName" type="Label" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo/PanelContainer/Name" unique_id=527489158]
 unique_name_in_owner = true
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
@@ -217,7 +237,6 @@ text = "Fire"
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo/PanelContainer/Name" unique_id=1006521865]
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
@@ -234,8 +253,8 @@ size_flags_horizontal = 0
 [node name="SigilContainer" type="GridContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=414948429]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 6
+size_flags_horizontal = 6
+size_flags_vertical = 10
 columns = 6
 
 [node name="TurnCountEditor" type="HBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=1561417382]
@@ -245,7 +264,6 @@ size_flags_vertical = 10
 theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor" unique_id=1805663223]
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "The effect will last for"
@@ -257,7 +275,6 @@ size_flags_vertical = 4
 allow_reselect = true
 
 [node name="Label2" type="Label" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor" unique_id=1468289519]
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "turns"
@@ -286,11 +303,11 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
-metadata/_edit_group_ = true
 
 [node name="EffectInfo" type="HBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects" unique_id=717078505]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 16
 
 [node name="InfoForReal" type="VBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo" unique_id=2099128535]
 layout_mode = 2
@@ -308,7 +325,7 @@ stretch_mode = 5
 
 [node name="EffectName" type="Label" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal" unique_id=1495940340]
 unique_name_in_owner = true
-self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(196, 0)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
@@ -320,23 +337,25 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="ReactionsLabel" type="Label" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal/Reactions" unique_id=279983862]
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 24
 text = "Reactions:"
 
-[node name="ReactionsContainer" type="VBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal/Reactions" unique_id=374668872]
+[node name="ReactionsContainer" type="GridContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal/Reactions" unique_id=519188615]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+columns = 2
 
 [node name="ChooseEffect" type="ScrollContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo" unique_id=775829336]
+custom_minimum_size = Vector2(184, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.22
-theme_override_constants/scrollbar_h_separation = 4
+theme_override_constants/scrollbar_h_separation = 14
+theme_override_styles/panel = SubResource("StyleBoxFlat_vxc0a")
 
 [node name="EffectContainer" type="GridContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/ChooseEffect" unique_id=1339042953]
 unique_name_in_owner = true
@@ -347,8 +366,8 @@ columns = 3
 [node name="Rulebook" type="PanelContainer" parent="HudLayer/HudRoot/VBoxContainer" unique_id=896426109]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_5alkf")
-metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/VBoxContainer/Rulebook" unique_id=866713269]
 layout_mode = 2
@@ -358,16 +377,15 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/Rulebook/MarginContainer" unique_id=716303936]
+custom_minimum_size = Vector2(428, 0)
 layout_mode = 2
 
 [node name="Header" type="PanelContainer" parent="HudLayer/HudRoot/VBoxContainer/Rulebook/MarginContainer/VBoxContainer" unique_id=368181128]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qctb3")
 
 [node name="Label" type="Label" parent="HudLayer/HudRoot/VBoxContainer/Rulebook/MarginContainer/VBoxContainer/Header" unique_id=446843129]
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "RULES"
@@ -387,21 +405,30 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Label" type="Label" parent="HudLayer/HudRoot/VBoxContainer/Rulebook/MarginContainer/VBoxContainer/Body/VBoxContainer/GoalEffects" unique_id=1783702460]
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Target statuses: "
 
 [node name="ActualRules" type="Label" parent="HudLayer/HudRoot/VBoxContainer/Rulebook/MarginContainer/VBoxContainer/Body/VBoxContainer" unique_id=1653142495]
 unique_name_in_owner = true
-visible = false
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "1.
 2.
 3.
 4."
+
+[node name="Overlay" type="ColorRect" parent="HudLayer/HudRoot" unique_id=1706990705]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.018189248, 0.018189248, 0.018189248, 1)
 
 [connection signal="pressed" from="HudLayer/HudRoot/CastButton" to="Puzzle/MagicGlyph" method="_on_cast_button_pressed"]
 [connection signal="item_selected" from="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor/TurnCountMenu" to="Puzzle/MagicGlyph" method="_on_turn_count_menu_item_selected"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://dymrbu8i1tltu"]
+
+[ext_resource type="Texture2D" uid="uid://bckge1vxwmcc7" path="res://assets/art/3_effects/derived-1/scorched.png" id="1_aeur7"]
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="2_xy44p"]
+
+[resource]
+script = ExtResource("2_xy44p")
+name = "Scorched"
+icon = ExtResource("1_aeur7")
+metadata/_custom_type_script = "uid://bfgjgbme5si06"

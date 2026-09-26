@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Level" format=3 uid="uid://dppjgxn72q0c8"]
 
 [ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_syt4e"]
-[ext_resource type="Resource" uid="uid://cqgldhtbu22mw" path="res://gameplay/4_effects/resources/derived/1/disoriented.tres" id="2_syt4e"]
+[ext_resource type="Resource" uid="uid://cqgldhtbu22mw" path="res://gameplay/4_effects/resources/derived-1/disoriented.tres" id="2_syt4e"]
 [ext_resource type="Resource" uid="uid://lo7eorsbhbjk" path="res://gameplay/4_effects/resources/base/burnt.tres" id="3_sq1hj"]
 [ext_resource type="Script" uid="uid://domco8oq82qsp" path="res://gameplay/6_levels/rules/rule.gd" id="4_pq6ie"]
 [ext_resource type="Script" uid="uid://nskebog7ywln" path="res://gameplay/6_levels/level.gd" id="5_2j14d"]

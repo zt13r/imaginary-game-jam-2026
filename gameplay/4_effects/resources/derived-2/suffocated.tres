@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Effect" format=3 uid="uid://b2r70wb263eiu"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_60b6j"]
+[ext_resource type="Texture2D" uid="uid://cbv0ybudnouo7" path="res://assets/art/3_effects/derived-2/suffocated.png" id="1_lagv1"]
+
+[resource]
+script = ExtResource("1_60b6j")
+name = "Suffocated"
+icon = ExtResource("1_lagv1")
+metadata/_custom_type_script = "uid://bfgjgbme5si06"
