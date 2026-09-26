@@ -30,6 +30,8 @@ const TURN_COUNT_THREE_TEXTURE : Texture2D = preload("uid://ks3r2ajv4v8m")
 			sigil_sprite.hide()
 		else:
 			sigil_sprite.texture = sigil.texture
+			if sigil_sprite.visible == false:
+				sigil_sprite.show()
 
 @export var then_spell : Spell = null :
 	set(value):
@@ -47,7 +49,6 @@ const TURN_COUNT_THREE_TEXTURE : Texture2D = preload("uid://ks3r2ajv4v8m")
 			1 : turn_count_sprite.texture = TURN_COUNT_ONE_TEXTURE
 			2 : turn_count_sprite.texture = TURN_COUNT_TWO_TEXTURE
 			3 : turn_count_sprite.texture = TURN_COUNT_THREE_TEXTURE
-			_ : push_error("Turn count is out of bounds.")
 
 
 var previous_spell : Spell = null

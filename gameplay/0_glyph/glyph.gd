@@ -101,6 +101,7 @@ func _delete_selected_spell() -> void:
 		#push_error("Hey big man, selected ring needs at least %d spells." % current_ring.min_spell_count)
 		return
 
+	print("A")
 	if is_instance_valid(selected_spell):
 		current_ring.spells.erase(selected_spell)
 		selected_spell.then_spell.modulate = Color.WHITE
@@ -109,7 +110,7 @@ func _delete_selected_spell() -> void:
 		# reconnect neighboring nodes and all that stuff
 		selected_spell.previous_spell.then_spell = selected_spell.then_spell
 		selected_spell.then_spell.previous_spell = selected_spell.previous_spell
-
+		print("B")
 		selected_spell.queue_free()
 		selected_spell = null
 
@@ -151,18 +152,24 @@ func _on_cast_button_pressed() -> void:
 	# should be moved to UI display
 	for spell : Spell in outer_spells.spells:
 		if spell.frame == null:
-			push_error(spell.name, " Frame is null.")
+			#push_error(spell.name, " Frame is null.")
 			return
 		if spell.sigil == null:
-			push_error(spell.name, " Sigil is null.")
+			Game.add_error("A spell has no sigil!")
 			return
 		if spell.then_spell == null:
-			push_error(spell.name, " ThenSpell is null.")
+			#push_error(spell.name, " ThenSpell is null.")
 			return
 
 	if puzzle == null:
 		push_error("Puzzle is null")
 		return
+
+	# Debug, reset colors before casting
+	# Because there is also coloring during casting idk
+	# What
+	for spell : Spell in outer_spells.spells:
+		spell.modulate = Color.WHITE
 
 	for child : EffectButton in Game.target.effect_display.get_children():
 		child.queue_free()
@@ -172,12 +179,6 @@ func _on_cast_button_pressed() -> void:
 	await main_game.cast()
 
 	await get_tree().create_timer(1.0).timeout
-
-	# Debug, reset colors before casting
-	# Because there is also coloring during casting idk
-	# What
-	for spell : Spell in outer_spells.spells:
-		spell.modulate = Color.WHITE
 
 	Game.target.clear_effects()
 
@@ -257,7 +258,7 @@ func _on_sigil_selected(sigil : Sigil) -> void:
 	# Temporary error,
 	# should be moved to UI display
 	if selected_spell == null:
-		push_error("No spell selected, can't edit sigil.")
+		Game.add_error("No spell selected")
 		return
 
 	selected_spell.sigil = sigil
@@ -270,7 +271,7 @@ func _on_turn_count_menu_item_selected(index : int) -> void:
 	# Temporary errors,
 	# should be moved to UI display
 	if selected_spell == null:
-		push_error("No spell selected, can't edit turn count.")
+		Game.add_error("No spell selected")
 		return
 	if turn_count_menu == null:
 		push_error("No turn count menu reference, can't edit turn count.")

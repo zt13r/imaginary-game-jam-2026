@@ -54,17 +54,24 @@ static var seconds_turn_increment : float = 1.0
 @onready var next_level_button : Button = %NextLevelButton
 @onready var year_test : Label = %YearTest
 
+@onready var tutorial_root : Tutorial = %TutorialRoot
+
+@onready var errors : VBoxContainer = %Errors
+
 
 func _ready() -> void:
 	_populate_sigil_editor()
 	_populate_library()
 
 	Game.target = target
+	Game.errors = errors
 
 	overlay.hide()
 	result_screen.hide()
 	spell_editor.show()
 	rulebook.show()
+
+	tutorial_root.show_text()
 
 
 func _populate_sigil_editor() -> void:
@@ -202,22 +209,35 @@ func _on_retry_button_pressed() -> void:
 func _on_next_level_button_pressed() -> void:
 	overlay.show()
 	puzzle.next_level()
-	match (puzzle.level_index + 1):
-		1: year_test.text = "Year 1 Midterms"
-		2: year_test.text = "Year 1 Finals"
-		3: year_test.text = "Year 2 Midterms"
-		4: year_test.text = "Year 2 Finals"
-		5: year_test.text = "Year 3 Midterms"
-		6: year_test.text = "Year 3 Finals"
-		7: year_test.text = "Year 4 Midterms"
-		8: year_test.text = "Year 4 Finals"
-		9: year_test.text = "Graduation Exam"
-		_: print("Actual level: ", puzzle.current_level)
+	match (puzzle.level_index):
+		1: year_test.text = "Year 1 Lecture"
+		2: year_test.text = "Year 1 Exam"
+		3: year_test.text = "Year 2 Lecture"
+		4: year_test.text = "Year 2 Exam"
+		5: year_test.text = "Year 3 Lecture"
+		6: year_test.text = "Year 3 Exam"
+		7: year_test.text = "Year 4 Lecture"
+		8: year_test.text = "Year 4 Exam"
+		_: year_test.text = "This is an error message\nidk what happened"
 
 	result_screen.hide()
 	spell_editor.show()
 	cast_button.disabled = false
 
-	await get_tree().create_timer(1.0).timeout
+	while magic_glyph.current_ring.spells.size() > 2:
+		var spells : Array[Spell] =\
+			magic_glyph.current_ring.spells
+		magic_glyph.selected_spell = spells.pop_back()
+		magic_glyph._delete_selected_spell()
+
+	# Remove existing spell sigils
+	for spell : Spell in magic_glyph.current_ring.spells:
+		spell.sigil = null
+		spell.turn_count = -1
+
+	await get_tree().create_timer(1.75).timeout
 
 	overlay.hide()
+
+	if puzzle.level_index in tutorial_root.TEXT:
+		tutorial_root.show_text()

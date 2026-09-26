@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c5q7j5qcrugwh" path="res://assets/art/3_effects/base/burnt.png" id="5_81xgm"]
 [ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="5_k5wvu"]
 [ext_resource type="PackedScene" uid="uid://bch1wjqs2art5" path="res://gameplay/4_effects/button/effect_button.tscn" id="7_qctb3"]
-[ext_resource type="Script" uid="uid://twfqml4qr40e" path="res://core/main/tutorial_label.gd" id="8_5alkf"]
+[ext_resource type="Script" uid="uid://twfqml4qr40e" path="res://gameplay/9_idk/tutorial.gd" id="8_5alkf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5alkf"]
 bg_color = Color(0.20547974, 0.20547971, 0.20547968, 1)
@@ -133,7 +133,7 @@ offset_right = 825.0
 offset_bottom = 312.0
 main_game = NodePath("../..")
 puzzle = NodePath("..")
-turn_count_menu = NodePath("../../HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor/TurnCountMenu")
+turn_count_menu = NodePath("../../HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor/TurnCountMenu")
 cast_button = NodePath("../../HudLayer/HudRoot/CastButton")
 
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1002820559]
@@ -158,7 +158,7 @@ offset_right = 856.0
 offset_bottom = 703.0
 text = "Cast"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HudLayer/HudRoot" unique_id=731596012]
+[node name="TheseThingsAtTheLeft" type="VBoxContainer" parent="HudLayer/HudRoot" unique_id=731596012]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -171,20 +171,20 @@ theme_override_constants/separation = 16
 alignment = 2
 metadata/_edit_lock_ = true
 
-[node name="SpellEditor" type="PanelContainer" parent="HudLayer/HudRoot/VBoxContainer" unique_id=1073032822]
+[node name="SpellEditor" type="PanelContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft" unique_id=1073032822]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 384)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5alkf")
 
-[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor" unique_id=231075285]
+[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor" unique_id=231075285]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="TabContainer" type="TabContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer" unique_id=106063731]
+[node name="TabContainer" type="TabContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer" unique_id=106063731]
 custom_minimum_size = Vector2(428, 370)
 layout_mode = 2
 theme_override_colors/font_hovered_color = Color(0.45839155, 0.45839155, 0.45839155, 1)
@@ -198,20 +198,20 @@ theme_override_styles/tab_selected = SubResource("StyleBoxFlat_yibi5")
 tab_alignment = 1
 current_tab = 0
 
-[node name="Spells" type="VBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer" unique_id=1937768666]
+[node name="Spells" type="VBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer" unique_id=1937768666]
 layout_mode = 2
 theme_override_constants/separation = 8
 metadata/_tab_index = 0
 
-[node name="SigilEditor" type="HBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=1952051738]
+[node name="SigilEditor" type="HBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=1952051738]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SigilInfo" type="HBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor" unique_id=21142171]
+[node name="SigilInfo" type="HBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor" unique_id=21142171]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SigilTexture" type="TextureRect" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo" unique_id=1760130975]
+[node name="SigilTexture" type="TextureRect" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo" unique_id=1760130975]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
@@ -220,16 +220,16 @@ size_flags_vertical = 3
 texture = ExtResource("5_k5wvu")
 stretch_mode = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo" unique_id=336152010]
+[node name="PanelContainer" type="PanelContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo" unique_id=336152010]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_kd3ar")
 
-[node name="Name" type="VBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo/PanelContainer" unique_id=1963420602]
+[node name="Name" type="VBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo/PanelContainer" unique_id=1963420602]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SigilName" type="Label" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo/PanelContainer/Name" unique_id=527489158]
+[node name="SigilName" type="Label" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo/PanelContainer/Name" unique_id=527489158]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -239,7 +239,7 @@ theme_override_font_sizes/font_size = 32
 text = "Fire"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo/PanelContainer/Name" unique_id=1006521865]
+[node name="Label" type="Label" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo/PanelContainer/Name" unique_id=1006521865]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
@@ -248,75 +248,75 @@ theme_override_font_sizes/font_size = 20
 text = "Effects:"
 horizontal_alignment = 1
 
-[node name="SigilEffectButton" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo/PanelContainer/Name" unique_id=1059122509 instance=ExtResource("7_qctb3")]
+[node name="SigilEffectButton" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo/PanelContainer/Name" unique_id=1059122509 instance=ExtResource("7_qctb3")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="SigilContainer" type="GridContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=414948429]
+[node name="SigilContainer" type="GridContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=414948429]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 10
 columns = 6
 
-[node name="TurnCountEditor" type="HBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=1561417382]
+[node name="TurnCountEditor" type="HBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=1561417382]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
 theme_override_constants/separation = 8
 
-[node name="Label" type="Label" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor" unique_id=1805663223]
+[node name="Label" type="Label" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor" unique_id=1805663223]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "The effect will last for"
 
-[node name="TurnCountMenu" type="OptionButton" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor" unique_id=1870237558]
+[node name="TurnCountMenu" type="OptionButton" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor" unique_id=1870237558]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 allow_reselect = true
 
-[node name="Label2" type="Label" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor" unique_id=1468289519]
+[node name="Label2" type="Label" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor" unique_id=1468289519]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "turns"
 
-[node name="AddDeleteSpell" type="HBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=496240071]
+[node name="AddDeleteSpell" type="HBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells" unique_id=496240071]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
-[node name="AddSpellButton" type="Button" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/AddDeleteSpell" unique_id=435448616]
+[node name="AddSpellButton" type="Button" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/AddDeleteSpell" unique_id=435448616]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 20
 text = "Add New Spell"
 
-[node name="DeleteSelectedSpellButton" type="Button" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/AddDeleteSpell" unique_id=1294114847]
+[node name="DeleteSelectedSpellButton" type="Button" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/AddDeleteSpell" unique_id=1294114847]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 20
 text = "Delete Selected Spell"
 
-[node name="Effects" type="VBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer" unique_id=107618108]
+[node name="Effects" type="VBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer" unique_id=107618108]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="EffectInfo" type="HBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects" unique_id=717078505]
+[node name="EffectInfo" type="HBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Effects" unique_id=717078505]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 16
 
-[node name="InfoForReal" type="VBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo" unique_id=2099128535]
+[node name="InfoForReal" type="VBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo" unique_id=2099128535]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LibraryEffectTexture" type="TextureRect" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal" unique_id=322842477]
+[node name="LibraryEffectTexture" type="TextureRect" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal" unique_id=322842477]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 custom_maximum_size = Vector2(64, 64)
@@ -326,7 +326,7 @@ size_flags_vertical = 3
 texture = ExtResource("5_81xgm")
 stretch_mode = 5
 
-[node name="EffectName" type="Label" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal" unique_id=1495940340]
+[node name="EffectName" type="Label" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal" unique_id=1495940340]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(196, 0)
 layout_mode = 2
@@ -336,22 +336,22 @@ theme_override_font_sizes/font_size = 32
 text = "Burnt"
 horizontal_alignment = 1
 
-[node name="Reactions" type="VBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal" unique_id=553869239]
+[node name="Reactions" type="VBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal" unique_id=553869239]
 layout_mode = 2
 
-[node name="ReactionsLabel" type="Label" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal/Reactions" unique_id=279983862]
+[node name="ReactionsLabel" type="Label" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal/Reactions" unique_id=279983862]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 24
 text = "Reactions:"
 
-[node name="ReactionsContainer" type="GridContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal/Reactions" unique_id=519188615]
+[node name="ReactionsContainer" type="GridContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/InfoForReal/Reactions" unique_id=519188615]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 columns = 2
 
-[node name="ChooseEffect" type="ScrollContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo" unique_id=775829336]
+[node name="ChooseEffect" type="ScrollContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo" unique_id=775829336]
 custom_minimum_size = Vector2(184, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -360,117 +360,117 @@ size_flags_stretch_ratio = 1.22
 theme_override_constants/scrollbar_h_separation = 14
 theme_override_styles/panel = SubResource("StyleBoxFlat_vxc0a")
 
-[node name="EffectContainer" type="GridContainer" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/ChooseEffect" unique_id=1339042953]
+[node name="EffectContainer" type="GridContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Effects/EffectInfo/ChooseEffect" unique_id=1339042953]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 columns = 3
 
-[node name="ResultScreen" type="PanelContainer" parent="HudLayer/HudRoot/VBoxContainer" unique_id=1293913162]
+[node name="ResultScreen" type="PanelContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft" unique_id=1293913162]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_5alkf")
 
-[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen" unique_id=1301330168]
+[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen" unique_id=1301330168]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer" unique_id=294109874]
+[node name="VBoxContainer" type="VBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer" unique_id=294109874]
 custom_minimum_size = Vector2(428, 0)
 layout_mode = 2
 
-[node name="Header" type="PanelContainer" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer" unique_id=273921579]
+[node name="Header" type="PanelContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer" unique_id=273921579]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qctb3")
 
-[node name="Label" type="Label" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer/Header" unique_id=153119152]
+[node name="Label" type="Label" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer/Header" unique_id=153119152]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "TEST RESULTS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Body" type="PanelContainer" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer" unique_id=1579040930]
+[node name="Body" type="PanelContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer" unique_id=1579040930]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_dg81i")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer/Body" unique_id=603507717]
+[node name="VBoxContainer" type="VBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer/Body" unique_id=603507717]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer" unique_id=1919757906]
+[node name="GridContainer" type="GridContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer" unique_id=1919757906]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 columns = 4
 
-[node name="Buttons" type="HBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer" unique_id=1733551093]
+[node name="Buttons" type="HBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer" unique_id=1733551093]
 layout_mode = 2
 
-[node name="RetryButton" type="Button" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/Buttons" unique_id=1492390276]
+[node name="RetryButton" type="Button" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/Buttons" unique_id=1492390276]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Retry"
 
-[node name="NextLevelButton" type="Button" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/Buttons" unique_id=141586088]
+[node name="NextLevelButton" type="Button" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/Buttons" unique_id=141586088]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Next Level"
 
-[node name="Rulebook" type="PanelContainer" parent="HudLayer/HudRoot/VBoxContainer" unique_id=896426109]
+[node name="Rulebook" type="PanelContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft" unique_id=896426109]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_5alkf")
 
-[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/VBoxContainer/Rulebook" unique_id=866713269]
+[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/Rulebook" unique_id=866713269]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/Rulebook/MarginContainer" unique_id=716303936]
+[node name="VBoxContainer" type="VBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/Rulebook/MarginContainer" unique_id=716303936]
 custom_minimum_size = Vector2(428, 0)
 layout_mode = 2
 
-[node name="Header" type="PanelContainer" parent="HudLayer/HudRoot/VBoxContainer/Rulebook/MarginContainer/VBoxContainer" unique_id=368181128]
+[node name="Header" type="PanelContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/Rulebook/MarginContainer/VBoxContainer" unique_id=368181128]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qctb3")
 
-[node name="Label" type="Label" parent="HudLayer/HudRoot/VBoxContainer/Rulebook/MarginContainer/VBoxContainer/Header" unique_id=446843129]
+[node name="Label" type="Label" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/Rulebook/MarginContainer/VBoxContainer/Header" unique_id=446843129]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "RULES"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Body" type="PanelContainer" parent="HudLayer/HudRoot/VBoxContainer/Rulebook/MarginContainer/VBoxContainer" unique_id=512678428]
+[node name="Body" type="PanelContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/Rulebook/MarginContainer/VBoxContainer" unique_id=512678428]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_dg81i")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/Rulebook/MarginContainer/VBoxContainer/Body" unique_id=593131643]
+[node name="VBoxContainer" type="VBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/Rulebook/MarginContainer/VBoxContainer/Body" unique_id=593131643]
 layout_mode = 2
 
-[node name="GoalEffects" type="HBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/Rulebook/MarginContainer/VBoxContainer/Body/VBoxContainer" unique_id=1932612378]
+[node name="GoalEffects" type="HBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/Rulebook/MarginContainer/VBoxContainer/Body/VBoxContainer" unique_id=1932612378]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HudLayer/HudRoot/VBoxContainer/Rulebook/MarginContainer/VBoxContainer/Body/VBoxContainer/GoalEffects" unique_id=1783702460]
+[node name="Label" type="Label" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/Rulebook/MarginContainer/VBoxContainer/Body/VBoxContainer/GoalEffects" unique_id=1783702460]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Target statuses: "
+text = "Target effects:"
 
-[node name="ActualRules" type="Label" parent="HudLayer/HudRoot/VBoxContainer/Rulebook/MarginContainer/VBoxContainer/Body/VBoxContainer" unique_id=1653142495]
+[node name="ActualRules" type="Label" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/Rulebook/MarginContainer/VBoxContainer/Body/VBoxContainer" unique_id=1653142495]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
@@ -504,33 +504,67 @@ text = "YearTest"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TutorialLayer" type="CanvasLayer" parent="." unique_id=1814677849 node_paths=PackedStringArray("puzzle")]
-layer = 20
-script = ExtResource("8_5alkf")
-puzzle = NodePath("../Puzzle")
+[node name="Errors" type="VBoxContainer" parent="HudLayer/HudRoot" unique_id=1306554550]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -56.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
 
-[node name="TutorialRoot" type="Control" parent="TutorialLayer" unique_id=1020712719]
+[node name="TutorialLayer" type="CanvasLayer" parent="." unique_id=1814677849]
+layer = 20
+
+[node name="TutorialRoot" type="Control" parent="TutorialLayer" unique_id=1020712719 node_paths=PackedStringArray("puzzle")]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("8_5alkf")
+puzzle = NodePath("../../Puzzle")
+metadata/_edit_lock_ = true
 
 [node name="TutorialLabel" type="Label" parent="TutorialLayer/TutorialRoot" unique_id=716068045]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+custom_maximum_size = Vector2(500, 1000)
 layout_mode = 0
-offset_left = 551.0
-offset_top = 467.0
-offset_right = 775.0
-offset_bottom = 579.0
+offset_left = 370.0
+offset_top = 564.0
+offset_right = 870.0
+offset_bottom = 753.0
 theme_override_font_sizes/font_size = 32
-text = "Hi, I'm your tutorial guy"
+text = "It's pretty neat!
+God bless"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_group_ = true
+
+[node name="ClickToSkip" type="Label" parent="TutorialLayer/TutorialRoot/TutorialLabel" unique_id=847517465]
+custom_maximum_size = Vector2(1000, 1000)
+layout_mode = 0
+offset_left = 2.0
+offset_top = -24.0
+offset_right = 490.0
+offset_bottom = 16.0
+theme_override_font_sizes/font_size = 20
+text = "(click to continue)"
+horizontal_alignment = 1
 autowrap_mode = 3
 
 [connection signal="pressed" from="HudLayer/HudRoot/CastButton" to="Puzzle/MagicGlyph" method="_on_cast_button_pressed"]
-[connection signal="item_selected" from="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor/TurnCountMenu" to="Puzzle/MagicGlyph" method="_on_turn_count_menu_item_selected"]
-[connection signal="pressed" from="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/AddDeleteSpell/AddSpellButton" to="Puzzle/MagicGlyph" method="_on_add_spell_button_pressed"]
-[connection signal="pressed" from="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/AddDeleteSpell/DeleteSelectedSpellButton" to="Puzzle/MagicGlyph" method="_on_delete_selected_spell_button_pressed"]
-[connection signal="pressed" from="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/Buttons/RetryButton" to="." method="_on_retry_button_pressed"]
-[connection signal="pressed" from="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/Buttons/NextLevelButton" to="." method="_on_next_level_button_pressed"]
+[connection signal="item_selected" from="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor/TurnCountMenu" to="Puzzle/MagicGlyph" method="_on_turn_count_menu_item_selected"]
+[connection signal="pressed" from="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/AddDeleteSpell/AddSpellButton" to="Puzzle/MagicGlyph" method="_on_add_spell_button_pressed"]
+[connection signal="pressed" from="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/AddDeleteSpell/DeleteSelectedSpellButton" to="Puzzle/MagicGlyph" method="_on_delete_selected_spell_button_pressed"]
+[connection signal="pressed" from="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/Buttons/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/Buttons/NextLevelButton" to="." method="_on_next_level_button_pressed"]
