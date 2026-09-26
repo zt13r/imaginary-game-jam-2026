@@ -8,9 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="5_k5wvu"]
 [ext_resource type="PackedScene" uid="uid://bch1wjqs2art5" path="res://gameplay/4_effects/button/effect_button.tscn" id="7_qctb3"]
 [ext_resource type="Script" uid="uid://twfqml4qr40e" path="res://gameplay/9_idk/tutorial.gd" id="8_5alkf"]
+[ext_resource type="AudioStream" uid="uid://8mpqw2enf7xq" path="res://assets/audio/sfx/Paper - Page Turn.wav" id="8_lkm43"]
 [ext_resource type="FontFile" uid="uid://cu8jvsb1edmg8" path="res://assets/font/Brookeshappell8-eoKB.ttf" id="9_v0ilk"]
 [ext_resource type="Texture2D" uid="uid://05ekdtum322c" path="res://assets/art/1_sigils/wind_sigil.png" id="9_xwlw8"]
 [ext_resource type="Texture2D" uid="uid://mr7el1k5hq5r" path="res://assets/art/1_sigils/miasma_sigil.png" id="10_v0ilk"]
+[ext_resource type="Texture2D" uid="uid://cesdxx3kvkbx5" path="res://assets/art/5_other/Imaginary Game Jam Logo 2026.png" id="12_4dl4c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5alkf"]
 bg_color = Color(0.20547974, 0.20547971, 0.20547968, 1)
@@ -111,7 +113,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_81xgm")
 main_game = NodePath("..")
-level_index = 4
+level_index = 6
 metadata/_edit_lock_ = true
 
 [node name="Background" type="ColorRect" parent="Puzzle" unique_id=704100760]
@@ -194,6 +196,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="TabContainer" type="TabContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer" unique_id=106063731]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(428, 370)
 layout_mode = 2
 theme_override_colors/font_hovered_color = Color(0.45839155, 0.45839155, 0.45839155, 1)
@@ -375,6 +378,10 @@ layout_mode = 2
 size_flags_horizontal = 2
 columns = 3
 
+[node name="TabChangeSFX" type="AudioStreamPlayer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer" unique_id=1754517327]
+unique_name_in_owner = true
+stream = ExtResource("8_lkm43")
+
 [node name="ResultScreen" type="PanelContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft" unique_id=1293913162]
 unique_name_in_owner = true
 visible = false
@@ -539,7 +546,6 @@ layer = 20
 
 [node name="TutorialRoot" type="Control" parent="TutorialLayer" unique_id=1020712719 node_paths=PackedStringArray("puzzle")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -561,10 +567,11 @@ offset_top = 263.0
 offset_right = 1318.0
 offset_bottom = 500.0
 theme_override_font_sizes/font_size = 32
-text = "If you check the effect
-library, there are effects
-that require two
-level-2 effects"
+text = "Find a way to get the
+base effect, and then
+keep that effect active
+long enough to mix it
+with other effects"
 horizontal_alignment = 1
 autowrap_mode = 3
 metadata/_edit_group_ = true
@@ -583,7 +590,6 @@ autowrap_mode = 3
 
 [node name="MenuLayer" type="CanvasLayer" parent="." unique_id=1717835697]
 layer = 50
-visible = false
 
 [node name="MenuRoot" type="Control" parent="MenuLayer" unique_id=1432356014]
 unique_name_in_owner = true
@@ -604,7 +610,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.026802532, 0.026802536, 0.026802532, 1)
 
-[node name="Title" type="Label" parent="MenuLayer/MenuRoot" unique_id=1439052974]
+[node name="StartMenu" type="Control" parent="MenuLayer/MenuRoot" unique_id=1367315720]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="MenuLayer/MenuRoot/StartMenu" unique_id=1439052974]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -612,9 +628,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -288.0
-offset_top = -218.0
+offset_top = -210.0
 offset_right = 288.0
-offset_bottom = 26.0
+offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 64
@@ -624,7 +640,7 @@ label_settings = SubResource("LabelSettings_xwlw8")
 horizontal_alignment = 1
 metadata/_edit_group_ = true
 
-[node name="M" type="TextureRect" parent="MenuLayer/MenuRoot/Title" unique_id=834612883]
+[node name="M" type="TextureRect" parent="MenuLayer/MenuRoot/StartMenu/Title" unique_id=834612883]
 layout_mode = 0
 offset_left = 104.0
 offset_top = -5.999998
@@ -636,7 +652,7 @@ texture = ExtResource("5_k5wvu")
 flip_h = true
 flip_v = true
 
-[node name="G" type="TextureRect" parent="MenuLayer/MenuRoot/Title" unique_id=1411979794]
+[node name="G" type="TextureRect" parent="MenuLayer/MenuRoot/StartMenu/Title" unique_id=1411979794]
 layout_mode = 0
 offset_left = 568.0
 offset_top = 225.99998
@@ -647,7 +663,7 @@ scale = Vector2(1.7182267, 1.7182267)
 texture = ExtResource("9_xwlw8")
 flip_h = true
 
-[node name="G2" type="TextureRect" parent="MenuLayer/MenuRoot/Title" unique_id=1908271446]
+[node name="G2" type="TextureRect" parent="MenuLayer/MenuRoot/StartMenu/Title" unique_id=1908271446]
 layout_mode = 0
 offset_left = 60.999996
 offset_top = 226.0
@@ -658,7 +674,7 @@ scale = Vector2(1.7182267, 1.7182267)
 texture = ExtResource("9_xwlw8")
 flip_h = true
 
-[node name="G3" type="TextureRect" parent="MenuLayer/MenuRoot/Title" unique_id=2039427623]
+[node name="G3" type="TextureRect" parent="MenuLayer/MenuRoot/StartMenu/Title" unique_id=2039427623]
 layout_mode = 0
 offset_left = 248.0
 offset_top = 106.0
@@ -669,7 +685,7 @@ scale = Vector2(1.7182267, 1.7182267)
 texture = ExtResource("9_xwlw8")
 flip_h = true
 
-[node name="C" type="TextureRect" parent="MenuLayer/MenuRoot/Title" unique_id=1569672114]
+[node name="C" type="TextureRect" parent="MenuLayer/MenuRoot/StartMenu/Title" unique_id=1569672114]
 layout_mode = 0
 offset_left = 512.0
 offset_top = 50.0
@@ -680,7 +696,7 @@ scale = Vector2(1.7182267, 1.7182267)
 texture = ExtResource("10_v0ilk")
 flip_h = true
 
-[node name="E" type="TextureRect" parent="MenuLayer/MenuRoot/Title" unique_id=932149984]
+[node name="E" type="TextureRect" parent="MenuLayer/MenuRoot/StartMenu/Title" unique_id=932149984]
 layout_mode = 0
 offset_left = 1.0000002
 offset_top = 114.0
@@ -691,7 +707,7 @@ scale = Vector2(1.7182267, 1.7182267)
 texture = ExtResource("5_k5wvu")
 flip_h = true
 
-[node name="E2" type="TextureRect" parent="MenuLayer/MenuRoot/Title" unique_id=1103681811]
+[node name="E2" type="TextureRect" parent="MenuLayer/MenuRoot/StartMenu/Title" unique_id=1103681811]
 layout_mode = 0
 offset_left = 352.00006
 offset_top = 114.0
@@ -702,7 +718,7 @@ scale = Vector2(1.7182267, 1.7182267)
 texture = ExtResource("5_k5wvu")
 flip_h = true
 
-[node name="E3" type="TextureRect" parent="MenuLayer/MenuRoot/Title" unique_id=446273462]
+[node name="E3" type="TextureRect" parent="MenuLayer/MenuRoot/StartMenu/Title" unique_id=446273462]
 layout_mode = 0
 offset_left = 448.00006
 offset_top = 114.0
@@ -713,7 +729,7 @@ scale = Vector2(1.7182267, 1.7182267)
 texture = ExtResource("5_k5wvu")
 flip_h = true
 
-[node name="Name" type="Label" parent="MenuLayer/MenuRoot" unique_id=1934284450]
+[node name="Name" type="Label" parent="MenuLayer/MenuRoot/StartMenu" unique_id=1934284450]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -721,15 +737,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -65.0
-offset_top = 9.5
+offset_top = 17.5
 offset_right = 65.0
-offset_bottom = 54.5
+offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "by ZTIER"
 
-[node name="Button" type="Button" parent="MenuLayer/MenuRoot" unique_id=294165920]
+[node name="Button" type="Button" parent="MenuLayer/MenuRoot/StartMenu" unique_id=294165920]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -737,13 +753,110 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -128.0
-offset_top = 112.0
+offset_top = 154.5
 offset_right = 128.0
-offset_bottom = 187.0
+offset_bottom = 229.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
 text = "Start"
+
+[node name="Victory" type="Control" parent="MenuLayer/MenuRoot" unique_id=1577041258]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="MenuLayer/MenuRoot/Victory" unique_id=1010521222]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -536.0
+offset_top = -184.0
+offset_right = 45.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "You graduated
+Magic Engineering"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="MenuLayer/MenuRoot/Victory" unique_id=1226985058]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 112.0
+offset_top = -224.0
+offset_right = 547.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Your totally legally
+obtained certificate
+that you did not torture
+a certain green creature for:"
+horizontal_alignment = 1
+
+[node name="Name2" type="Label" parent="MenuLayer/MenuRoot/Victory" unique_id=1752421525]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -464.0
+offset_top = -8.0
+offset_right = -29.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Thanks for playing!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MenuLayer/MenuRoot/Victory" unique_id=975959033]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = 104.0
+offset_right = -40.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "You're welcome"
+
+[node name="TextureRect" type="TextureRect" parent="MenuLayer/MenuRoot/Victory" unique_id=493923023]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 160.0
+offset_top = -16.0
+offset_right = 499.0
+offset_bottom = 247.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_4dl4c")
+expand_mode = 1
+stretch_mode = 4
 
 [connection signal="pressed" from="HudLayer/HudRoot/CastButton" to="Puzzle/MagicGlyph" method="_on_cast_button_pressed"]
 [connection signal="item_selected" from="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor/TurnCountMenu" to="Puzzle/MagicGlyph" method="_on_turn_count_menu_item_selected"]
@@ -751,4 +864,5 @@ text = "Start"
 [connection signal="pressed" from="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/AddDeleteSpell/DeleteSelectedSpellButton" to="Puzzle/MagicGlyph" method="_on_delete_selected_spell_button_pressed"]
 [connection signal="pressed" from="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/Buttons/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/Buttons/NextLevelButton" to="." method="_on_next_level_button_pressed"]
-[connection signal="pressed" from="MenuLayer/MenuRoot/Button" to="." method="_on_main_menu_start_button_pressed"]
+[connection signal="pressed" from="MenuLayer/MenuRoot/StartMenu/Button" to="." method="_on_main_menu_start_button_pressed"]
+[connection signal="pressed" from="MenuLayer/MenuRoot/Victory/Button" to="." method="_on_button_pressed"]

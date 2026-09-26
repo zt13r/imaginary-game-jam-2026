@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wpfi8vnt0612"
+path="res://.godot/imported/On The Road.mp3-2cff59f80b194fa7f20f2c4aa84556ee.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/On The Road.mp3"
+dest_files=["res://.godot/imported/On The Road.mp3-2cff59f80b194fa7f20f2c4aa84556ee.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

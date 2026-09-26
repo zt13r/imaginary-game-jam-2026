@@ -52,8 +52,12 @@ func next_level() -> void:
 		if child is EffectButton:
 			child.queue_free()
 
+	if level_index > (LEVELS.size() - 1):
+		main_game._FINALLY()
+		return
+
 	current_level = LEVELS[level_index]
-	print("Loaded: ", current_level)
+	print("Level_index (%d) loaded: "% level_index,  current_level)
 
 	for goal_effect : Effect in current_level.goal_effects:
 		var button : EffectButton = EFFECT_BUTTON_SCENE.instantiate()
@@ -83,5 +87,5 @@ func next_level() -> void:
 		rule_label.hide()
 
 	level_index += 1
-	if level_index >= LEVELS.size():
+	if level_index > LEVELS.size():
 		finished = true

@@ -59,6 +59,12 @@ static var seconds_turn_increment : float = 1.0
 
 @onready var errors : VBoxContainer = %Errors
 
+@onready var start_menu : Control = %StartMenu
+@onready var victory : Control = %Victory
+
+@onready var tab_container : TabContainer = %TabContainer
+@onready var tab_change_sfx : AudioStreamPlayer = %TabChangeSFX
+
 
 func _ready() -> void:
 	_populate_sigil_editor()
@@ -72,7 +78,13 @@ func _ready() -> void:
 	spell_editor.show()
 	rulebook.show()
 
-	next_level_button.pressed.emit()
+	menu_root.show()
+	start_menu.show()
+	victory.hide()
+
+	tab_container.tab_changed.connect(_on_tab_changed)
+
+	#next_level_button.pressed.emit()
 
 
 func _populate_sigil_editor() -> void:
@@ -255,6 +267,8 @@ func _on_next_level_button_pressed() -> void:
 	overlay.hide()
 	tutorial_root.can_advance = true
 
+	if puzzle.finished:
+		_FINALLY()
 	if puzzle.level_index in tutorial_root.TEXT:
 		tutorial_root.show_text()
 
@@ -262,3 +276,21 @@ func _on_next_level_button_pressed() -> void:
 func _on_main_menu_start_button_pressed() -> void:
 	menu_root.hide()
 	next_level_button.pressed.emit()
+
+
+func _FINALLY() -> void:
+	menu_root.show()
+	start_menu.hide()
+	victory.show()
+
+
+func _on_button_pressed() -> void:
+	victory.hide()
+	start_menu.show()
+	puzzle.level_index = 0
+	puzzle.finished = false
+
+
+func _on_tab_changed(_tab : int) -> void:
+	tab_change_sfx.pitch_scale = randf_range(0.9, 1.1)
+	tab_change_sfx.play()

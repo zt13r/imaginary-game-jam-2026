@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwes7v4f4bxxf"
-path="res://.godot/imported/lost-century-24-1x.png-814133029f484441e73e543e02b9ccbf.ctex"
+uid="uid://cesdxx3kvkbx5"
+path="res://.godot/imported/Imaginary Game Jam Logo 2026.png-7b71d7240e5fcee5b005f5099a1bdc1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/5_other/lost-century-24-1x.png"
-dest_files=["res://.godot/imported/lost-century-24-1x.png-814133029f484441e73e543e02b9ccbf.ctex"]
+source_file="res://assets/art/5_other/Imaginary Game Jam Logo 2026.png"
+dest_files=["res://.godot/imported/Imaginary Game Jam Logo 2026.png-7b71d7240e5fcee5b005f5099a1bdc1e.ctex"]
 
 [params]
 

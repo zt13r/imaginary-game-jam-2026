@@ -203,7 +203,7 @@ func _on_cast_button_pressed() -> void:
 
 	await get_tree().create_timer(1.0).timeout
 
-	var satisfied : bool = false
+	var rules_satisfied : bool = false
 
 	main_game.done_cast()
 
@@ -224,7 +224,7 @@ func _on_cast_button_pressed() -> void:
 	for rule : Rule in puzzle.current_level.rules:
 		if rule is OnlyRule:
 			if rule.is_satisfied(Game.target, puzzle.current_level.goal_effects):
-				satisfied = true
+				rules_satisfied = true
 				var rule_display : String = rule.get_display()
 				puzzle.rule_label.text +=\
 					"%d. %s (You = awesome)\n" % [rule_number, rule_display]
@@ -235,7 +235,7 @@ func _on_cast_button_pressed() -> void:
 					"%d. %s (Hmm...)\n" % [rule_number, rule_display]
 		elif rule is BannedRule:
 			if rule.is_satisfied(current_ring.spells):
-				satisfied = true
+				rules_satisfied = true
 				var rule_display : String = rule.get_display()
 				puzzle.rule_label.text +=\
 					"%d. %s (You = great)\n" % [rule_number, rule_display]
@@ -246,7 +246,7 @@ func _on_cast_button_pressed() -> void:
 					"%d. %s (Well...)\n" % [rule_number, rule_display]
 		elif rule is SpellCountRule:
 			if rule.is_satisfied(current_ring.spells.size()):
-				satisfied = true
+				rules_satisfied = true
 				var rule_display : String = rule.get_display()
 				puzzle.rule_label.text +=\
 					"%d. %s (You = cool)\n" % [rule_number, rule_display]
@@ -257,16 +257,17 @@ func _on_cast_button_pressed() -> void:
 					"%d. %s (I mean...)\n" % [rule_number, rule_display]
 		rule_number += 1
 
-	
+	var goals_satisfied : bool = false
 
 	for goal_effect : Effect in puzzle.current_level.goal_effects:
 		if Game.target.has_effect(goal_effect):
-			satisfied = true
+			goals_satisfied = true
 		else:
-			satisfied = false
+			goals_satisfied = false
 			break
 
-	if satisfied:
+	rules_satisfied = true if puzzle.current_level.rules.is_empty() else rules_satisfied
+	if rules_satisfied and goals_satisfied:
 		main_game.next_level_button.show()
 	else:
 		main_game.next_level_button.hide()

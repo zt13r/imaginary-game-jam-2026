@@ -19,6 +19,7 @@ config/icon="res://assets/art/5_other/icon.svg"
 
 Game="*uid://ybn6fc6rfwxq"
 Database="*uid://psiwsbujqqrl"
+Bgm="*uid://6pce0usgoyhc"
 
 [display]
 

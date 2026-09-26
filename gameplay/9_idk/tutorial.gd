@@ -6,7 +6,7 @@ extends Control
 const TEXT : Dictionary[int, Dictionary] = {
 	1 : {
 		"Hi, I'm the tutorial" : Vector2(800.0, 280.0),
-		"Canonically I'm\nyour Professor\nbut that doesn't really matter" : Vector2(800.0, 280.0),
+		"Canonically I'm your\nProfessor but that\ndoesn't really matter" : Vector2(800.0, 280.0),
 		"I'm not on screen because\nI exist in a realm beyond\nyour comprehension" : Vector2(800.0, 280.0),
 		"Select a spell by clicking\non it, it will shine gold" : Vector2(800.0, 280.0),
 		"<<< Edit a spell here" : Vector2(374.0, 200.0),
@@ -37,8 +37,9 @@ const TEXT : Dictionary[int, Dictionary] = {
 	},
 
 	7 : {
-		"Hey what if I just\nrestrict you from using\na certain sigil and\nhave the target effect be that sigil's base effect?" : Vector2(810.0, 196.0),
+		"Hey what if I just\nrestrict you from using\na certain sigil and\nhave the target effects use\nthat sigil's base effect?" : Vector2(810.0, 196.0),
 		"<<< Wouldn't that\nbe funny?" : Vector2(306.0, 513.0),
+		"Find a way to get the\nbase effect, and then\nkeep that effect active\nlong enough to mix it\nwith other effects" : Vector2(800.0, 280.0),
 	}
 }
 
@@ -56,7 +57,8 @@ var can_advance : bool = false
 func _gui_input(event : InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and \
 		event.button_index == MOUSE_BUTTON_LEFT and can_advance:
-			_advance_tutorial()
+			if not puzzle.finished:
+				_advance_tutorial()
 
 
 func _advance_tutorial() -> void:
@@ -69,6 +71,9 @@ func _advance_tutorial() -> void:
 
 
 func show_text() -> void:
+	if puzzle.finished:
+		return
+	
 	if visible == false:
 		show()
 	if label.visible == false:

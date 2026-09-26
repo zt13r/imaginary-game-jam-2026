@@ -4,6 +4,8 @@ extends Node
 const DURATION : float = 2.0
 
 
+
+
 var target : Target = null
 var errors : VBoxContainer = null
 

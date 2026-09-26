@@ -21,6 +21,19 @@ My individual twist: **Failure**
 - Basically the "Official Bulletin" in *Papers, Please*.
 
 
-## Credits
+## Attributions
 - Font: [BrookeShappell8](https://www.fontspace.com/brookeshappell8-font-f15898)
-- Color palette: [Lost Century 24](https://lospec.com/palette-list/lost-century-24)
+- BGM: "On The Road" (Imaginary Game Jam Community Asset Pack)
+- SFX:
+	- [Light Switch](https://pixabay.com/sound-effects/film-special-effects-light-switch-turn-on-47753/)
+	- [Fireball Whoosh](https://pixabay.com/sound-effects/film-special-effects-fireball-whoosh-2-179126/)
+	- [Gust of Wind](https://pixabay.com/sound-effects/nature-gust-of-wind-511325/)
+	- [Water Splash](https://pixabay.com/sound-effects/film-special-effects-water-splash-199583/)
+	- [Boulder Impact](https://pixabay.com/sound-effects/horror-boulder-impact-487673/)
+	- [Coin Drop on Concrete](https://pixabay.com/sound-effects/film-special-effects-coin-drop-on-concrete-103555/)
+	- [Dark Matter Space Whoosh](https://pixabay.com/sound-effects/film-special-effects-dark-matter-space-whoosh-543214/)
+	- Paper Page Turn (Imaginary Game Jam Community Asset Pack)
+	- Pen Click (Imaginary Game Jam Community Asset Pack)
+	- Stapler (Imaginary Game Jam Community Asset Pack)
+- Art:
+	- Gobbo (Imaginary Game Jam Community Asset Pack)
