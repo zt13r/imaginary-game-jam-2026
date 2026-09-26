@@ -10,7 +10,10 @@ const LEVELS : Array[Level] = [
 	preload("uid://dppjgxn72q0c8"), # level 2
 	preload("uid://2tebcfhbia2k"), # level 3
 	preload("uid://boqvu00pafukl"), # level 4
+	preload("uid://6t8aair54w36"), # level 5
+	preload("uid://iaxk1daoxcqn"), # level 6
 	preload("uid://wwq4lulpp0hr"), # level 7
+	
 ]
 
 
@@ -22,7 +25,7 @@ const LEVELS : Array[Level] = [
 
 
 var current_level : Level = null
-@export var level_index : int = 0
+@export var level_index : int = -1
 
 var finished : bool = false
 
@@ -36,7 +39,8 @@ var finished : bool = false
 
 
 func _ready() -> void:
-	next_level()
+	#next_level()
+	pass
 
 
 func next_level() -> void:
@@ -49,6 +53,7 @@ func next_level() -> void:
 			child.queue_free()
 
 	current_level = LEVELS[level_index]
+	print("Loaded: ", current_level)
 
 	for goal_effect : Effect in current_level.goal_effects:
 		var button : EffectButton = EFFECT_BUTTON_SCENE.instantiate()

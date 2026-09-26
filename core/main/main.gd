@@ -55,6 +55,7 @@ static var seconds_turn_increment : float = 1.0
 @onready var year_test : Label = %YearTest
 
 @onready var tutorial_root : Tutorial = %TutorialRoot
+@onready var menu_root : Control = %MenuRoot
 
 @onready var errors : VBoxContainer = %Errors
 
@@ -71,7 +72,7 @@ func _ready() -> void:
 	spell_editor.show()
 	rulebook.show()
 
-	tutorial_root.show_text()
+	next_level_button.pressed.emit()
 
 
 func _populate_sigil_editor() -> void:
@@ -179,12 +180,15 @@ func _update_effect_info(effect : Effect) -> void:
 
 func cast() -> void:
 	year_test.hide()
+	if year_test.visible:
+		year_test.hide()
 	overlay.show()
 	background.color = cast_bg_color
 
 	rulebook.hide()
 	spell_editor.hide()
 	result_screen.hide()
+	tutorial_root.hide()
 
 	await get_tree().create_timer(1.0).timeout
 
@@ -214,21 +218,25 @@ func _on_retry_button_pressed() -> void:
 
 
 func _on_next_level_button_pressed() -> void:
+	tutorial_root.can_advance = false
 	overlay.show()
+
 	puzzle.next_level()
+
 	match (puzzle.level_index):
-		1: year_test.text = "Year 1 Lecture"
-		2: year_test.text = "Year 1 Exam"
-		3: year_test.text = "Year 2 Lecture"
-		4: year_test.text = "Year 2 Exam"
-		5: year_test.text = "Year 3 Lecture"
-		6: year_test.text = "Year 3 Exam"
-		7: year_test.text = "Year 4 Lecture"
-		8: year_test.text = "Year 4 Exam"
-		_: year_test.text = "This is an error message\nidk what happened"
+		1: year_test.text = "Year 1 Lecture" # intro d-1 and fx
+		2: year_test.text = "Year 1 Exam" # test d-1
+		3: year_test.text = "Year 2 Lecture" # intro rules
+		4: year_test.text = "Year 2 Exam" # test rules
+		5: year_test.text = "Year 3 Lecture" # intro d-2
+		6: year_test.text = "Year 3 Exam" # test
+		7: year_test.text = "Year 4 Lecture" # intro reductive
+		8: year_test.text = "Year 4 Exam" # test all
+		_: year_test.text = "This is an error message\nsomething bad happened"
 
 	result_screen.hide()
 	spell_editor.show()
+
 	cast_button.disabled = false
 
 	while magic_glyph.current_ring.spells.size() > 2:
@@ -245,6 +253,12 @@ func _on_next_level_button_pressed() -> void:
 	await get_tree().create_timer(1.75).timeout
 
 	overlay.hide()
+	tutorial_root.can_advance = true
 
 	if puzzle.level_index in tutorial_root.TEXT:
 		tutorial_root.show_text()
+
+
+func _on_main_menu_start_button_pressed() -> void:
+	menu_root.hide()
+	next_level_button.pressed.emit()

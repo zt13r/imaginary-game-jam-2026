@@ -43,6 +43,7 @@ func clear_effects() -> void:
 
 func end_turn() -> void:
 	var new_effects : Dictionary[Effect, int] = effects.duplicate()
+	var reactions_this_turn : Array[Effect] = []
 
 	var effect_list : Array[Effect] = effects.keys()
 
@@ -65,6 +66,7 @@ func end_turn() -> void:
 					#max(effects[effect_a], effects[effect_b])
 
 				new_effects[reaction] = new_turn_count
+				reactions_this_turn.append(reaction)
 
 				# Remove effects
 				#new_effects.erase(effect_a)
@@ -72,6 +74,8 @@ func end_turn() -> void:
 
 	# Remove effects that are out of turns
 	for effect : Effect in new_effects.duplicate():
+		if effect in reactions_this_turn:
+			continue
 		var turns_left : int = new_effects[effect] - 1
 		if turns_left <= 0:
 			new_effects.erase(effect)

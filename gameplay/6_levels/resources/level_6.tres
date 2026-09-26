@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Level" format=3 uid="uid://iaxk1daoxcqn"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_jnyfa"]
+[ext_resource type="Resource" uid="uid://hovu7rqmfvjk" path="res://gameplay/4_effects/resources/derived-2/electrified.tres" id="2_2unub"]
+[ext_resource type="Resource" uid="uid://cf1pbxj8hy5wu" path="res://gameplay/4_effects/resources/derived-1/charred.tres" id="3_h5q5n"]
+[ext_resource type="Resource" uid="uid://b0kc4q0rifv2f" path="res://gameplay/4_effects/resources/base/tainted.tres" id="4_l4g52"]
+[ext_resource type="Script" uid="uid://domco8oq82qsp" path="res://gameplay/6_levels/rules/rule.gd" id="5_k4gg3"]
+[ext_resource type="Script" uid="uid://nskebog7ywln" path="res://gameplay/6_levels/level.gd" id="6_76m5p"]
+
+[resource]
+script = ExtResource("6_76m5p")
+goal_effects = Array[ExtResource("1_jnyfa")]([ExtResource("2_2unub"), ExtResource("3_h5q5n"), ExtResource("4_l4g52")])
+metadata/_custom_type_script = "uid://nskebog7ywln"

@@ -6,19 +6,20 @@ extends Control
 const TEXT : Dictionary[int, Dictionary] = {
 	1 : {
 		"Hi, I'm the tutorial" : Vector2(800.0, 280.0),
-		"I live in a realm beyond\nyour comprehension" : Vector2(800.0, 280.0),
+		"Canonically I'm\nyour Professor\nbut that doesn't really matter" : Vector2(800.0, 280.0),
+		"I'm not on screen because\nI exist in a realm beyond\nyour comprehension" : Vector2(800.0, 280.0),
 		"Select a spell by clicking\non it, it will shine gold" : Vector2(800.0, 280.0),
-		"<<< Edit a spell here" : Vector2(368.0, 200.0),
-		"<<< Edit a spell's\nsigil (or element)" : Vector2(368.0, 256.0),
+		"<<< Edit a spell here" : Vector2(374.0, 200.0),
+		"<<< Edit a spell's\nsigil (element) here" : Vector2(374.0, 256.0),
 		"<<< Edit how many\nturns the sigil's\neffect lasts" : Vector2(360.0, 288.0),
 		"Effects in the same turn will merge for a new effect in the next turn" : Vector2(806.0, 280.0),
 		"Effects will only disappear\nafter their turns run out" : Vector2(806.0, 280.0),
-		"Effect turns include the turn it was added" : Vector2(806.0, 280.0),
+		"Effect turns include\nthe turn it was added" : Vector2(806.0, 280.0),
 		"<<< Mish-mash spells,\ntry to get these specific\neffects in the end" : Vector2(304.0, 432.0),
-		"<<< You may see all\neffects here, and which\ncombinations make new effects" : Vector2(312.0, 32.0),
+		"<<< You may see all\neffects here, and which\ncombinations make\nnew effects" : Vector2(312.0, 32.0),
 		"Click on an effect's\nicon to shortcut\nopen its info" : Vector2(368.0, 256.0),
-		"Click the 'Cast' button\nto execute all spells\nCLOCKWISE" : Vector2(388.0, 256.0),
-		"Yeah that's about it;\nI'll come back later on though.\nI hope you'll have fun" : Vector2(806.0, 280.0)
+		"Click the 'Cast' button\nto execute all spells\n(clockwise sequence)" : Vector2(388.0, 256.0),
+		"Yeah that's about it;\nhave fun!" : Vector2(806.0, 280.0)
 	},
 
 	3 : {
@@ -28,14 +29,25 @@ const TEXT : Dictionary[int, Dictionary] = {
 		"Along with the target\neffects, your spells must\nnow also adhere to whatever\nis written on here" : Vector2(304.0, 474.0),
 		"It's pretty neat!\nGod bless" : Vector2(370.0, 564.0),
 	},
+
+	5 : {
+		"You can actually make\nmore complex effects,\nyou know!" : Vector2(818.0, 263.0),
+		"If you check the effect\nlibrary, there are effects\nthat require two\nlevel-2 effects" : Vector2(818.0, 263.0),
+		"Surely this will\nspark your mind :)" : Vector2(818.0, 263.0),
+	},
+
+	7 : {
+		"Hey what if I just\nrestrict you from using\na certain sigil and\nhave the target effect be that sigil's base effect?" : Vector2(810.0, 196.0),
+		"<<< Wouldn't that\nbe funny?" : Vector2(306.0, 513.0),
+	}
 }
-#                      
 
 
 @export var puzzle : Puzzle = null
 
 
 var current_step : int = 0
+var can_advance : bool = false
 
 
 @onready var label : Label = %TutorialLabel
@@ -43,7 +55,7 @@ var current_step : int = 0
 
 func _gui_input(event : InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and \
-		event.button_index == MOUSE_BUTTON_LEFT:
+		event.button_index == MOUSE_BUTTON_LEFT and can_advance:
 			_advance_tutorial()
 
 

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Level" format=3 uid="uid://6t8aair54w36"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_5cw3r"]
+[ext_resource type="Resource" uid="uid://mg6g4gqat2ej" path="res://gameplay/4_effects/resources/derived-2/paralyzed.tres" id="2_n0h7m"]
+[ext_resource type="Resource" uid="uid://cgt4l1pkte36g" path="res://gameplay/4_effects/resources/derived-1/blighted.tres" id="3_5cw3r"]
+[ext_resource type="Script" uid="uid://domco8oq82qsp" path="res://gameplay/6_levels/rules/rule.gd" id="4_lio6t"]
+[ext_resource type="Script" uid="uid://bcrewijtb3lqh" path="res://gameplay/6_levels/rules/spell_count_rule.gd" id="5_5cw3r"]
+[ext_resource type="Script" uid="uid://nskebog7ywln" path="res://gameplay/6_levels/level.gd" id="6_5c2np"]
+
+[sub_resource type="Resource" id="Resource_v0ilk"]
+script = ExtResource("5_5cw3r")
+maximum = 5
+metadata/_custom_type_script = "uid://bcrewijtb3lqh"
+
+[resource]
+script = ExtResource("6_5c2np")
+goal_effects = Array[ExtResource("1_5cw3r")]([ExtResource("2_n0h7m"), ExtResource("3_5cw3r")])
+rules = Array[ExtResource("4_lio6t")]([SubResource("Resource_v0ilk")])
+metadata/_custom_type_script = "uid://nskebog7ywln"

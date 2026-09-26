@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="5_k5wvu"]
 [ext_resource type="PackedScene" uid="uid://bch1wjqs2art5" path="res://gameplay/4_effects/button/effect_button.tscn" id="7_qctb3"]
 [ext_resource type="Script" uid="uid://twfqml4qr40e" path="res://gameplay/9_idk/tutorial.gd" id="8_5alkf"]
+[ext_resource type="FontFile" uid="uid://cu8jvsb1edmg8" path="res://assets/font/Brookeshappell8-eoKB.ttf" id="9_v0ilk"]
+[ext_resource type="Texture2D" uid="uid://05ekdtum322c" path="res://assets/art/1_sigils/wind_sigil.png" id="9_xwlw8"]
+[ext_resource type="Texture2D" uid="uid://mr7el1k5hq5r" path="res://assets/art/1_sigils/miasma_sigil.png" id="10_v0ilk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5alkf"]
 bg_color = Color(0.20547974, 0.20547971, 0.20547968, 1)
@@ -84,6 +87,11 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="LabelSettings" id="LabelSettings_xwlw8"]
+paragraph_spacing = -15.0
+font = ExtResource("9_v0ilk")
+font_size = 128
+
 [node name="Main" type="Node" unique_id=684111938 node_paths=PackedStringArray("cast_button")]
 process_mode = 3
 script = ExtResource("1_8fcwd")
@@ -103,7 +111,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_81xgm")
 main_game = NodePath("..")
-level_index = 3
+level_index = 4
 metadata/_edit_lock_ = true
 
 [node name="Background" type="ColorRect" parent="Puzzle" unique_id=704100760]
@@ -404,9 +412,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_dg81i")
 [node name="VBoxContainer" type="VBoxContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer/Body" unique_id=603507717]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer" unique_id=1919757906]
+[node name="ScrollContainer" type="ScrollContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer" unique_id=2089119478]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/ScrollContainer" unique_id=1919757906]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 4
 
@@ -526,6 +539,7 @@ layer = 20
 
 [node name="TutorialRoot" type="Control" parent="TutorialLayer" unique_id=1020712719 node_paths=PackedStringArray("puzzle")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -538,16 +552,19 @@ metadata/_edit_lock_ = true
 
 [node name="TutorialLabel" type="Label" parent="TutorialLayer/TutorialRoot" unique_id=716068045]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(500, 0)
 custom_maximum_size = Vector2(500, 1000)
 layout_mode = 0
-offset_left = 370.0
-offset_top = 564.0
-offset_right = 870.0
-offset_bottom = 753.0
+offset_left = 818.0
+offset_top = 263.0
+offset_right = 1318.0
+offset_bottom = 500.0
 theme_override_font_sizes/font_size = 32
-text = "It's pretty neat!
-God bless"
+text = "If you check the effect
+library, there are effects
+that require two
+level-2 effects"
 horizontal_alignment = 1
 autowrap_mode = 3
 metadata/_edit_group_ = true
@@ -564,9 +581,174 @@ text = "(click to continue)"
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="MenuLayer" type="CanvasLayer" parent="." unique_id=1717835697]
+layer = 50
+visible = false
+
+[node name="MenuRoot" type="Control" parent="MenuLayer" unique_id=1432356014]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="MenuLayer/MenuRoot" unique_id=1944902756]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.026802532, 0.026802536, 0.026802532, 1)
+
+[node name="Title" type="Label" parent="MenuLayer/MenuRoot" unique_id=1439052974]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -218.0
+offset_right = 288.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "A  I
+N  IN    RIN"
+label_settings = SubResource("LabelSettings_xwlw8")
+horizontal_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="M" type="TextureRect" parent="MenuLayer/MenuRoot/Title" unique_id=834612883]
+layout_mode = 0
+offset_left = 104.0
+offset_top = -5.999998
+offset_right = 168.0
+offset_bottom = 58.0
+rotation = 6.2831855
+scale = Vector2(1.7182267, 1.7182267)
+texture = ExtResource("5_k5wvu")
+flip_h = true
+flip_v = true
+
+[node name="G" type="TextureRect" parent="MenuLayer/MenuRoot/Title" unique_id=1411979794]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 225.99998
+offset_right = 632.0
+offset_bottom = 290.0
+rotation = 4.712389
+scale = Vector2(1.7182267, 1.7182267)
+texture = ExtResource("9_xwlw8")
+flip_h = true
+
+[node name="G2" type="TextureRect" parent="MenuLayer/MenuRoot/Title" unique_id=1908271446]
+layout_mode = 0
+offset_left = 60.999996
+offset_top = 226.0
+offset_right = 125.0
+offset_bottom = 290.0
+rotation = 4.712389
+scale = Vector2(1.7182267, 1.7182267)
+texture = ExtResource("9_xwlw8")
+flip_h = true
+
+[node name="G3" type="TextureRect" parent="MenuLayer/MenuRoot/Title" unique_id=2039427623]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 106.0
+offset_right = 312.0
+offset_bottom = 170.0
+rotation = 4.712389
+scale = Vector2(1.7182267, 1.7182267)
+texture = ExtResource("9_xwlw8")
+flip_h = true
+
+[node name="C" type="TextureRect" parent="MenuLayer/MenuRoot/Title" unique_id=1569672114]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 50.0
+offset_right = 576.0
+offset_bottom = 114.0
+rotation = 2.3561945
+scale = Vector2(1.7182267, 1.7182267)
+texture = ExtResource("10_v0ilk")
+flip_h = true
+
+[node name="E" type="TextureRect" parent="MenuLayer/MenuRoot/Title" unique_id=932149984]
+layout_mode = 0
+offset_left = 1.0000002
+offset_top = 114.0
+offset_right = 65.0
+offset_bottom = 178.0
+rotation = 1.5707964
+scale = Vector2(1.7182267, 1.7182267)
+texture = ExtResource("5_k5wvu")
+flip_h = true
+
+[node name="E2" type="TextureRect" parent="MenuLayer/MenuRoot/Title" unique_id=1103681811]
+layout_mode = 0
+offset_left = 352.00006
+offset_top = 114.0
+offset_right = 416.00006
+offset_bottom = 178.0
+rotation = 1.5707964
+scale = Vector2(1.7182267, 1.7182267)
+texture = ExtResource("5_k5wvu")
+flip_h = true
+
+[node name="E3" type="TextureRect" parent="MenuLayer/MenuRoot/Title" unique_id=446273462]
+layout_mode = 0
+offset_left = 448.00006
+offset_top = 114.0
+offset_right = 512.00006
+offset_bottom = 178.0
+rotation = 1.5707964
+scale = Vector2(1.7182267, 1.7182267)
+texture = ExtResource("5_k5wvu")
+flip_h = true
+
+[node name="Name" type="Label" parent="MenuLayer/MenuRoot" unique_id=1934284450]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = 9.5
+offset_right = 65.0
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "by ZTIER"
+
+[node name="Button" type="Button" parent="MenuLayer/MenuRoot" unique_id=294165920]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 112.0
+offset_right = 128.0
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Start"
+
 [connection signal="pressed" from="HudLayer/HudRoot/CastButton" to="Puzzle/MagicGlyph" method="_on_cast_button_pressed"]
 [connection signal="item_selected" from="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor/TurnCountMenu" to="Puzzle/MagicGlyph" method="_on_turn_count_menu_item_selected"]
 [connection signal="pressed" from="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/AddDeleteSpell/AddSpellButton" to="Puzzle/MagicGlyph" method="_on_add_spell_button_pressed"]
 [connection signal="pressed" from="HudLayer/HudRoot/TheseThingsAtTheLeft/SpellEditor/MarginContainer/TabContainer/Spells/AddDeleteSpell/DeleteSelectedSpellButton" to="Puzzle/MagicGlyph" method="_on_delete_selected_spell_button_pressed"]
 [connection signal="pressed" from="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/Buttons/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="HudLayer/HudRoot/TheseThingsAtTheLeft/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/Buttons/NextLevelButton" to="." method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="MenuLayer/MenuRoot/Button" to="." method="_on_main_menu_start_button_pressed"]
