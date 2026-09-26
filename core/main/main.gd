@@ -17,6 +17,7 @@ const SIGILS : Array[Sigil] = [
 const REACTION_MAXIMUM_SIZE : Vector2 = Vector2(28, 28)
 
 
+@export var cast_button : Button = null
 @export var bg_color : Color = Color(0.172, 0.172, 0.172, 1.0)
 @export var cast_bg_color : Color = Color(0.056, 0.056, 0.056, 1.0)
 
@@ -46,6 +47,12 @@ static var seconds_turn_increment : float = 1.0
 @onready var rulebook : PanelContainer = %Rulebook
 
 @onready var turn_count_menu : OptionButton = %TurnCountMenu
+@onready var grid_container : GridContainer = %GridContainer
+@onready var result_screen: PanelContainer = %ResultScreen
+
+@onready var retry_button : Button = %RetryButton
+@onready var next_level_button : Button = %NextLevelButton
+@onready var year_test : Label = %YearTest
 
 
 func _ready() -> void:
@@ -54,6 +61,8 @@ func _ready() -> void:
 
 	Game.target = target
 
+	overlay.hide()
+	result_screen.hide()
 	spell_editor.show()
 	rulebook.show()
 
@@ -162,19 +171,53 @@ func _update_effect_info(effect : Effect) -> void:
 
 
 func cast() -> void:
+	year_test.hide()
 	overlay.show()
 	background.color = cast_bg_color
 
 	rulebook.hide()
 	spell_editor.hide()
+	result_screen.hide()
 
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1.0).timeout
 
 	target.show()
 	overlay.hide()
+	year_test.show()
 
 
 func done_cast() -> void:
+	target.hide()
 	background.color = bg_color
-	#target.hide()
-	#spell_editor.show()
+	result_screen.hide()
+	rulebook.show()
+
+
+func _on_retry_button_pressed() -> void:
+	result_screen.hide()
+	spell_editor.show()
+	cast_button.disabled = false
+
+
+func _on_next_level_button_pressed() -> void:
+	overlay.show()
+	puzzle.next_level()
+	match (puzzle.level_index + 1):
+		1: year_test.text = "Year 1 Midterms"
+		2: year_test.text = "Year 1 Finals"
+		3: year_test.text = "Year 2 Midterms"
+		4: year_test.text = "Year 2 Finals"
+		5: year_test.text = "Year 3 Midterms"
+		6: year_test.text = "Year 3 Finals"
+		7: year_test.text = "Year 4 Midterms"
+		8: year_test.text = "Year 4 Finals"
+		9: year_test.text = "Graduation Exam"
+		_: print("Actual level: ", puzzle.current_level)
+
+	result_screen.hide()
+	spell_editor.show()
+	cast_button.disabled = false
+
+	await get_tree().create_timer(1.0).timeout
+
+	overlay.hide()

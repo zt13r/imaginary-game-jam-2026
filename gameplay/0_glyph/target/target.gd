@@ -2,11 +2,14 @@ class_name Target
 extends TextureRect
 
 
+const EFFECT_BUTTON_SCENE : PackedScene = preload("uid://bch1wjqs2art5")
 
 
 #                    effect_name, turn_count
 var effects : Dictionary[Effect, int] = {}
 
+
+@onready var effect_display : GridContainer = %EffectDisplay
 
 #@onready var debug_effects_label: Label = %DebugEffectsLabel
 
@@ -24,6 +27,12 @@ func has_effect(effect : Effect) -> bool:
 
 func add_effect(effect : Effect, turn_count : int) -> void:
 	effects[effect] = turn_count
+
+	var button : EffectButton =\
+			EFFECT_BUTTON_SCENE.instantiate()
+	button.disabled = true
+	button.effect = effect
+	effect_display.add_child(button)
 	#debug_effects_label.text = "Effects:" + format_effects(effects)
 
 
@@ -69,9 +78,17 @@ func end_turn() -> void:
 		else:
 			new_effects[effect] = turns_left
 
-	effects = new_effects
+	for child : EffectButton in effect_display.get_children():
+		child.queue_free()
 
-	
+	for effect : Effect in new_effects:
+		var button : EffectButton =\
+			EFFECT_BUTTON_SCENE.instantiate()
+		button.disabled = true
+		button.effect = effect
+		effect_display.add_child(button)
+
+	effects = new_effects
 
 	#debug_effects_label.text = "Effects:" + format_effects(effects)
 

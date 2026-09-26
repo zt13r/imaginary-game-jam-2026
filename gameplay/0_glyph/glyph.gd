@@ -4,7 +4,7 @@ extends Control
 
 signal spell_selected(spell : Spell)
 
-
+const EFFECT_BUTTON_SCENE : PackedScene = preload("uid://bch1wjqs2art5")
 const SPELL_SCENE : PackedScene = preload("uid://bn0pur841hkr6")
 
 const SIGIL_RESOURCES : Array[Sigil] = [
@@ -22,6 +22,7 @@ const SIGIL_RESOURCES : Array[Sigil] = [
 				push_error("Glyph parent is not Puzzle.")
 		return puzzle
 @export var turn_count_menu : OptionButton = null
+@export var cast_button : Button = null
 
 
 var current_ring : RingContainer = null :
@@ -163,9 +164,14 @@ func _on_cast_button_pressed() -> void:
 		push_error("Puzzle is null")
 		return
 
+	for child : EffectButton in Game.target.effect_display.get_children():
+		child.queue_free()
+
+	cast_button.disabled = true
+
 	await main_game.cast()
 
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
 
 	# Debug, reset colors before casting
 	# Because there is also coloring during casting idk
@@ -194,9 +200,25 @@ func _on_cast_button_pressed() -> void:
 
 		turns += 1
 
+	selected_spell = null
+
+	await get_tree().create_timer(1.0).timeout
+
 	var satisfied : bool = false
 
 	main_game.done_cast()
+
+	main_game.result_screen.show()
+	main_game.rulebook.show()
+	for child : EffectButton in main_game.grid_container.get_children():
+		child.queue_free()
+	for effect : Effect in Game.target.effects:
+		var button : EffectButton =\
+			EFFECT_BUTTON_SCENE.instantiate()
+		button.disabled = true
+		button.effect = effect
+		button.custom_minimum_size = Vector2(96, 96)
+		main_game.grid_container.add_child(button)
 
 	for rule : Rule in puzzle.current_level.rules:
 		if rule is OnlyRule:
@@ -218,21 +240,17 @@ func _on_cast_button_pressed() -> void:
 			else:
 				push_error("SpellCountRule not satisifed")
 
-	print("GOAL EFFECTS: ")
 	for goal_effect : Effect in puzzle.current_level.goal_effects:
-		print("%s, " % goal_effect.name)
 		if Game.target.has_effect(goal_effect):
 			satisfied = true
 		else:
 			satisfied = false
 			break
-	print("TARGET EFFECTS: ", Game.target.format_effects(Game.target.effects))
 
 	if satisfied:
-		print("YAY YOU BEAT THE LEVEL")
-		puzzle.next_level()
+		main_game.next_level_button.show()
 	else:
-		print("You no beat level :(")
+		main_game.next_level_button.hide()
 
 
 func _on_sigil_selected(sigil : Sigil) -> void:

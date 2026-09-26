@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c5q7j5qcrugwh" path="res://assets/art/3_effects/base/burnt.png" id="5_81xgm"]
 [ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="5_k5wvu"]
 [ext_resource type="PackedScene" uid="uid://bch1wjqs2art5" path="res://gameplay/4_effects/button/effect_button.tscn" id="7_qctb3"]
+[ext_resource type="Script" uid="uid://twfqml4qr40e" path="res://core/main/tutorial_label.gd" id="8_5alkf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5alkf"]
 bg_color = Color(0.20547974, 0.20547971, 0.20547968, 1)
@@ -83,9 +84,10 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
-[node name="Main" type="Node" unique_id=684111938]
+[node name="Main" type="Node" unique_id=684111938 node_paths=PackedStringArray("cast_button")]
 process_mode = 3
 script = ExtResource("1_8fcwd")
+cast_button = NodePath("HudLayer/HudRoot/CastButton")
 bg_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
 cast_bg_color = Color(0.06100855, 0.06100855, 0.06100855, 1)
 
@@ -117,12 +119,12 @@ color = Color(0.17184411, 0.17184411, 0.17184411, 1)
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-offset_left = 224.0
+offset_left = 192.0
 offset_top = 288.0
-offset_right = 416.0
+offset_right = 384.0
 offset_bottom = 574.48987
 
-[node name="MagicGlyph" parent="Puzzle" unique_id=1773691080 node_paths=PackedStringArray("main_game", "puzzle", "turn_count_menu") instance=ExtResource("2_6vymn")]
+[node name="MagicGlyph" parent="Puzzle" unique_id=1773691080 node_paths=PackedStringArray("main_game", "puzzle", "turn_count_menu", "cast_button") instance=ExtResource("2_6vymn")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 825.0
@@ -132,6 +134,7 @@ offset_bottom = 312.0
 main_game = NodePath("../..")
 puzzle = NodePath("..")
 turn_count_menu = NodePath("../../HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor/TurnCountMenu")
+cast_button = NodePath("../../HudLayer/HudRoot/CastButton")
 
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1002820559]
 process_mode = 1
@@ -245,7 +248,7 @@ theme_override_font_sizes/font_size = 20
 text = "Effects:"
 horizontal_alignment = 1
 
-[node name="SigilEffectButton" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo/PanelContainer/Name" unique_id=346843868 instance=ExtResource("7_qctb3")]
+[node name="SigilEffectButton" parent="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/SigilEditor/SigilInfo/PanelContainer/Name" unique_id=1059122509 instance=ExtResource("7_qctb3")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -363,6 +366,64 @@ layout_mode = 2
 size_flags_horizontal = 2
 columns = 3
 
+[node name="ResultScreen" type="PanelContainer" parent="HudLayer/HudRoot/VBoxContainer" unique_id=1293913162]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5alkf")
+
+[node name="MarginContainer" type="MarginContainer" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen" unique_id=1301330168]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer" unique_id=294109874]
+custom_minimum_size = Vector2(428, 0)
+layout_mode = 2
+
+[node name="Header" type="PanelContainer" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer" unique_id=273921579]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qctb3")
+
+[node name="Label" type="Label" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer/Header" unique_id=153119152]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "TEST RESULTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Body" type="PanelContainer" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer" unique_id=1579040930]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_dg81i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer/Body" unique_id=603507717]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer" unique_id=1919757906]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+columns = 4
+
+[node name="Buttons" type="HBoxContainer" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer" unique_id=1733551093]
+layout_mode = 2
+
+[node name="RetryButton" type="Button" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/Buttons" unique_id=1492390276]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Retry"
+
+[node name="NextLevelButton" type="Button" parent="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/Buttons" unique_id=141586088]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Next Level"
+
 [node name="Rulebook" type="PanelContainer" parent="HudLayer/HudRoot/VBoxContainer" unique_id=896426109]
 unique_name_in_owner = true
 layout_mode = 2
@@ -430,7 +491,46 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.018189248, 0.018189248, 0.018189248, 1)
 
+[node name="YearTest" type="Label" parent="HudLayer/HudRoot/Overlay" unique_id=1871230226]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "YearTest"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TutorialLayer" type="CanvasLayer" parent="." unique_id=1814677849 node_paths=PackedStringArray("puzzle")]
+layer = 20
+script = ExtResource("8_5alkf")
+puzzle = NodePath("../Puzzle")
+
+[node name="TutorialRoot" type="Control" parent="TutorialLayer" unique_id=1020712719]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TutorialLabel" type="Label" parent="TutorialLayer/TutorialRoot" unique_id=716068045]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 551.0
+offset_top = 467.0
+offset_right = 775.0
+offset_bottom = 579.0
+theme_override_font_sizes/font_size = 32
+text = "Hi, I'm your tutorial guy"
+autowrap_mode = 3
+
 [connection signal="pressed" from="HudLayer/HudRoot/CastButton" to="Puzzle/MagicGlyph" method="_on_cast_button_pressed"]
 [connection signal="item_selected" from="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/TurnCountEditor/TurnCountMenu" to="Puzzle/MagicGlyph" method="_on_turn_count_menu_item_selected"]
 [connection signal="pressed" from="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/AddDeleteSpell/AddSpellButton" to="Puzzle/MagicGlyph" method="_on_add_spell_button_pressed"]
 [connection signal="pressed" from="HudLayer/HudRoot/VBoxContainer/SpellEditor/MarginContainer/TabContainer/Spells/AddDeleteSpell/DeleteSelectedSpellButton" to="Puzzle/MagicGlyph" method="_on_delete_selected_spell_button_pressed"]
+[connection signal="pressed" from="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/Buttons/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="HudLayer/HudRoot/VBoxContainer/ResultScreen/MarginContainer/VBoxContainer/Body/VBoxContainer/Buttons/NextLevelButton" to="." method="_on_next_level_button_pressed"]
