@@ -5,3 +5,4 @@ extends Resource
 @export var name : String = ""
 @export var texture : Texture2D = null
 @export var base_effect : Effect = null
+@export var sfx : AudioStream = null

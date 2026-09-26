@@ -2,6 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://b0kc4q0rifv2f" path="res://gameplay/4_effects/resources/base/tainted.tres" id="1_k7swu"]
 [ext_resource type="Script" uid="uid://3yp8s4u1e65d" path="res://gameplay/3_sigil/sigil.gd" id="2_c3tg8"]
+[ext_resource type="AudioStream" uid="uid://ox4wecui4x43" path="res://assets/audio/sfx/dark-whoosh.mp3" id="3_c3tg8"]
 [ext_resource type="Texture2D" uid="uid://mr7el1k5hq5r" path="res://assets/art/1_sigils/miasma_sigil.png" id="3_k7swu"]
 
 [resource]
@@ -9,4 +10,5 @@ script = ExtResource("2_c3tg8")
 name = "Miasma"
 texture = ExtResource("3_k7swu")
 base_effect = ExtResource("1_k7swu")
+sfx = ExtResource("3_c3tg8")
 metadata/_custom_type_script = "uid://3yp8s4u1e65d"

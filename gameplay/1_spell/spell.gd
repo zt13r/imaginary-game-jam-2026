@@ -32,6 +32,7 @@ const TURN_COUNT_THREE_TEXTURE : Texture2D = preload("uid://ks3r2ajv4v8m")
 			sigil_sprite.texture = sigil.texture
 			if sigil_sprite.visible == false:
 				sigil_sprite.show()
+			custom_sigil_sfx.stream = sigil.sfx
 
 @export var then_spell : Spell = null :
 	set(value):
@@ -63,6 +64,9 @@ var next_spell : Spell = null
 
 @onready var turn_count_sprite : TextureRect = %TurnCountSprite
 
+@onready var spell_cast : AudioStreamPlayer = %SpellCast
+@onready var custom_sigil_sfx : AudioStreamPlayer = %CustomSigilSFX
+
 
 func _ready() -> void:
 	name = "Spell"
@@ -84,6 +88,12 @@ func cast() -> void:
 
 	if not Game.target.has_effect(effect):
 		Game.target.add_effect(effect, turn_count)
+
+	custom_sigil_sfx.pitch_scale = randf_range(0.9, 1.1)
+	spell_cast.pitch_scale = randf_range(0.9, 1.1)
+
+	custom_sigil_sfx.play()
+	spell_cast.play()
 
 	next_spell = then_spell
 
