@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://crklrigmxljdf" path="res://gameplay/0_glyph/target/target.gd" id="1_yclkb"]
 [ext_resource type="Texture2D" uid="uid://c26ck5gr0uys0" path="res://assets/art/5_other/gobbo.png" id="2_qni3f"]
+[ext_resource type="Texture2D" uid="uid://bww3dv3lxxymq" path="res://assets/art/3_effects/derived-1/drenched.png" id="3_786rd"]
 
 [node name="Gobbo" type="TextureRect" unique_id=713750893]
 offset_right = 144.0
@@ -23,3 +24,13 @@ columns = 5
 
 [node name="HurtSFX" type="AudioStreamPlayer" parent="." unique_id=2119802069]
 unique_name_in_owner = true
+
+[node name="Tear" type="TextureRect" parent="." unique_id=1092623413]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 121.0
+offset_right = 61.0
+offset_bottom = 153.0
+texture = ExtResource("3_786rd")
+expand_mode = 1
+stretch_mode = 4
