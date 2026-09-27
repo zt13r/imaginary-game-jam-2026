@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b7g0yb8h80l4j"
-path="res://.godot/imported/Stapler - Close.wav-9bc99af8687d054cff746cac777d9a29.sample"
+path="res://.godot/imported/stapler.wav-279d4e7c662723bb1e556ac871da8a1f.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/Stapler - Close.wav"
-dest_files=["res://.godot/imported/Stapler - Close.wav-9bc99af8687d054cff746cac777d9a29.sample"]
+source_file="res://assets/audio/sfx/other/stapler.wav"
+dest_files=["res://.godot/imported/stapler.wav-279d4e7c662723bb1e556ac871da8a1f.sample"]
 
 [params]
 

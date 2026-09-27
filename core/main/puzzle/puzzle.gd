@@ -25,7 +25,7 @@ const LEVELS : Array[Level] = [
 
 
 var current_level : Level = null
-@export var level_index : int = -1
+@export var level_index : int = 0
 
 var finished : bool = false
 

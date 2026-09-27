@@ -8,9 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="5_k5wvu"]
 [ext_resource type="PackedScene" uid="uid://bch1wjqs2art5" path="res://gameplay/4_effects/button/effect_button.tscn" id="7_qctb3"]
 [ext_resource type="Script" uid="uid://twfqml4qr40e" path="res://gameplay/9_idk/tutorial.gd" id="8_5alkf"]
-[ext_resource type="AudioStream" uid="uid://8mpqw2enf7xq" path="res://assets/audio/sfx/Paper - Page Turn.wav" id="8_lkm43"]
+[ext_resource type="AudioStream" uid="uid://8mpqw2enf7xq" path="res://assets/audio/sfx/other/page-turn.wav" id="8_lkm43"]
 [ext_resource type="FontFile" uid="uid://cu8jvsb1edmg8" path="res://assets/font/Brookeshappell8-eoKB.ttf" id="9_v0ilk"]
 [ext_resource type="Texture2D" uid="uid://05ekdtum322c" path="res://assets/art/1_sigils/wind_sigil.png" id="9_xwlw8"]
+[ext_resource type="AudioStream" uid="uid://dvbnvn76uortv" path="res://assets/audio/sfx/other/button-click.ogg" id="10_r831r"]
 [ext_resource type="Texture2D" uid="uid://mr7el1k5hq5r" path="res://assets/art/1_sigils/miasma_sigil.png" id="10_v0ilk"]
 [ext_resource type="Texture2D" uid="uid://cesdxx3kvkbx5" path="res://assets/art/5_other/Imaginary Game Jam Logo 2026.png" id="12_4dl4c"]
 
@@ -113,7 +114,6 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_81xgm")
 main_game = NodePath("..")
-level_index = 6
 metadata/_edit_lock_ = true
 
 [node name="Background" type="ColorRect" parent="Puzzle" unique_id=704100760]
@@ -587,6 +587,10 @@ theme_override_font_sizes/font_size = 20
 text = "(click to continue)"
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="LaAudio" type="AudioStreamPlayer" parent="TutorialLayer/TutorialRoot" unique_id=483826244]
+unique_name_in_owner = true
+stream = ExtResource("10_r831r")
 
 [node name="MenuLayer" type="CanvasLayer" parent="." unique_id=1717835697]
 layer = 50

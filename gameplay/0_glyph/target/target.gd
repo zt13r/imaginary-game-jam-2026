@@ -4,12 +4,24 @@ extends TextureRect
 
 const EFFECT_BUTTON_SCENE : PackedScene = preload("uid://bch1wjqs2art5")
 
+const HURT_SFX : Array[AudioStream] = [
+	preload("uid://dd1adogt0ug0r"),
+	preload("uid://nvrqu4116d4g"),
+	preload("uid://7obhp5x14sk8"),
+	preload("uid://b22kxw6pq6x45"),
+	preload("uid://bhjrujgt3j77n"),
+	preload("uid://c8yj7s4uwb4jv"),
+	preload("uid://c7kwb4sfpqh4n"),
+	
+]
+
 
 #                    effect_name, turn_count
 var effects : Dictionary[Effect, int] = {}
 
 
 @onready var effect_display : GridContainer = %EffectDisplay
+@onready var hurt : AudioStreamPlayer = %HurtSFX
 
 #@onready var debug_effects_label: Label = %DebugEffectsLabel
 
@@ -17,6 +29,7 @@ var effects : Dictionary[Effect, int] = {}
 func _ready() -> void:
 	if mouse_filter != MOUSE_FILTER_IGNORE:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
+	hurt.volume_linear = 0.6
 
 
 func has_effect(effect : Effect) -> bool:
@@ -34,6 +47,10 @@ func add_effect(effect : Effect, turn_count : int) -> void:
 	button.effect = effect
 	effect_display.add_child(button)
 	#debug_effects_label.text = "Effects:" + format_effects(effects)
+
+	hurt.stream = HURT_SFX.pick_random()
+	hurt.pitch_scale = randf_range(0.9, 1.1)
+	hurt.play()
 
 
 func clear_effects() -> void:
@@ -93,6 +110,10 @@ func end_turn() -> void:
 		effect_display.add_child(button)
 
 	effects = new_effects
+
+	hurt.stream = HURT_SFX.pick_random()
+	hurt.pitch_scale = randf_range(0.9, 1.1)
+	hurt.play()
 
 	#debug_effects_label.text = "Effects:" + format_effects(effects)
 

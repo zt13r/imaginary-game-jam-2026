@@ -70,6 +70,7 @@ var next_spell : Spell = null
 
 func _ready() -> void:
 	name = "Spell"
+	custom_sigil_sfx.volume_linear = 0.7
 
 
 func _gui_input(event : InputEvent) -> void:

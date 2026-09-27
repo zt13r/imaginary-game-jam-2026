@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://cfleggwbnthpy" path="res://gameplay/0_glyph/connections.gd" id="2_eq0x3"]
 [ext_resource type="Script" uid="uid://cnk411b1ildly" path="res://gameplay/0_glyph/ring_container/ring_container.gd" id="2_vgo1i"]
 [ext_resource type="PackedScene" uid="uid://bn0pur841hkr6" path="res://gameplay/1_spell/spell.tscn" id="3_61afr"]
+[ext_resource type="AudioStream" uid="uid://b4haaau47ybc6" path="res://assets/audio/sfx/other/soft-tap.ogg" id="5_ji05o"]
+[ext_resource type="AudioStream" uid="uid://kfvy41q12lok" path="res://assets/audio/sfx/other/light-switch.mp3" id="6_dunrl"]
+[ext_resource type="AudioStream" uid="uid://ugieiftd2iif" path="res://assets/audio/sfx/other/aww.mp3" id="7_boqvl"]
+[ext_resource type="AudioStream" uid="uid://dfpgivew6bdso" path="res://assets/audio/sfx/other/yay.mp3" id="7_yfpt8"]
 
 [node name="MagicGlyph" type="Control" unique_id=1773691080]
 layout_mode = 3
@@ -35,3 +39,19 @@ layout_mode = 2
 
 [node name="Spell2" parent="OuterSpells" unique_id=320477941 instance=ExtResource("3_61afr")]
 layout_mode = 2
+
+[node name="SpellSelected" type="AudioStreamPlayer" parent="." unique_id=1930959755]
+unique_name_in_owner = true
+stream = ExtResource("5_ji05o")
+
+[node name="LightSwitchOff" type="AudioStreamPlayer" parent="." unique_id=1591583336]
+unique_name_in_owner = true
+stream = ExtResource("6_dunrl")
+
+[node name="Yay" type="AudioStreamPlayer" parent="." unique_id=697341766]
+unique_name_in_owner = true
+stream = ExtResource("7_yfpt8")
+
+[node name="Aww" type="AudioStreamPlayer" parent="." unique_id=2024168391]
+unique_name_in_owner = true
+stream = ExtResource("7_boqvl")

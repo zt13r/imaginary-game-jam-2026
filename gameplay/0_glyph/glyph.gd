@@ -34,8 +34,12 @@ var selected_spell : Spell = null
 
 
 @onready var connections : Connections = %Connections
-
 @onready var outer_spells : RingContainer = %OuterSpells
+
+@onready var select_sfx : AudioStreamPlayer = %SpellSelected
+@onready var light_switch_off: AudioStreamPlayer = %LightSwitchOff
+@onready var yay : AudioStreamPlayer = %Yay
+@onready var aww : AudioStreamPlayer = %Aww
 
 
 func _ready() -> void:
@@ -123,6 +127,9 @@ func _on_spell_selected(spell : Spell) -> void:
 			# Debug, reset color of selected spell
 			selected_spell.modulate = Color.WHITE
 
+			select_sfx.pitch_scale = randf_range(0.9, 1.1)
+			select_sfx.play()
+
 			if spell.sigil != null:
 				spell_selected.emit(spell)
 
@@ -169,6 +176,9 @@ func _on_cast_button_pressed() -> void:
 	for spell : Spell in outer_spells.spells:
 		spell.modulate = Color.WHITE
 
+	light_switch_off.play()
+	Bgm.stream_paused = true
+
 	for child : EffectButton in Game.target.effect_display.get_children():
 		child.queue_free()
 
@@ -205,6 +215,7 @@ func _on_cast_button_pressed() -> void:
 
 	var rules_satisfied : bool = false
 
+	Bgm.stream_paused = false
 	main_game.done_cast()
 
 	main_game.result_screen.show()
@@ -269,7 +280,10 @@ func _on_cast_button_pressed() -> void:
 	rules_satisfied = true if puzzle.current_level.rules.is_empty() else rules_satisfied
 	if rules_satisfied and goals_satisfied:
 		main_game.next_level_button.show()
+		yay.play()
 	else:
+		aww.volume_linear = 0.7
+		aww.play(0.25)
 		main_game.next_level_button.hide()
 
 

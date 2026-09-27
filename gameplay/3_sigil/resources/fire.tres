@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://lo7eorsbhbjk" path="res://gameplay/4_effects/resources/base/burnt.tres" id="1_1erph"]
 [ext_resource type="Script" uid="uid://3yp8s4u1e65d" path="res://gameplay/3_sigil/sigil.gd" id="1_sq1bd"]
 [ext_resource type="Texture2D" uid="uid://cgejn1807rex1" path="res://assets/art/1_sigils/fire_sigil.png" id="2_13quy"]
-[ext_resource type="AudioStream" uid="uid://dvm8fqfy8at55" path="res://assets/audio/sfx/fire-whoosh.mp3" id="3_37ey0"]
+[ext_resource type="AudioStream" uid="uid://bobt00fr42w4d" path="res://assets/audio/sfx/sigils/fire.ogg" id="3_37ey0"]
 
 [resource]
 script = ExtResource("1_sq1bd")

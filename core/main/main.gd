@@ -64,6 +64,7 @@ static var seconds_turn_increment : float = 1.0
 
 @onready var tab_container : TabContainer = %TabContainer
 @onready var tab_change_sfx : AudioStreamPlayer = %TabChangeSFX
+@onready var tutorial_label : Label = %TutorialLabel
 
 
 func _ready() -> void:
@@ -83,6 +84,7 @@ func _ready() -> void:
 	victory.hide()
 
 	tab_container.tab_changed.connect(_on_tab_changed)
+	tab_change_sfx.volume_linear = 1.6
 
 	#next_level_button.pressed.emit()
 
@@ -279,9 +281,11 @@ func _on_main_menu_start_button_pressed() -> void:
 
 
 func _FINALLY() -> void:
+	tutorial_label.hide()
 	menu_root.show()
 	start_menu.hide()
 	victory.show()
+	
 
 
 func _on_button_pressed() -> void:

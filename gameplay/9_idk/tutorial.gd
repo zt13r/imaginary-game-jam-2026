@@ -52,6 +52,7 @@ var can_advance : bool = false
 
 
 @onready var label : Label = %TutorialLabel
+@onready var la_audio : AudioStreamPlayer = %LaAudio
 
 
 func _gui_input(event : InputEvent) -> void:
@@ -66,6 +67,7 @@ func _advance_tutorial() -> void:
 
 	if current_step < TEXT.get(puzzle.level_index, {}).size():
 		show_text()
+		la_audio.play()
 	else:
 		_finish_tutorial()
 

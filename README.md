@@ -33,8 +33,13 @@ My individual twist: **Failure**
 	- [Coin Drop on Concrete](https://pixabay.com/sound-effects/film-special-effects-coin-drop-on-concrete-103555/)
 	- [Dark Matter Space Whoosh](https://pixabay.com/sound-effects/film-special-effects-dark-matter-space-whoosh-543214/)
 	- [Tinkle](https://pixabay.com/sound-effects/film-special-effects-tinkle4-93228/)
+	- [Button Click](https://pixabay.com/sound-effects/film-special-effects-button-clicks-572422/)
+	- [Soft Tap](https://pixabay.com/sound-effects/film-special-effects-soft-app-button-tap-sound-3-547874/)
+	- [Yay!](https://pixabay.com/sound-effects/people-yay-6120/)
+	- [Aw...](https://pixabay.com/sound-effects/people-aww-8277/)
 	- Paper Page Turn (Imaginary Game Jam Community Asset Pack)
 	- Pen Click (Imaginary Game Jam Community Asset Pack)
 	- Stapler (Imaginary Game Jam Community Asset Pack)
+	- Gobbo Hurt (Caxt Nova)
 - Art:
 	- Gobbo (Imaginary Game Jam Community Asset Pack)

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://8mpqw2enf7xq"
-path="res://.godot/imported/Paper - Page Turn.wav-09378f2a26cefaee50e078734f9855d2.sample"
+path="res://.godot/imported/page-turn.wav-e1dcde61b0ffa2e0f2c1684f0b4b6121.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/Paper - Page Turn.wav"
-dest_files=["res://.godot/imported/Paper - Page Turn.wav-09378f2a26cefaee50e078734f9855d2.sample"]
+source_file="res://assets/audio/sfx/other/page-turn.wav"
+dest_files=["res://.godot/imported/page-turn.wav-e1dcde61b0ffa2e0f2c1684f0b4b6121.sample"]
 
 [params]
 

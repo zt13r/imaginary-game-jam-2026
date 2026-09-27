@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cdwr7ltlhwqw1"
-path="res://.godot/imported/Pen - Click 1.wav-6759942cad5661d6716f16b0c046ba22.sample"
+path="res://.godot/imported/pen-click.wav-1e0be61dc54388156e036c014e1449fa.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/Pen - Click 1.wav"
-dest_files=["res://.godot/imported/Pen - Click 1.wav-6759942cad5661d6716f16b0c046ba22.sample"]
+source_file="res://assets/audio/sfx/other/pen-click.wav"
+dest_files=["res://.godot/imported/pen-click.wav-1e0be61dc54388156e036c014e1449fa.sample"]
 
 [params]
 

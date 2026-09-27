@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b2aeipqeu7si8" path="res://gameplay/1_spell/spell.gd" id="1_ruybx"]
 [ext_resource type="Texture2D" uid="uid://by1owune1tih6" path="res://assets/art/0_frames/ring_bg_1.png" id="2_53gpb"]
 [ext_resource type="Texture2D" uid="uid://q6liseeshuv7" path="res://assets/art/0_frames/ring_frame_1.png" id="3_guayo"]
-[ext_resource type="AudioStream" uid="uid://cjtvqfmov5ykt" path="res://assets/audio/sfx/tinkle.mp3" id="4_guayo"]
+[ext_resource type="AudioStream" uid="uid://dhynqmjf1fb32" path="res://assets/audio/sfx/other/tinkle.ogg" id="4_guayo"]
 
 [node name="Spell" type="Control" unique_id=1914145428]
 layout_mode = 3
@@ -65,4 +65,3 @@ stream = ExtResource("4_guayo")
 
 [node name="CustomSigilSFX" type="AudioStreamPlayer" parent="." unique_id=1256222936]
 unique_name_in_owner = true
-volume_db = -5.0
