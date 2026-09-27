@@ -117,7 +117,7 @@ func get_previous_spell_then_spell(existing_spells : Array[Spell]) -> void:
 	#])
 
 
-func _shake(node : Control, strength : float = 5.0, duration : float = 0.5) -> void:
+func _shake(node : Control, strength : float = 3.5, duration : float = 0.5) -> void:
 	var original_position : Vector2 = node.position
 	var elapsed : float = 0.0
 
