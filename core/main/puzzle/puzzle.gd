@@ -13,7 +13,7 @@ const LEVELS : Array[Level] = [
 	preload("uid://6t8aair54w36"), # level 5
 	preload("uid://iaxk1daoxcqn"), # level 6
 	preload("uid://wwq4lulpp0hr"), # level 7
-	
+	preload("uid://ct54ngmu60g5t"), # level 8
 ]
 
 

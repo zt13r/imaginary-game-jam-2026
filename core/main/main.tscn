@@ -114,6 +114,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_81xgm")
 main_game = NodePath("..")
+level_index = 7
 metadata/_edit_lock_ = true
 
 [node name="Background" type="ColorRect" parent="Puzzle" unique_id=704100760]

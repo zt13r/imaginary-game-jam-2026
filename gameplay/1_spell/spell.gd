@@ -90,6 +90,8 @@ func cast() -> void:
 	if not Game.target.has_effect(effect):
 		Game.target.add_effect(effect, turn_count)
 
+	_shake(self)
+
 	custom_sigil_sfx.pitch_scale = randf_range(0.9, 1.1)
 	spell_cast.pitch_scale = randf_range(0.9, 1.1)
 
@@ -113,3 +115,22 @@ func get_previous_spell_then_spell(existing_spells : Array[Spell]) -> void:
 		#previous_spell.then_spell.name,
 		#name
 	#])
+
+
+func _shake(node : Control, strength : float = 5.0, duration : float = 0.5) -> void:
+	var original_position : Vector2 = node.position
+	var elapsed : float = 0.0
+
+	while elapsed < duration:
+		var offset := Vector2(
+			randf_range(-strength, strength),
+			randf_range(-strength, strength)
+		)
+
+		node.position = original_position + offset
+
+		var delta := get_process_delta_time()
+		elapsed += delta
+		await get_tree().process_frame
+
+	node.position = original_position

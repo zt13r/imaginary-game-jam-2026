@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Level" format=3 uid="uid://ct54ngmu60g5t"]
+
+[ext_resource type="Script" uid="uid://bfgjgbme5si06" path="res://gameplay/4_effects/effect.gd" id="1_7ty7v"]
+[ext_resource type="Resource" uid="uid://c4pv5n6cfnul" path="res://gameplay/4_effects/resources/derived-2/poisoned.tres" id="2_u485k"]
+[ext_resource type="Script" uid="uid://domco8oq82qsp" path="res://gameplay/6_levels/rules/rule.gd" id="4_thcnp"]
+[ext_resource type="Script" uid="uid://3yp8s4u1e65d" path="res://gameplay/3_sigil/sigil.gd" id="5_7pbf0"]
+[ext_resource type="Resource" uid="uid://c6inqib5eiwpl" path="res://gameplay/3_sigil/resources/miasma.tres" id="5_7ty7v"]
+[ext_resource type="Script" uid="uid://dtoor0ftcv3cb" path="res://gameplay/6_levels/rules/banned_rule.gd" id="7_1ki02"]
+[ext_resource type="Script" uid="uid://nskebog7ywln" path="res://gameplay/6_levels/level.gd" id="8_22ndd"]
+
+[sub_resource type="Resource" id="Resource_x7jqn"]
+script = ExtResource("7_1ki02")
+banned_sigils = Array[ExtResource("5_7pbf0")]([ExtResource("5_7ty7v")])
+metadata/_custom_type_script = "uid://dtoor0ftcv3cb"
+
+[resource]
+script = ExtResource("8_22ndd")
+goal_effects = Array[ExtResource("1_7ty7v")]([ExtResource("2_u485k")])
+rules = Array[ExtResource("4_thcnp")]([SubResource("Resource_x7jqn")])
+metadata/_custom_type_script = "uid://nskebog7ywln"
