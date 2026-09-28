@@ -44,3 +44,4 @@ My individual twist: **Failure**
 	- Gobbo Hurt (Caxt Nova)
 - Art:
 	- Gobbo (Imaginary Game Jam Community Asset Pack)
+ 	- Effect icons (canva.com elements)
